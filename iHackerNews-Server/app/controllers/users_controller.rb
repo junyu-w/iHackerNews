@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def index
   end
 
-  #GET /users/:id(.:format)
+  #GET /users/id?(.:format)
   def show
     if authenticate_params_and_tell_user_identity == 0
       get_facebook_user
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
   end
 
   def get_facebook_user
-    fb_user = User.where(:facbeook_id => params[:facebook_id]).first
+    fb_user = User.where(:facebook_id => params[:facebook_id]).first
     if !fb_user.nil?
       render :json => {:success => true, :user_info => {:user_id => fb_user.id, :facebook_id => fb_user.facebook_id}}
     else
@@ -121,5 +121,4 @@ class UsersController < ApplicationController
       render :json => {:success => false, :error => new_user.errors.full_messages.to_sentence}
     end
   end
-
 end

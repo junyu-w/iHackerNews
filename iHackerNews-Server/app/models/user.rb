@@ -15,7 +15,8 @@
 
 class User < ActiveRecord::Base
 
-  has_many :hacker_news_posts
+  has_many :hacker_news_posts, :through => :users_hacker_news_posts_joins
+  has_many :users_hacker_news_posts_joins
 
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
 

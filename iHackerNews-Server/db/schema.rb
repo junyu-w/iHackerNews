@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605062733) do
+ActiveRecord::Schema.define(version: 20150606043334) do
 
   create_table "hacker_news_posts", force: true do |t|
     t.string   "url"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20150605062733) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "hacker_news_posts", ["url"], name: "index_hacker_news_posts_on_url"
 
   create_table "users", force: true do |t|
     t.string   "username"
@@ -29,6 +31,13 @@ ActiveRecord::Schema.define(version: 20150605062733) do
     t.string   "facebook_id"
     t.string   "facebook_auth_token"
     t.string   "email"
+  end
+
+  create_table "users_hacker_news_posts_joins", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

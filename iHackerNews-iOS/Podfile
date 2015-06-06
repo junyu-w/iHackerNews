@@ -1,0 +1,15 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '6.0'
+
+target 'iHackerNews' do
+  pod 'AFNetworking', '~> 2.5'
+  pod 'Facebook-iOS-SDK', '~> 4.1'
+  pod 'QBImagePickerController', '~> 3.2'
+  pod 'ChameleonFramework'
+  pod 'DKCircleButton', '~> 1.1'
+end
+
+target 'iHackerNewsTests' do
+
+end
+

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -17,9 +18,155 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="25J-0s-IOR" kind="presentation" identifier="pop up log in view" id="zH2-51-7MJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Log In View Controller-->
+        <scene sceneID="T0y-Lq-BuM">
+            <objects>
+                <viewController id="25J-0s-IOR" customClass="LogInViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VL2-dw-jOE"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Zc-v9-3MG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3cS-OK-McF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_for_login_view" translatesAutoresizingMaskIntoConstraints="NO" id="kcW-2k-60f">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="46" y="28" width="308" height="298"/>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViV-dC-az0">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Sign in">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="240" y="555" width="46" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="nN3-go-fHI" kind="show" identifier="show to sign in view" id="7Sl-xD-9sv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5j-Ij-KBo">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="82" y="557" width="199" height="26"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="kcW-2k-60f" secondAttribute="trailing" constant="20" id="GSi-sG-iBB"/>
+                            <constraint firstItem="kcW-2k-60f" firstAttribute="top" secondItem="VL2-dw-jOE" secondAttribute="bottom" constant="30" id="lIG-6G-Rqw"/>
+                            <constraint firstItem="kcW-2k-60f" firstAttribute="leading" secondItem="3cS-OK-McF" secondAttribute="leadingMargin" constant="20" id="zmN-wa-z92"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="kcW-2k-60f"/>
+                                <exclude reference="ViV-dC-az0"/>
+                                <exclude reference="n5j-Ij-KBo"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="GSi-sG-iBB"/>
+                                <exclude reference="lIG-6G-Rqw"/>
+                                <exclude reference="zmN-wa-z92"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="kcW-2k-60f"/>
+                                <include reference="ViV-dC-az0"/>
+                                <include reference="n5j-Ij-KBo"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="GSi-sG-iBB"/>
+                                <include reference="lIG-6G-Rqw"/>
+                                <include reference="zmN-wa-z92"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="SignUpButton" destination="ViV-dC-az0" id="Yaf-kF-pki"/>
+                        <outlet property="backgroundImageView" destination="kcW-2k-60f" id="viF-GP-u8q"/>
+                        <outlet property="signUpLabel" destination="n5j-Ij-KBo" id="Usd-kU-ExV"/>
+                        <segue destination="a5y-yC-gaD" kind="show" identifier="show to sign up view" id="5gQ-Nl-Kjd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I83-VN-BmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1566" y="524"/>
+        </scene>
+        <!--Sign In Form View Controller-->
+        <scene sceneID="1p8-Vc-ESY">
+            <objects>
+                <viewController id="nN3-go-fHI" customClass="SignInFormViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CO8-QZ-NoH"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZJx-Ek-kGo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AKa-kr-gef">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mWi-rr-bG9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2616" y="691"/>
+        </scene>
+        <!--Sign Up Form View Controller-->
+        <scene sceneID="3iG-wo-nTl">
+            <objects>
+                <viewController id="a5y-yC-gaD" customClass="SignUpFormViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IkT-AP-Xid"/>
+                        <viewControllerLayoutGuide type="bottom" id="dra-Ua-VMJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iP5-Vo-KiF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LGj-t1-lP5">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="152" y="308" width="97" height="30"/>
+                                </variation>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="LGj-t1-lP5"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="LGj-t1-lP5"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="iy1-2n-VmY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8ec-Bk-pVK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2616" y="-43"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="background_for_login_view" width="256" height="256"/>
+    </resources>
 </document>

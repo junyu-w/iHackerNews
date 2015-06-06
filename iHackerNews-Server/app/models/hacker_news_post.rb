@@ -11,7 +11,8 @@
 
 class HackerNewsPost < ActiveRecord::Base
 
-  belongs_to :User
+  has_many :users_hacker_news_posts_joins
+  has_many :users, :through => :users_hacker_news_posts_joins
 
   validates :url, presence:true, uniqueness:true
 
