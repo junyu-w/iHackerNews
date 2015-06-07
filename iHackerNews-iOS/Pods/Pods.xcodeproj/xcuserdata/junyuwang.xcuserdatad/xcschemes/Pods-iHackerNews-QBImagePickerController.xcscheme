@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2A61EB0EC8F64A666D0246FD"
+               BlueprintIdentifier = "21D4A9CB0F134DF29EB7462F"
                BuildableName = "libPods-iHackerNews-QBImagePickerController.a"
                BlueprintName = "Pods-iHackerNews-QBImagePickerController"
                ReferencedContainer = "container:Pods.xcodeproj">

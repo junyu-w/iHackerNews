@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -24,6 +25,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="655.5" y="504"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="T0y-Lq-BuM">
@@ -39,32 +41,29 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_for_login_view" translatesAutoresizingMaskIntoConstraints="NO" id="kcW-2k-60f">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="46" y="28" width="308" height="298"/>
-                                </variation>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5j-Ij-KBo">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="66" y="557" width="199" height="26"/>
+                                </variation>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViV-dC-az0">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
                                 <state key="normal" title="Sign in">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="240" y="555" width="46" height="30"/>
+                                    <rect key="frame" x="247" y="555" width="46" height="30"/>
                                 </variation>
                                 <connections>
                                     <segue destination="nN3-go-fHI" kind="show" identifier="show to sign in view" id="7Sl-xD-9sv"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5j-Ij-KBo">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="82" y="557" width="199" height="26"/>
-                                </variation>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -75,8 +74,8 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="kcW-2k-60f"/>
-                                <exclude reference="ViV-dC-az0"/>
                                 <exclude reference="n5j-Ij-KBo"/>
+                                <exclude reference="ViV-dC-az0"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="GSi-sG-iBB"/>
@@ -87,8 +86,8 @@
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="kcW-2k-60f"/>
-                                <include reference="ViV-dC-az0"/>
                                 <include reference="n5j-Ij-KBo"/>
+                                <include reference="ViV-dC-az0"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="GSi-sG-iBB"/>
@@ -119,7 +118,33 @@
                     <view key="view" contentMode="scaleToFill" id="AKa-kr-gef">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idi-Bj-hXb">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="✕">
+                                    <color key="titleColor" red="0.77647058823529413" green="0.80784313725490198" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="28" width="43" height="43"/>
+                                </variation>
+                                <connections>
+                                    <action selector="backButtonOnClick:" destination="nN3-go-fHI" eventType="touchUpInside" id="ck5-dC-7es"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="idi-Bj-hXb"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="idi-Bj-hXb"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWi-rr-bG9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -138,32 +163,98 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LGj-t1-lP5">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARs-xg-Zjp">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="✕">
+                                    <color key="titleColor" red="0.81568627450980391" green="0.84313725490196079" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="28" width="43" height="43"/>
+                                </variation>
+                                <connections>
+                                    <action selector="backButtonOnClick:" destination="a5y-yC-gaD" eventType="touchUpInside" id="33i-Bm-EN1"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yqh-1I-8bp" customClass="PBFlatTextfield">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="152" y="308" width="97" height="30"/>
+                                    <rect key="frame" x="97" y="255" width="207" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y35-mB-l4A" customClass="PBFlatTextfield">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="97" y="355" width="207" height="30"/>
+                                </variation>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fhi-PR-55Z" customClass="PBFlatRoundedImageView">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="136" y="95" width="128" height="128"/>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvi-9u-qxE" customClass="PBFlatButton">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="97" y="405" width="207" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="signUpButtonOnClick:" destination="a5y-yC-gaD" eventType="touchUpInside" id="3lF-1d-uL6"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YOn-HN-tcW" customClass="PBFlatTextfield">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="97" y="305" width="207" height="30"/>
                                 </variation>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="LGj-t1-lP5"/>
+                                <exclude reference="ARs-xg-Zjp"/>
+                                <exclude reference="yqh-1I-8bp"/>
+                                <exclude reference="y35-mB-l4A"/>
+                                <exclude reference="fhi-PR-55Z"/>
+                                <exclude reference="xvi-9u-qxE"/>
+                                <exclude reference="YOn-HN-tcW"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="LGj-t1-lP5"/>
+                                <include reference="ARs-xg-Zjp"/>
+                                <include reference="yqh-1I-8bp"/>
+                                <include reference="y35-mB-l4A"/>
+                                <include reference="fhi-PR-55Z"/>
+                                <include reference="xvi-9u-qxE"/>
+                                <include reference="YOn-HN-tcW"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="iy1-2n-VmY"/>
+                    <connections>
+                        <outlet property="backToLoginViewButton" destination="ARs-xg-Zjp" id="54o-Ih-jce"/>
+                        <outlet property="emailInputField" destination="YOn-HN-tcW" id="F9b-JL-Ct5"/>
+                        <outlet property="passwordInputField" destination="y35-mB-l4A" id="fkx-Mb-csH"/>
+                        <outlet property="signUpButton" destination="xvi-9u-qxE" id="f8f-0U-M7W"/>
+                        <outlet property="userProfilePicture" destination="fhi-PR-55Z" id="mSo-nO-nDm"/>
+                        <outlet property="usernameInputField" destination="yqh-1I-8bp" id="If9-eT-xml"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ec-Bk-pVK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2616" y="-43"/>
+            <point key="canvasLocation" x="2601" y="-4"/>
         </scene>
     </scenes>
     <resources>

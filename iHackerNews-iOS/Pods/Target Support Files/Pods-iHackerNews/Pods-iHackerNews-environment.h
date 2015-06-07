@@ -108,9 +108,21 @@
 #define COCOAPODS_VERSION_MINOR_Facebook_iOS_SDK_ShareKit 1
 #define COCOAPODS_VERSION_PATCH_Facebook_iOS_SDK_ShareKit 0
 
+// PBFlatUI
+#define COCOAPODS_POD_AVAILABLE_PBFlatUI
+#define COCOAPODS_VERSION_MAJOR_PBFlatUI 1
+#define COCOAPODS_VERSION_MINOR_PBFlatUI 1
+#define COCOAPODS_VERSION_PATCH_PBFlatUI 0
+
 // QBImagePickerController
 #define COCOAPODS_POD_AVAILABLE_QBImagePickerController
 #define COCOAPODS_VERSION_MAJOR_QBImagePickerController 3
 #define COCOAPODS_VERSION_MINOR_QBImagePickerController 2
 #define COCOAPODS_VERSION_PATCH_QBImagePickerController 0
+
+// SCLAlertView-Objective-C
+#define COCOAPODS_POD_AVAILABLE_SCLAlertView_Objective_C
+#define COCOAPODS_VERSION_MAJOR_SCLAlertView_Objective_C 0
+#define COCOAPODS_VERSION_MINOR_SCLAlertView_Objective_C 7
+#define COCOAPODS_VERSION_PATCH_SCLAlertView_Objective_C 2
 

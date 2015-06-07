@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [[UIColor alloc] initWithRed:236 green:240 blue:241 alpha:1.0]; //the cloud color
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,5 +34,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)backButtonOnClick:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"user dismissed sign in view controller");
+    }];
+}
 
 @end

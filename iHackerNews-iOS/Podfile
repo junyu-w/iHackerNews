@@ -7,6 +7,8 @@ target 'iHackerNews' do
   pod 'QBImagePickerController', '~> 3.2'
   pod 'ChameleonFramework'
   pod 'DKCircleButton', '~> 1.1'
+  pod 'PBFlatUI', '~> 1.1.0'
+  pod 'SCLAlertView-Objective-C', '~> 0.7'
 end
 
 target 'iHackerNewsTests' do

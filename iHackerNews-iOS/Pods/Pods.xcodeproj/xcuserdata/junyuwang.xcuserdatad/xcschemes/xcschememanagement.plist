@@ -29,12 +29,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-iHackerNews-PBFlatUI.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iHackerNews-QBImagePickerController-QBImagePicker.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-iHackerNews-QBImagePickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-iHackerNews-SCLAlertView-Objective-C.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,42 +57,52 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2A61EB0EC8F64A666D0246FD</key>
+		<key>19B9B473A0E23F4EFA42B578</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3BC8A9F46776130DE7C3965C</key>
+		<key>21D4A9CB0F134DF29EB7462F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4EBF44E917FB8E52A1CE5E30</key>
+		<key>2A37E736C3009A5EB277BB6B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>518170F5E22C524CF9F7A321</key>
+		<key>567E13EABBB9678F3D2C076B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>569758EA06190296155804A4</key>
+		<key>5D4700D70AC96A079EEE8ABF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>57E7732C5AF6F6F899716A67</key>
+		<key>76E53104BDFA230008FFA13F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AC4303A6C89450A2CB4E9201</key>
+		<key>A37F4D688149EF112E0F6A86</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E4D69726465958B6FE8A90AB</key>
+		<key>AAA2A99787536E59E2F8D9A7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ACE612432FFA8570AFE00CA9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BC89190800B8FE66717D7FFA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

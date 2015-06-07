@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5AD09F3B6F07205E8DAC94BC /* libPods-iHackerNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 938804C99228997CAFF93585 /* libPods-iHackerNews.a */; };
 		B07E7DF81B2013A8009F16CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E7DF71B2013A8009F16CF /* main.m */; };
 		B07E7DFB1B2013A8009F16CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E7DFA1B2013A8009F16CF /* AppDelegate.m */; };
 		B07E7DFE1B2013A8009F16CF /* iHackerNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B07E7DFC1B2013A8009F16CF /* iHackerNews.xcdatamodeld */; };
@@ -19,6 +18,9 @@
 		B0A3CEA01B22C96F0040CF0C /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A3CE9F1B22C96F0040CF0C /* LogInViewController.m */; };
 		B0D327FB1B22EF2900E23B97 /* SignUpFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D327FA1B22EF2900E23B97 /* SignUpFormViewController.m */; };
 		B0D327FE1B22FC5600E23B97 /* SignInFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D327FD1B22FC5600E23B97 /* SignInFormViewController.m */; };
+		B0E071F81B2428C000A9EAB4 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E071F71B2428C000A9EAB4 /* Utils.m */; };
+		B0E071FB1B242E7000A9EAB4 /* constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E071FA1B242E7000A9EAB4 /* constants.m */; };
+		FEC683688676EF0216142549 /* libPods-iHackerNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC4B1CE8BACAE40F14BD478 /* libPods-iHackerNews.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,8 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0FC4B1CE8BACAE40F14BD478 /* libPods-iHackerNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iHackerNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16400E77210792B2F266A7F9 /* Pods-iHackerNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iHackerNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-iHackerNews/Pods-iHackerNews.release.xcconfig"; sourceTree = "<group>"; };
-		938804C99228997CAFF93585 /* libPods-iHackerNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iHackerNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07E7DF21B2013A8009F16CF /* iHackerNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iHackerNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07E7DF61B2013A8009F16CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B07E7DF71B2013A8009F16CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -54,6 +56,10 @@
 		B0D327FA1B22EF2900E23B97 /* SignUpFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpFormViewController.m; sourceTree = "<group>"; };
 		B0D327FC1B22FC5600E23B97 /* SignInFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInFormViewController.h; sourceTree = "<group>"; };
 		B0D327FD1B22FC5600E23B97 /* SignInFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInFormViewController.m; sourceTree = "<group>"; };
+		B0E071F61B2428C000A9EAB4 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		B0E071F71B2428C000A9EAB4 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		B0E071F91B242E7000A9EAB4 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		B0E071FA1B242E7000A9EAB4 /* constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = constants.m; sourceTree = "<group>"; };
 		F45E4BB9C19FDAE64E1BA3B9 /* Pods-iHackerNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iHackerNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iHackerNews/Pods-iHackerNews.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AD09F3B6F07205E8DAC94BC /* libPods-iHackerNews.a in Frameworks */,
+				FEC683688676EF0216142549 /* libPods-iHackerNews.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +85,7 @@
 		14E077B6E6DF634DBF0A6690 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				938804C99228997CAFF93585 /* libPods-iHackerNews.a */,
+				0FC4B1CE8BACAE40F14BD478 /* libPods-iHackerNews.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -122,11 +128,15 @@
 				B07E7E001B2013A8009F16CF /* ViewController.m */,
 				B0A3CE9E1B22C96F0040CF0C /* LogInViewController.h */,
 				B0A3CE9F1B22C96F0040CF0C /* LogInViewController.m */,
-				B07E7E021B2013A8009F16CF /* Main.storyboard */,
 				B0D327F91B22EF2900E23B97 /* SignUpFormViewController.h */,
 				B0D327FA1B22EF2900E23B97 /* SignUpFormViewController.m */,
 				B0D327FC1B22FC5600E23B97 /* SignInFormViewController.h */,
 				B0D327FD1B22FC5600E23B97 /* SignInFormViewController.m */,
+				B07E7E021B2013A8009F16CF /* Main.storyboard */,
+				B0E071F61B2428C000A9EAB4 /* Utils.h */,
+				B0E071F71B2428C000A9EAB4 /* Utils.m */,
+				B0E071F91B242E7000A9EAB4 /* constants.h */,
+				B0E071FA1B242E7000A9EAB4 /* constants.m */,
 				B07E7E051B2013A8009F16CF /* Images.xcassets */,
 				B07E7E071B2013A8009F16CF /* LaunchScreen.xib */,
 				B07E7DFC1B2013A8009F16CF /* iHackerNews.xcdatamodeld */,
@@ -299,8 +309,10 @@
 				B07E7DFE1B2013A8009F16CF /* iHackerNews.xcdatamodeld in Sources */,
 				B07E7DFB1B2013A8009F16CF /* AppDelegate.m in Sources */,
 				B0D327FB1B22EF2900E23B97 /* SignUpFormViewController.m in Sources */,
+				B0E071F81B2428C000A9EAB4 /* Utils.m in Sources */,
 				B0A3CEA01B22C96F0040CF0C /* LogInViewController.m in Sources */,
 				B07E7E011B2013A8009F16CF /* ViewController.m in Sources */,
+				B0E071FB1B242E7000A9EAB4 /* constants.m in Sources */,
 				B07E7DF81B2013A8009F16CF /* main.m in Sources */,
 				B0D327FE1B22FC5600E23B97 /* SignInFormViewController.m in Sources */,
 			);
