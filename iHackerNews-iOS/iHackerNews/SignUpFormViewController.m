@@ -85,10 +85,6 @@
     if ([self authenticateInputFields]) {
         //TODO sign user up
        
-    }else {
-        //show alert
-        
-        
     }
 }
 
@@ -101,7 +97,7 @@
                                         subTitle:@"Invalid email format"
                                 closeButtonTitle:@"OK"
                                         duration:0.0f];
-            return false;
+            return NO;
         }else {
             if (self.usernameInputField.text.length < 3) {
                 SCLAlertView *usernameTooShortAlert = [[SCLAlertView alloc] init];
@@ -110,7 +106,7 @@
                                           subTitle:@"Username needs to be at least 3 characters"
                                   closeButtonTitle:@"OK"
                                           duration:0.0f];
-                return false;
+                return NO;
             }else if (self.passwordInputField.text.length < 6) {
                 SCLAlertView *passwordTooShortAlert = [[SCLAlertView alloc] init];
                 [passwordTooShortAlert showWarning:self
@@ -118,9 +114,9 @@
                                           subTitle:@"Password needs to be at least 6 characters"
                                   closeButtonTitle:@"OK"
                                           duration:0.0f];
-                return false;
+                return NO;
             }else {
-                return true;
+                return YES;
             }
         }
     }else {
@@ -130,7 +126,7 @@
                                  subTitle:@"Input fields cannot be empty"
                          closeButtonTitle:@"OK"
                                  duration:0.0f];
-        return false;
+        return NO;
     }
 }
 

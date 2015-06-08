@@ -10,4 +10,7 @@
 
 @implementation constants
 
+NSString* const serverURL = @"http://localhost:3000/";
+NSString* const getUserURL = @"http://localhost:3000/users/id?";
+
 @end

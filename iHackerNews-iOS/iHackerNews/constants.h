@@ -10,4 +10,8 @@
 
 @interface constants : NSObject
 
+extern NSString* const serverURL;
+extern NSString* const getUserURL;
+extern NSString* const createUserURL;
+
 @end

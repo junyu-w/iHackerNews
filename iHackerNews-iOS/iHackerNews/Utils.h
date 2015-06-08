@@ -12,4 +12,14 @@
 
 + (BOOL)NSStringIsValidEmail:(NSString*)checkString;
 
++ (NSString*) appendEncodedDictionary:(NSDictionary*)dictionary ToURL:(NSString*)url;
+
++ (NSString *) turnDictionaryIntoParamsOfURL:(NSDictionary*)dictionary;
+
++ (NSData*)encodeDictionary:(NSDictionary*)dictionary;
+
++ (NSString *)sendRequestToURL:(NSString *)url withData:(NSDictionary *)data withMethod: (NSString *)method;
+
++ (NSDictionary*)serverJsonReplyParser:(NSString*)serverReply;
+
 @end

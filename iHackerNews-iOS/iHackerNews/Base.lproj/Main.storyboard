@@ -133,19 +133,58 @@
                                     <action selector="backButtonOnClick:" destination="nN3-go-fHI" eventType="touchUpInside" id="ck5-dC-7es"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e8j-fl-Urm" customClass="PBFlatTextfield">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="57" y="161" width="286" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uuu-jD-Qwn" customClass="PBFlatTextfield">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="57" y="213" width="286" height="30"/>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndN-Qn-EwJ" customClass="PBFlatButton">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Sign In">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="57" y="264" width="286" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="signInButtonOnClick:" destination="nN3-go-fHI" eventType="touchUpInside" id="I86-vr-cRr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="idi-Bj-hXb"/>
+                                <exclude reference="e8j-fl-Urm"/>
+                                <exclude reference="uuu-jD-Qwn"/>
+                                <exclude reference="ndN-Qn-EwJ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="idi-Bj-hXb"/>
+                                <include reference="e8j-fl-Urm"/>
+                                <include reference="uuu-jD-Qwn"/>
+                                <include reference="ndN-Qn-EwJ"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="passwordInputField" destination="uuu-jD-Qwn" id="BpX-Ic-P2E"/>
+                        <outlet property="signInButton" destination="ndN-Qn-EwJ" id="Git-xr-cGj"/>
+                        <outlet property="usernameInputField" destination="e8j-fl-Urm" id="brt-Nd-2aD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWi-rr-bG9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -177,14 +216,6 @@
                                     <action selector="backButtonOnClick:" destination="a5y-yC-gaD" eventType="touchUpInside" id="33i-Bm-EN1"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yqh-1I-8bp" customClass="PBFlatTextfield">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="97" y="255" width="207" height="30"/>
-                                </variation>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y35-mB-l4A" customClass="PBFlatTextfield">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -219,26 +250,34 @@
                                     <rect key="frame" x="97" y="305" width="207" height="30"/>
                                 </variation>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yqh-1I-8bp" customClass="PBFlatTextfield">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="97" y="255" width="207" height="30"/>
+                                </variation>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="ARs-xg-Zjp"/>
-                                <exclude reference="yqh-1I-8bp"/>
                                 <exclude reference="y35-mB-l4A"/>
                                 <exclude reference="fhi-PR-55Z"/>
                                 <exclude reference="xvi-9u-qxE"/>
                                 <exclude reference="YOn-HN-tcW"/>
+                                <exclude reference="yqh-1I-8bp"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="ARs-xg-Zjp"/>
-                                <include reference="yqh-1I-8bp"/>
                                 <include reference="y35-mB-l4A"/>
                                 <include reference="fhi-PR-55Z"/>
                                 <include reference="xvi-9u-qxE"/>
                                 <include reference="YOn-HN-tcW"/>
+                                <include reference="yqh-1I-8bp"/>
                             </mask>
                         </variation>
                     </view>
