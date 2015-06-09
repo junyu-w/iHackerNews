@@ -58,9 +58,11 @@ install_resource()
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "libHN/Source/hn.json"
   install_resource "${BUILT_PRODUCTS_DIR}/QBImagePicker.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "libHN/Source/hn.json"
   install_resource "${BUILT_PRODUCTS_DIR}/QBImagePicker.bundle"
 fi
 

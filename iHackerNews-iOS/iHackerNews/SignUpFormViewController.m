@@ -13,7 +13,9 @@
 #import <PBFlatUI/PBFlatButton.h>
 #import <PBFlatUI/PBFlatRoundedImageView.h>
 #import <SCLAlertView-Objective-C/SCLAlertView.h>
+#import <AFNetworking/AFNetworking.h>
 #import "Utils.h"
+#import "constants.h"
 
 @interface SignUpFormViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *backToLoginViewButton;
@@ -84,9 +86,37 @@
 - (IBAction)signUpButtonOnClick:(id)sender {
     if ([self authenticateInputFields]) {
         //TODO sign user up
-       
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+        NSDictionary *parameters = @{@"username":self.usernameInputField.text,
+                                     @"user_email":self.emailInputField.text,
+                                     @"password":self.passwordInputField.text};
+        [manager POST:createUserURL
+           parameters:parameters
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  NSLog(@"JSON: %@", responseObject);
+                  [self handleServerResponse:responseObject];
+              } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  NSLog(@"ERROR: %@", error);
+              }];
     }
 }
+
+
+- (void)handleServerResponse:(id)response {
+    if (response[@"success"]) {
+        //TODO: Do something after sign up successfully (eg. store info into NSUserDefault)
+    }else {
+        //show alerts
+        SCLAlertView *userCreateFailureAlert = [[SCLAlertView alloc] init];
+        [userCreateFailureAlert showWarning:self
+                                      title:@"Error"
+                                   subTitle:response[@"error"]
+                           closeButtonTitle:@"OK"
+                                   duration:0.0f];
+    }
+}
+
 
 - (BOOL)authenticateInputFields {
     if (self.usernameInputField.text.length > 0 && self.emailInputField.text.length > 0 && self.passwordInputField.text.length > 0) {

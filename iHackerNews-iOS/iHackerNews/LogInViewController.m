@@ -53,7 +53,7 @@
     normal_login_button.titleLabel.font = [UIFont systemFontOfSize:13];
     [normal_login_button setBackgroundImage:[UIImage imageNamed:@"normal_login_button"] forState:UIControlStateNormal];
     [self.view addSubview:normal_login_button];
-    [normal_login_button addTarget:self action:@selector(normalUserLogIn) forControlEvents:UIControlEventTouchUpInside];
+    [normal_login_button addTarget:self action:@selector(normalUserSignUp) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)loginWithFacebook {
@@ -73,8 +73,7 @@
     }];
 }
 
-- (void)normalUserLogIn {
-    //TODO: login
+- (void)normalUserSignUp {
     [self performSegueWithIdentifier:@"show to sign up view" sender:self];
 }
 

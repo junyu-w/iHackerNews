@@ -44,6 +44,7 @@ PODS:
   - Facebook-iOS-SDK/ShareKit (4.1.0):
     - Bolts (~> 1.1)
     - Facebook-iOS-SDK/CoreKit
+  - libHN (4.0.4)
   - PBFlatUI (1.1.0)
   - QBImagePickerController (3.2.0)
   - SCLAlertView-Objective-C (0.7.2)
@@ -53,6 +54,7 @@ DEPENDENCIES:
   - ChameleonFramework
   - DKCircleButton (~> 1.1)
   - Facebook-iOS-SDK (~> 4.1)
+  - libHN
   - PBFlatUI (~> 1.1.0)
   - QBImagePickerController (~> 3.2)
   - SCLAlertView-Objective-C (~> 0.7)
@@ -63,6 +65,7 @@ SPEC CHECKSUMS:
   ChameleonFramework: 4d6bf87fcaee176f487176cdccc4229637ec97f0
   DKCircleButton: 62564c9debae08ad77dabb8d9658dfeb5520f2c4
   Facebook-iOS-SDK: f42dfb27283bf5f05e3a9edc88459a75b9892d99
+  libHN: 3571ddc61a302b1f01213dd50c932c29a6f5b390
   PBFlatUI: d797c6de1d28245287d695d74178dc75895d0bd9
   QBImagePickerController: 75b3857b1307a3c01ce486559bc294f802ddec6c
   SCLAlertView-Objective-C: 4ad7397ca948b4ab75426c677368652fee475573

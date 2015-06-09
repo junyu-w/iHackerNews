@@ -9,6 +9,7 @@ target 'iHackerNews' do
   pod 'DKCircleButton', '~> 1.1'
   pod 'PBFlatUI', '~> 1.1.0'
   pod 'SCLAlertView-Objective-C', '~> 0.7'
+  pod 'libHN'
 end
 
 target 'iHackerNewsTests' do

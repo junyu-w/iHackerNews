@@ -71,7 +71,6 @@
         NSDictionary *userInput;
         NSString *getUserEndpoint;
         if ([self signInUsingEmail]) {
-            //TODO: Do email sign in
             NSLog(@"user chooses to sign in with email");
             userInput = [[NSDictionary alloc] initWithObjectsAndKeys:self.usernameInputField.text, @"user_email", self.passwordInputField.text, @"password", nil];
             getUserEndpoint = [Utils appendEncodedDictionary:userInput
@@ -86,9 +85,24 @@
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager GET:getUserEndpoint parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"JSON: %@", responseObject);
+            [self handleServerResponse:responseObject];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
         }];
+    }
+}
+
+- (void)handleServerResponse:(id)response {
+    if (response[@"success"]) {
+        //TODO: do something after sign in successfully, like storing user info into NSUserDefaults
+    }else {
+        //show alerts
+        SCLAlertView *userCreateFailureAlert = [[SCLAlertView alloc] init];
+        [userCreateFailureAlert showWarning:self
+                                      title:@"Error"
+                                   subTitle:response[@"error"]
+                           closeButtonTitle:@"OK"
+                                   duration:0.0f];
     }
 }
 

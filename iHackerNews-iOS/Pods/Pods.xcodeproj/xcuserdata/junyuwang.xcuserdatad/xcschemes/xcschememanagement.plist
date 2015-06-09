@@ -49,6 +49,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-iHackerNews-libHN.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iHackerNews.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,52 +62,57 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>19B9B473A0E23F4EFA42B578</key>
+		<key>1095E7FAA2942556DC81BF1F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>21D4A9CB0F134DF29EB7462F</key>
+		<key>1E57E5F24C9E8C5C2343EB1D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2A37E736C3009A5EB277BB6B</key>
+		<key>30CB3472E6739A5ECED3B634</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>567E13EABBB9678F3D2C076B</key>
+		<key>3681BD193087C07D24EF62A9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5D4700D70AC96A079EEE8ABF</key>
+		<key>493F4462974CBA0BE7BA6999</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>76E53104BDFA230008FFA13F</key>
+		<key>539EFC6C096E45299003001E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A37F4D688149EF112E0F6A86</key>
+		<key>6E4086C5B825F6E782F2C6E1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AAA2A99787536E59E2F8D9A7</key>
+		<key>8B73D27ACC3EFB816407E680</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ACE612432FFA8570AFE00CA9</key>
+		<key>8F18473EB421C5B11DBC1275</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BC89190800B8FE66717D7FFA</key>
+		<key>C01FBB6C29CA081AFD4CBAD9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F9EC315AE1946484FC1440E6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
