@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  #remove this line if can this application also needs to run as a browser Application 
+  #currently works because this only serves as an API for the iOS app.
+  skip_before_filter :verify_authenticity_token, :only => [:create] 
+
   INCORRECT_PARAMETER_ERROR = "Incorrect parameters passed in"
   INVALID_FACEBOOK_USER_ERROR = "Invalid facebook user"
   INVALID_USER_ERROR = "Invalid username or password"
@@ -22,12 +26,16 @@ class UsersController < ApplicationController
 
   #POST /users(.:format)
   def create
-    if verify_user_exists
-      render :json => {:success => false, :error => DUPLICATE_USER_ERROR}
-    else 
-      if authenticate_params_and_tell_user_identity == 0
+    if authenticate_params_and_tell_user_identity == 0
+      if verify_facbeook_user_exists
+        render :json => {:error => DUPLICATE_USER_ERROR}
+      else
         create_fb_user
-      elsif authenticate_params_and_tell_user_identity == 1
+      end
+    elsif authenticate_params_and_tell_user_identity == 1
+      if verify_normal_user_exists
+        render :json => {:error => DUPLICATE_USER_ERROR}
+      else
         create_normal_user
       end
     end
@@ -50,7 +58,7 @@ class UsersController < ApplicationController
     elsif !params[:username].nil? && !params[:password].nil? || !params[:user_email].nil? && !params[:password].nil? 
       return 1
     else
-      render :json => {:success => false, :error => INCORRECT_PARAMETER_ERROR}
+      render :json => {:error => INCORRECT_PARAMETER_ERROR}
     end
   end
 
@@ -59,7 +67,7 @@ class UsersController < ApplicationController
     if !fb_user.nil?
       render :json => {:success => true, :user_info => {:user_id => fb_user.id, :facebook_id => fb_user.facebook_id}}
     else
-      render :json => {:success => false, :error => INVALID_FACEBOOK_USER_ERROR}
+      render :json => {:error => INVALID_FACEBOOK_USER_ERROR}
     end
   end
 
@@ -68,24 +76,20 @@ class UsersController < ApplicationController
     if !existing_user.nil?
       render :json => {:success => true, :user_info => {:user_id => existing_user.id, :username => existing_user.username, :profile_picture_url => existing_user.profile_picture_url, :email => existing_user.email}}
     else
-      render :json => {:success => false, :error => INVALID_USER_ERROR}
+      render :json => {:error => INVALID_USER_ERROR}
     end
   end
 
   ## verify user's existence ##
   
-  def verify_user_exists
-    return verify_normal_user_exists || verify_facbeook_user_exists
-  end
-
   def verify_normal_user_exists
-    existing_user = User.where(:username => params[:username], :password => params[:password]) || User.where(:email => params[:user_email], :password => params[:password])
-    return existing_user.empty?
+    existing_user = User.where(:username => params[:username])
+    return !existing_user.empty?
   end
 
   def verify_facbeook_user_exists
     fb_user = User.where(:facbeook_id => params[:facebook_id])
-    return fb_user.empty?
+    return !fb_user.empty?
   end
 
 
@@ -93,7 +97,7 @@ class UsersController < ApplicationController
   #
 
   def check_normal_user_creation_form
-    if params[:username].nil? || params[:password].nil? || params[:email].nil?
+    if params[:username].nil? || params[:password].nil? || params[:user_email].nil?
       return false
     else
       return true
@@ -106,10 +110,10 @@ class UsersController < ApplicationController
       if new_user.save
         get_normal_user
       else
-        render :json => {:success => false, :error => new_user.errors.full_messages.to_sentence}
+        render :json => {:error => new_user.errors.full_messages.to_sentence}
       end
     else
-      render :json => {:success => false, :error => INCOMPELETE_CREATION_FORM_ERROR}
+      render :json => {:error => INCOMPELETE_CREATION_FORM_ERROR}
     end
   end
 
@@ -118,7 +122,7 @@ class UsersController < ApplicationController
     if new_user.save
       get_facebook_user
     else
-      render :json => {:success => false, :error => new_user.errors.full_messages.to_sentence}
+      render :json => {:error => new_user.errors.full_messages.to_sentence}
     end
   end
 end
