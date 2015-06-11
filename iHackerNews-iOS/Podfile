@@ -10,6 +10,7 @@ target 'iHackerNews' do
   pod 'PBFlatUI', '~> 1.1.0'
   pod 'SCLAlertView-Objective-C', '~> 0.7'
   pod 'libHN'
+  pod 'MGSwipeTableCell', '~> 1.4'
 end
 
 target 'iHackerNewsTests' do
