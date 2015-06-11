@@ -90,7 +90,7 @@
     
     
     //configure left buttons
-    cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"star_post.png"] backgroundColor:[UIColor blueColor]]];
+    cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"star_post.png"] backgroundColor:[UIColor whiteColor]]];
     cell.leftSwipeSettings.transition = MGSwipeTransition3D;
     
     //configure right buttons
