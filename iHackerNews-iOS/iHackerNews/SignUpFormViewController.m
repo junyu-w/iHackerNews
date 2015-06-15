@@ -85,7 +85,6 @@
 
 - (IBAction)signUpButtonOnClick:(id)sender {
     if ([self authenticateInputFields]) {
-        //TODO sign user up
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
         NSDictionary *parameters = @{@"username":self.usernameInputField.text,
@@ -105,7 +104,11 @@
 
 - (void)handleServerResponse:(id)response {
     if (response[@"success"]) {
-        //TODO: Do something after sign up successfully (eg. store info into NSUserDefault)
+        [[NSUserDefaults standardUserDefaults] setObject:self.usernameInputField.text forKey:@"username"];
+        [[NSUserDefaults standardUserDefaults] setObject:self.passwordInputField.text forKey:@"password"];
+        [[NSUserDefaults standardUserDefaults] setObject:self.emailInputField.text forKey:@"email"];
+        //segue to hn post table view
+        [self performSegueWithIdentifier:@"pop up hn post table view after sign up" sender:self];
     }else {
         //show alerts
         SCLAlertView *userCreateFailureAlert = [[SCLAlertView alloc] init];

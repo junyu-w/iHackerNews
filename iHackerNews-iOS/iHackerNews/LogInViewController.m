@@ -67,7 +67,7 @@
             // If you ask for multiple permissions at once, you
             // should check if specific permissions missing
             if ([result.grantedPermissions containsObject:@"email"]) {
-                // TODO: Do work
+                // TODO: Do something after facebook login
             }
         }
     }];

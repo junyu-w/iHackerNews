@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B00081361B295ACD007EC5DE /* HNPostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B00081351B295ACD007EC5DE /* HNPostsTableViewController.m */; };
+		B00081391B2EA200007EC5DE /* HNPostCotentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B00081381B2EA200007EC5DE /* HNPostCotentViewController.m */; };
 		B07E7DF81B2013A8009F16CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E7DF71B2013A8009F16CF /* main.m */; };
 		B07E7DFB1B2013A8009F16CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E7DFA1B2013A8009F16CF /* AppDelegate.m */; };
 		B07E7DFE1B2013A8009F16CF /* iHackerNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B07E7DFC1B2013A8009F16CF /* iHackerNews.xcdatamodeld */; };
@@ -39,6 +40,8 @@
 		16400E77210792B2F266A7F9 /* Pods-iHackerNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iHackerNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-iHackerNews/Pods-iHackerNews.release.xcconfig"; sourceTree = "<group>"; };
 		B00081341B295ACD007EC5DE /* HNPostsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPostsTableViewController.h; sourceTree = "<group>"; };
 		B00081351B295ACD007EC5DE /* HNPostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPostsTableViewController.m; sourceTree = "<group>"; };
+		B00081371B2EA200007EC5DE /* HNPostCotentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPostCotentViewController.h; sourceTree = "<group>"; };
+		B00081381B2EA200007EC5DE /* HNPostCotentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPostCotentViewController.m; sourceTree = "<group>"; };
 		B07E7DF21B2013A8009F16CF /* iHackerNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iHackerNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07E7DF61B2013A8009F16CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B07E7DF71B2013A8009F16CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -131,6 +134,8 @@
 				B07E7E001B2013A8009F16CF /* ViewController.m */,
 				B00081341B295ACD007EC5DE /* HNPostsTableViewController.h */,
 				B00081351B295ACD007EC5DE /* HNPostsTableViewController.m */,
+				B00081371B2EA200007EC5DE /* HNPostCotentViewController.h */,
+				B00081381B2EA200007EC5DE /* HNPostCotentViewController.m */,
 				B0A3CE9E1B22C96F0040CF0C /* LogInViewController.h */,
 				B0A3CE9F1B22C96F0040CF0C /* LogInViewController.m */,
 				B0D327F91B22EF2900E23B97 /* SignUpFormViewController.h */,
@@ -314,6 +319,7 @@
 				B07E7DFE1B2013A8009F16CF /* iHackerNews.xcdatamodeld in Sources */,
 				B07E7DFB1B2013A8009F16CF /* AppDelegate.m in Sources */,
 				B0D327FB1B22EF2900E23B97 /* SignUpFormViewController.m in Sources */,
+				B00081391B2EA200007EC5DE /* HNPostCotentViewController.m in Sources */,
 				B00081361B295ACD007EC5DE /* HNPostsTableViewController.m in Sources */,
 				B0E071F81B2428C000A9EAB4 /* Utils.m in Sources */,
 				B0A3CEA01B22C96F0040CF0C /* LogInViewController.m in Sources */,

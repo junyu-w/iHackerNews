@@ -21,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet PBFlatTextfield *passwordInputField;
 @property (weak, nonatomic) IBOutlet PBFlatButton *signInButton;
 
-
 @end
 
 @implementation SignInFormViewController
@@ -76,7 +75,6 @@
             getUserEndpoint = [Utils appendEncodedDictionary:userInput
                                                        ToURL:getUserURL];
         }else {
-            //TODO: Do username sign in
             NSLog(@"user chooses to sign in with username");
             userInput = [[NSDictionary alloc] initWithObjectsAndKeys:self.usernameInputField.text, @"username", self.passwordInputField.text, @"password", nil];
             getUserEndpoint = [Utils appendEncodedDictionary:userInput
@@ -92,19 +90,6 @@
     }
 }
 
-- (void)handleServerResponse:(id)response {
-    if (response[@"success"]) {
-        //TODO: do something after sign in successfully, like storing user info into NSUserDefaults
-    }else {
-        //show alerts
-        SCLAlertView *userCreateFailureAlert = [[SCLAlertView alloc] init];
-        [userCreateFailureAlert showWarning:self
-                                      title:@"Error"
-                                   subTitle:response[@"error"]
-                           closeButtonTitle:@"OK"
-                                   duration:0.0f];
-    }
-}
 
 /**
  *  check to see if user choose to sign in using email or username
@@ -135,6 +120,35 @@
         return NO;
     }else {
         return YES;
+    }
+}
+
+/**
+ *  Handler subsequent action after user clicks the sign in button
+ *
+ *  @param response server reply
+ */
+- (void)handleServerResponse:(id)response {
+    if (response[@"success"]) {
+        if ([self signInUsingEmail]) {
+            [[NSUserDefaults standardUserDefaults] setObject:self.usernameInputField.text forKey:@"email"];
+            [[NSUserDefaults standardUserDefaults] setObject:response[@"user_info"][@"username"] forKey:@"username"];
+        }else {
+            [[NSUserDefaults standardUserDefaults] setObject:self.usernameInputField.text forKey:@"username"];
+            [[NSUserDefaults standardUserDefaults] setObject:response[@"user_info"][@"email"] forKey:@"email"];
+        }
+        [[NSUserDefaults standardUserDefaults] setObject:self.passwordInputField.text forKey:@"password"];
+        //segue to the HNPostTableViewController
+        [self performSegueWithIdentifier:@"pop up hn post table view after sign in" sender:self];
+        
+    }else {
+        //show alerts
+        SCLAlertView *userCreateFailureAlert = [[SCLAlertView alloc] init];
+        [userCreateFailureAlert showWarning:self
+                                      title:@"Error"
+                                   subTitle:response[@"error"]
+                           closeButtonTitle:@"OK"
+                                   duration:0.0f];
     }
 }
 
