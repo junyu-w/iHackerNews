@@ -32,6 +32,12 @@
     //loginButton.center = CGPointMake(160, 350);
     //[self.view addSubview:loginButton];
     
+    //TODO: do something when get new hn posts.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(someSelector) name:kHNShouldReloadDataFromConfiguration object:nil];
+    
+    [[HNManager sharedManager] startSession];
+    [self fetchHNPosts];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -67,13 +73,14 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 9;
+    return [_HNPostsArray count];
 }
 
 - (IBAction)refreshHandler:(id)sender {
     //TODO: implement refresh
     [self.refreshControl beginRefreshing];
-    sleep(5);
+    [self fetchHNPosts];
+    sleep(2);
     [self.refreshControl endRefreshing];
 }
 
@@ -99,6 +106,9 @@
     cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"Delete" backgroundColor:[UIColor redColor]],
                           [MGSwipeButton buttonWithTitle:@"More" backgroundColor:[UIColor lightGrayColor]]];
     cell.rightSwipeSettings.transition = MGSwipeTransition3D;
+    
+    cell.textLabel.text = [[_HNPostsArray objectAtIndex:indexPath.row] Title];
+    
     return cell;
 }
 
@@ -134,7 +144,33 @@
     return [FBSDKAccessToken currentAccessToken] != nil || ([[NSUserDefaults standardUserDefaults] objectForKey:@"username"] != nil && [[NSUserDefaults standardUserDefaults] objectForKey:@"password"] != nil);
 }
 
-#pragma mark - fetch info from HN
+#pragma mark - fetch info from HN and format them
+
+- (void)fetchHNPosts {
+    [[HNManager sharedManager] loadPostsWithFilter:PostFilterTypeTop
+                                        completion:^(NSArray *posts, NSString *nextPageIdentifier) {
+                                            if (posts) {
+                                                NSLog(@"HN Posts: %@", [[posts objectAtIndex:0] Title]);
+                                                _HNPostsArray = posts;
+                                                [self.tableView reloadData];
+                                            }else {
+                                                NSLog(@"Error fetching post");
+                                            }
+                                        }];
+}
+
+- (void)getMoreHNPosts {
+    [[HNManager sharedManager] loadPostsWithUrlAddition:[[HNManager sharedManager] postUrlAddition]
+                                             completion:^(NSArray *posts, NSString *nextPageIdentifier) {
+                                                 if (posts) {
+                                                     NSLog(@"HN More Posts: %@", posts);
+                                                     _HNPostsArray = posts;
+                                                 }else {
+                                                     NSLog(@"Error fetching more posts");
+                                                 }
+                                             }];
+}
+
 
 
 @end
