@@ -106,12 +106,12 @@
         <scene sceneID="wRc-VR-OWd">
             <objects>
                 <tableViewController id="DUy-vA-eX5" customClass="HNPostsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="zEe-wh-Lo9">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="122" sectionHeaderHeight="22" sectionFooterHeight="22" id="zEe-wh-Lo9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="hn post cell" textLabel="NyJ-gc-uqa" detailTextLabel="C2m-Fm-Qv8" rowHeight="150" style="IBUITableViewCellStyleValue1" id="50N-Vq-EPw">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="hn post cell" textLabel="NyJ-gc-uqa" detailTextLabel="C2m-Fm-Qv8" rowHeight="122" style="IBUITableViewCellStyleValue1" id="50N-Vq-EPw">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="50N-Vq-EPw" id="Y2O-ew-UdS">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -157,6 +157,7 @@
                         </connections>
                     </refreshControl>
                     <connections>
+                        <outlet property="userButton" destination="bW7-Sq-EtR" id="5to-4E-EYA"/>
                         <segue destination="25J-0s-IOR" kind="presentation" identifier="pop up log in view" id="fCF-Qf-KSh"/>
                         <segue destination="2FD-Ke-gRL" kind="show" identifier="push to hn content view" id="Zo2-Qp-TFV"/>
                     </connections>

@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-iHackerNews-NSAttributedString+CCLFormat.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iHackerNews-PBFlatUI.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,62 +72,67 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0B8C751E3D9B0214AAC89848</key>
+		<key>19EAA35B39135E2153746B6E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>22EAFB32B306451905B9A808</key>
+		<key>3C115C2268F0AF947ED1CA17</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>23B3FF159DE26DFD1DA54AD6</key>
+		<key>591093EC4641B82239916F35</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>488CA707C281C69D8851489B</key>
+		<key>5A5DA81A16ADDC606CB7631D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6243A082E2F76B762F714EB3</key>
+		<key>60A3EF28C1E7E2692573C3CC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8381C09A8244D9679465F2DB</key>
+		<key>8016C5AB6BCEB2F28CE22893</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8FD4CE34BDD38C2AC9A90E23</key>
+		<key>A9BFC17076C7711C9F045D04</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A5487F6FCB12B65BD073A966</key>
+		<key>B44DFE24E72A880EC2279B73</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D8F3AD11156453F432A86D64</key>
+		<key>C112EC0A55E5F4A192D5C2C5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F13CE83093DFF267B1911C8F</key>
+		<key>C12333AFCB5470B47BBD2FDC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F5B968D22B1CC64DED6574CB</key>
+		<key>C701EBF18F7947FDD879BA87</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FEA1DA834AFF0C06F924982C</key>
+		<key>E174654079BB78A72B7B3892</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F8074461E7DB3A24199517C7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

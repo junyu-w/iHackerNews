@@ -114,6 +114,12 @@
 #define COCOAPODS_VERSION_MINOR_MGSwipeTableCell 4
 #define COCOAPODS_VERSION_PATCH_MGSwipeTableCell 3
 
+// NSAttributedString+CCLFormat
+#define COCOAPODS_POD_AVAILABLE_NSAttributedString_CCLFormat
+#define COCOAPODS_VERSION_MAJOR_NSAttributedString_CCLFormat 1
+#define COCOAPODS_VERSION_MINOR_NSAttributedString_CCLFormat 0
+#define COCOAPODS_VERSION_PATCH_NSAttributedString_CCLFormat 1
+
 // PBFlatUI
 #define COCOAPODS_POD_AVAILABLE_PBFlatUI
 #define COCOAPODS_VERSION_MAJOR_PBFlatUI 1

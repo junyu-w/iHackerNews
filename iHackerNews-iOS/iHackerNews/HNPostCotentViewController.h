@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <libHN/libHN.h>
 
 @interface HNPostCotentViewController : UIViewController
 
-@property (strong, nonatomic) NSString *HNTitle;
-@property (strong, nonatomic) NSString *HNContent;
-@property (strong, nonatomic) NSArray *HNComments;
+@property (strong, nonatomic) HNPost *post;
 
 @end

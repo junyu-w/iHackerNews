@@ -14,24 +14,24 @@
 #import <MGSwipeTableCell/MGSwipeButton.h>
 #import <MGSwipeTableCell/MGSwipeTableCell.h>
 #import "HNPostCotentViewController.h"
+#import <ChameleonFramework/Chameleon.h>
+#import <NSAttributedString+CCLFormat/NSAttributedString+CCLFormat.h>
 
 @interface HNPostsTableViewController ()
-
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *userButton;
 @end
 
 #pragma mark - view controller life cycle
 
+static const NSString *fontForTableViewLight = @"HelveticaNeue-Light";
+static const NSString *fontForTableViewBold = @"HelveticaNeue-Bold";
+
 @implementation HNPostsTableViewController
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    //loginButton.center = CGPointMake(160, 350);
-    //[self.view addSubview:loginButton];
-    
+    [self setUpBasicUIComponents];
     //TODO: do something when get new hn posts.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(someSelector) name:kHNShouldReloadDataFromConfiguration object:nil];
     
@@ -43,6 +43,21 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)setUpBasicUIComponents {
+    [self.navigationController.navigationBar setBarTintColor:FlatOrange];
+    
+    NSDictionary *navigationBarTitleAttributes = [[NSDictionary alloc] initWithObjectsAndKeys:[UIFont fontWithName:fontForTableViewLight size:17], NSFontAttributeName, nil];
+    [self.navigationController.navigationBar setTitleTextAttributes:navigationBarTitleAttributes];
+    [self.userButton setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:fontForTableViewBold size:17],
+                                              NSForegroundColorAttributeName: FlatBlackDark,
+                                              NSStrokeWidthAttributeName: [NSNumber numberWithFloat:6.0]}
+                                   forState:UIControlStateNormal];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 }
 
 
@@ -93,8 +108,6 @@
         cell = [[MGSwipeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
     }
     
-    cell.textLabel.text = @"Title";
-    cell.detailTextLabel.text = @"Detail text";
     cell.delegate = self; //optional
     
     
@@ -103,11 +116,47 @@
     cell.leftSwipeSettings.transition = MGSwipeTransition3D;
     
     //configure right buttons
-    cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"Delete" backgroundColor:[UIColor redColor]],
-                          [MGSwipeButton buttonWithTitle:@"More" backgroundColor:[UIColor lightGrayColor]]];
+    cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"Read" backgroundColor:FlatYellow]];
     cell.rightSwipeSettings.transition = MGSwipeTransition3D;
     
-    cell.textLabel.text = [[_HNPostsArray objectAtIndex:indexPath.row] Title];
+    //get the post
+    HNPost *post = [_HNPostsArray objectAtIndex:indexPath.row];
+    
+    //set up ui for title
+    cell.textLabel.text = [post Title];
+    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.font = [UIFont fontWithName:fontForTableViewLight size:16];
+    cell.backgroundColor = [[UIColor alloc] initWithRed:236 green:240 blue:241 alpha:1.0];
+    
+    //set up ui for point and url domain
+    cell.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    cell.detailTextLabel.numberOfLines = 0;
+    NSString *points = [NSString stringWithFormat:@"%d", [post Points]];
+    NSInteger _pointsLength = [points length];
+    NSMutableAttributedString *postPoints = [[NSMutableAttributedString alloc] initWithString:points];
+    [postPoints addAttribute:NSFontAttributeName
+                       value:[UIFont fontWithName:fontForTableViewBold
+                                             size:14]
+                       range:NSMakeRange(0, _pointsLength)];
+    
+    
+    NSString *source = [NSString stringWithFormat:@"%@", [post UrlDomain]];
+    NSInteger _sourceLength = [source length];
+    NSMutableAttributedString *postSource = [[NSMutableAttributedString alloc] initWithString:source];
+    [postSource addAttribute:NSFontAttributeName
+                       value:[UIFont fontWithName:fontForTableViewLight size:13]
+                       range:NSMakeRange(0, _sourceLength)];
+    [postSource addAttribute:NSStrokeColorAttributeName
+                       value:FlatOrangeDark
+                       range:NSMakeRange(0, _sourceLength)];
+    [postSource addAttribute:NSStrokeWidthAttributeName
+                       value:[NSNumber numberWithFloat:3.0]
+                       range:NSMakeRange(0, _sourceLength)];
+
+    NSAttributedString *detailedText = [NSAttributedString attributedStringWithFormat:@"\n%@ \n%@",postPoints, postSource];
+    
+    cell.detailTextLabel.attributedText = detailedText;
     
     return cell;
 }
@@ -128,12 +177,12 @@
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"push to hn content view"]) {
         
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        NSIndexPath *indexPath = (NSIndexPath *)sender;
         HNPostCotentViewController *HNContentVC = [segue destinationViewController];
         
-        HNContentVC.HNTitle = @"test";
-        HNContentVC.HNContent = @"test_content";
-        HNContentVC.HNComments = @[@"test_1", @"test_2"];
+        NSLog(@"%ld",(long)[indexPath row]);
+        HNPost *post = [_HNPostsArray objectAtIndex:[indexPath row]];
+        HNContentVC.post = post;
     }
 }
 

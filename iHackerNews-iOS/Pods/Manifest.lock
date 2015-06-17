@@ -46,6 +46,7 @@ PODS:
     - Facebook-iOS-SDK/CoreKit
   - libHN (4.0.4)
   - MGSwipeTableCell (1.4.3)
+  - NSAttributedString+CCLFormat (1.0.1)
   - PBFlatUI (1.1.0)
   - QBImagePickerController (3.2.0)
   - SCLAlertView-Objective-C (0.7.2)
@@ -57,6 +58,7 @@ DEPENDENCIES:
   - Facebook-iOS-SDK (~> 4.1)
   - libHN
   - MGSwipeTableCell (~> 1.4)
+  - NSAttributedString+CCLFormat
   - PBFlatUI (~> 1.1.0)
   - QBImagePickerController (~> 3.2)
   - SCLAlertView-Objective-C (~> 0.7)
@@ -69,6 +71,7 @@ SPEC CHECKSUMS:
   Facebook-iOS-SDK: f42dfb27283bf5f05e3a9edc88459a75b9892d99
   libHN: 3571ddc61a302b1f01213dd50c932c29a6f5b390
   MGSwipeTableCell: cb9805df3cc5cad75ad43a5c1eb424be0316f0bf
+  NSAttributedString+CCLFormat: ed7a2c814ac5444d0747c11ec0e532d46839a480
   PBFlatUI: d797c6de1d28245287d695d74178dc75895d0bd9
   QBImagePickerController: 75b3857b1307a3c01ce486559bc294f802ddec6c
   SCLAlertView-Objective-C: 4ad7397ca948b4ab75426c677368652fee475573

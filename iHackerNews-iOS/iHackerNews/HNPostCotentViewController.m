@@ -17,9 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UILabel *content = [[UILabel alloc] initWithFrame:CGRectMake(120, 500, 70, 70)];
-    [content setText:_HNContent];
-    [self.view addSubview:content];
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(120, 500, 70, 70)];
+    [title setText:[self.post Title]];
+    [self.view addSubview:title];
     
 }
 

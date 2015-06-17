@@ -11,6 +11,7 @@ target 'iHackerNews' do
   pod 'SCLAlertView-Objective-C', '~> 0.7'
   pod 'libHN'
   pod 'MGSwipeTableCell', '~> 1.4'
+  pod 'NSAttributedString+CCLFormat'
 end
 
 target 'iHackerNewsTests' do
