@@ -27,6 +27,7 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.2.0)
   - ChameleonFramework (1.2.0)
+  - DGActivityIndicatorView (1.0)
   - DKCircleButton (1.1)
   - Facebook-iOS-SDK (4.1.0):
     - Bolts (~> 1.1)
@@ -54,6 +55,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
   - ChameleonFramework
+  - DGActivityIndicatorView
   - DKCircleButton (~> 1.1)
   - Facebook-iOS-SDK (~> 4.1)
   - libHN
@@ -67,6 +69,7 @@ SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   Bolts: d176cb1e0012175589e389a9db49b85e27787576
   ChameleonFramework: 4d6bf87fcaee176f487176cdccc4229637ec97f0
+  DGActivityIndicatorView: 980091f8d8cc647a1af7804660272e64aef9e516
   DKCircleButton: 62564c9debae08ad77dabb8d9658dfeb5520f2c4
   Facebook-iOS-SDK: f42dfb27283bf5f05e3a9edc88459a75b9892d99
   libHN: 3571ddc61a302b1f01213dd50c932c29a6f5b390

@@ -72,6 +72,12 @@
 #define COCOAPODS_VERSION_MINOR_ChameleonFramework 2
 #define COCOAPODS_VERSION_PATCH_ChameleonFramework 0
 
+// DGActivityIndicatorView
+#define COCOAPODS_POD_AVAILABLE_DGActivityIndicatorView
+#define COCOAPODS_VERSION_MAJOR_DGActivityIndicatorView 1
+#define COCOAPODS_VERSION_MINOR_DGActivityIndicatorView 0
+#define COCOAPODS_VERSION_PATCH_DGActivityIndicatorView 0
+
 // DKCircleButton
 #define COCOAPODS_POD_AVAILABLE_DKCircleButton
 #define COCOAPODS_VERSION_MAJOR_DKCircleButton 1

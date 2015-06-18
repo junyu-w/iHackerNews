@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5A5DA81A16ADDC606CB7631D"
+               BlueprintIdentifier = "C69E2D31A4CED30EE74E90BD"
                BuildableName = "libPods-iHackerNews-SCLAlertView-Objective-C.a"
                BlueprintName = "Pods-iHackerNews-SCLAlertView-Objective-C"
                ReferencedContainer = "container:Pods.xcodeproj">

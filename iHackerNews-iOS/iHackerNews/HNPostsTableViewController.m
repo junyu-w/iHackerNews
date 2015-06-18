@@ -199,7 +199,7 @@ static const NSString *fontForTableViewBold = @"HelveticaNeue-Bold";
     [[HNManager sharedManager] loadPostsWithFilter:PostFilterTypeTop
                                         completion:^(NSArray *posts, NSString *nextPageIdentifier) {
                                             if (posts) {
-                                                NSLog(@"HN Posts: %@", [[posts objectAtIndex:0] Title]);
+                                                NSLog(@"HN Posts: %lu", (unsigned long)posts.count);
                                                 _HNPostsArray = posts;
                                                 [self.tableView reloadData];
                                             }else {
@@ -212,7 +212,7 @@ static const NSString *fontForTableViewBold = @"HelveticaNeue-Bold";
     [[HNManager sharedManager] loadPostsWithUrlAddition:[[HNManager sharedManager] postUrlAddition]
                                              completion:^(NSArray *posts, NSString *nextPageIdentifier) {
                                                  if (posts) {
-                                                     NSLog(@"HN More Posts: %@", posts);
+                                                     NSLog(@"HN More Posts: %lu", (unsigned long)posts.count);
                                                      _HNPostsArray = posts;
                                                  }else {
                                                      NSLog(@"Error fetching more posts");

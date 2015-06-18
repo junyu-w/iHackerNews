@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-iHackerNews-DGActivityIndicatorView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iHackerNews-DKCircleButton.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,67 +77,72 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>19EAA35B39135E2153746B6E</key>
+		<key>03FD7F2972129562388BCF27</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3C115C2268F0AF947ED1CA17</key>
+		<key>1982B5F526E9A017415FF469</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>591093EC4641B82239916F35</key>
+		<key>357D5ED28AD1CED0FD4AA469</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5A5DA81A16ADDC606CB7631D</key>
+		<key>3C158C2B5D51C518DCD8695E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>60A3EF28C1E7E2692573C3CC</key>
+		<key>46A5527DE69A9A6B2EC45BFF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8016C5AB6BCEB2F28CE22893</key>
+		<key>538D6239EB0A6853F8A7505C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A9BFC17076C7711C9F045D04</key>
+		<key>686756794025414A28C9D68B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B44DFE24E72A880EC2279B73</key>
+		<key>8E504B0E82A6084FB579E5AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C112EC0A55E5F4A192D5C2C5</key>
+		<key>97D2BB89C6C8B4D8BE0073C8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C12333AFCB5470B47BBD2FDC</key>
+		<key>AD44A0A03136A43094F58971</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C701EBF18F7947FDD879BA87</key>
+		<key>B8942D39C79273DD35F7FD32</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E174654079BB78A72B7B3892</key>
+		<key>C69E2D31A4CED30EE74E90BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F8074461E7DB3A24199517C7</key>
+		<key>CF55F7B8EB3338F4554A63C1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F0F03F1B27D76C9BB10F1AE5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

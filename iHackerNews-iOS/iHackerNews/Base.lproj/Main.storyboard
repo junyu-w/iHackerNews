@@ -177,8 +177,59 @@
                     <view key="view" contentMode="scaleToFill" id="30X-4H-Y7e">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ger-00-dv8">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FS3-yN-ZvP" customClass="PBFlatRoundedImageView">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="100" y="150" width="200" height="200"/>
+                                        </variation>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwf-cw-s3m">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="73" y="413" width="255" height="53"/>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="FS3-yN-ZvP"/>
+                                        <exclude reference="hwf-cw-s3m"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
+                                    <mask key="subviews">
+                                        <include reference="FS3-yN-ZvP"/>
+                                        <include reference="hwf-cw-s3m"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="ger-00-dv8"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="ger-00-dv8"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="errorHackerImageView" destination="FS3-yN-ZvP" id="pDy-dm-PaY"/>
+                        <outlet property="errorMessageLabel" destination="hwf-cw-s3m" id="Npx-06-Z4D"/>
+                        <outlet property="errorView" destination="ger-00-dv8" id="Vwr-N3-0Dj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zcp-a5-JNY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -477,7 +528,7 @@
         <image name="background_for_login_view" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fYM-kk-7Ke"/>
+        <segue reference="sWr-HM-aZt"/>
         <segue reference="fCF-Qf-KSh"/>
     </inferredMetricsTieBreakers>
 </document>

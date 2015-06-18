@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <libHN/libHN.h>
+#import <DGActivityIndicatorView/DGActivityIndicatorView.h>
 
-@interface HNPostCotentViewController : UIViewController
+@interface HNPostCotentViewController : UIViewController <UIWebViewDelegate>
 
 @property (strong, nonatomic) HNPost *post;
+@property (strong, nonatomic) UIWebView *postContent;
+@property (strong, nonatomic) DGActivityIndicatorView *loadingIndicator;
 
 @end
