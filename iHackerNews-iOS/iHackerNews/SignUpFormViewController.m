@@ -97,6 +97,12 @@
                   [self handleServerResponse:responseObject];
               } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   NSLog(@"ERROR: %@", error);
+                  SCLAlertView *userSignUpFailedAlert = [[SCLAlertView alloc] init];
+                  [userSignUpFailedAlert showWarning:self
+                                               title:@"Error"
+                                            subTitle:[error localizedDescription]
+                                    closeButtonTitle:@"OK"
+                                            duration:0.0f];
               }];
     }
 }

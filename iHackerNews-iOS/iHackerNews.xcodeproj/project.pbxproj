@@ -18,6 +18,8 @@
 		B07E7E091B2013A8009F16CF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07E7E071B2013A8009F16CF /* LaunchScreen.xib */; };
 		B07E7E151B2013A8009F16CF /* iHackerNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E7E141B2013A8009F16CF /* iHackerNewsTests.m */; };
 		B0A3CEA01B22C96F0040CF0C /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A3CE9F1B22C96F0040CF0C /* LogInViewController.m */; };
+		B0A6A4F21B33FEAA00F1138D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A6A4F11B33FEAA00F1138D /* SWRevealViewController.m */; };
+		B0A6A4F51B3405EC00F1138D /* SidebarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A6A4F41B3405EC00F1138D /* SidebarTableViewController.m */; };
 		B0D327FB1B22EF2900E23B97 /* SignUpFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D327FA1B22EF2900E23B97 /* SignUpFormViewController.m */; };
 		B0D327FE1B22FC5600E23B97 /* SignInFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D327FD1B22FC5600E23B97 /* SignInFormViewController.m */; };
 		B0E071F81B2428C000A9EAB4 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E071F71B2428C000A9EAB4 /* Utils.m */; };
@@ -58,6 +60,10 @@
 		B07E7E141B2013A8009F16CF /* iHackerNewsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iHackerNewsTests.m; sourceTree = "<group>"; };
 		B0A3CE9E1B22C96F0040CF0C /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		B0A3CE9F1B22C96F0040CF0C /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		B0A6A4F01B33FEAA00F1138D /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		B0A6A4F11B33FEAA00F1138D /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		B0A6A4F31B3405EC00F1138D /* SidebarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarTableViewController.h; sourceTree = "<group>"; };
+		B0A6A4F41B3405EC00F1138D /* SidebarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarTableViewController.m; sourceTree = "<group>"; };
 		B0D327F91B22EF2900E23B97 /* SignUpFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpFormViewController.h; sourceTree = "<group>"; };
 		B0D327FA1B22EF2900E23B97 /* SignUpFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpFormViewController.m; sourceTree = "<group>"; };
 		B0D327FC1B22FC5600E23B97 /* SignInFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInFormViewController.h; sourceTree = "<group>"; };
@@ -130,6 +136,8 @@
 			children = (
 				B07E7DF91B2013A8009F16CF /* AppDelegate.h */,
 				B07E7DFA1B2013A8009F16CF /* AppDelegate.m */,
+				B0A6A4F01B33FEAA00F1138D /* SWRevealViewController.h */,
+				B0A6A4F11B33FEAA00F1138D /* SWRevealViewController.m */,
 				B07E7DFF1B2013A8009F16CF /* ViewController.h */,
 				B07E7E001B2013A8009F16CF /* ViewController.m */,
 				B00081341B295ACD007EC5DE /* HNPostsTableViewController.h */,
@@ -143,6 +151,8 @@
 				B0D327FC1B22FC5600E23B97 /* SignInFormViewController.h */,
 				B0D327FD1B22FC5600E23B97 /* SignInFormViewController.m */,
 				B07E7E021B2013A8009F16CF /* Main.storyboard */,
+				B0A6A4F31B3405EC00F1138D /* SidebarTableViewController.h */,
+				B0A6A4F41B3405EC00F1138D /* SidebarTableViewController.m */,
 				B0E071F61B2428C000A9EAB4 /* Utils.h */,
 				B0E071F71B2428C000A9EAB4 /* Utils.m */,
 				B0E071F91B242E7000A9EAB4 /* constants.h */,
@@ -325,8 +335,10 @@
 				B0A3CEA01B22C96F0040CF0C /* LogInViewController.m in Sources */,
 				B07E7E011B2013A8009F16CF /* ViewController.m in Sources */,
 				B0E071FB1B242E7000A9EAB4 /* constants.m in Sources */,
+				B0A6A4F51B3405EC00F1138D /* SidebarTableViewController.m in Sources */,
 				B07E7DF81B2013A8009F16CF /* main.m in Sources */,
 				B0D327FE1B22FC5600E23B97 /* SignInFormViewController.m in Sources */,
+				B0A6A4F21B33FEAA00F1138D /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "03FD7F2972129562388BCF27"
+               BlueprintIdentifier = "22A6DEB727BDA3B31F78B860"
                BuildableName = "libPods-iHackerNews-NSAttributedString+CCLFormat.a"
                BlueprintName = "Pods-iHackerNews-NSAttributedString+CCLFormat"
                ReferencedContainer = "container:Pods.xcodeproj">

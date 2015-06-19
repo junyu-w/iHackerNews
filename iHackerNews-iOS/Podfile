@@ -13,6 +13,7 @@ target 'iHackerNews' do
   pod 'MGSwipeTableCell', '~> 1.4'
   pod 'NSAttributedString+CCLFormat'
   pod 'DGActivityIndicatorView'
+  pod 'RESideMenu', '~> 4.0.7'
 end
 
 target 'iHackerNewsTests' do

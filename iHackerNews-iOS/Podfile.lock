@@ -50,6 +50,7 @@ PODS:
   - NSAttributedString+CCLFormat (1.0.1)
   - PBFlatUI (1.1.0)
   - QBImagePickerController (3.2.0)
+  - RESideMenu (4.0.7)
   - SCLAlertView-Objective-C (0.7.2)
 
 DEPENDENCIES:
@@ -63,6 +64,7 @@ DEPENDENCIES:
   - NSAttributedString+CCLFormat
   - PBFlatUI (~> 1.1.0)
   - QBImagePickerController (~> 3.2)
+  - RESideMenu (~> 4.0.7)
   - SCLAlertView-Objective-C (~> 0.7)
 
 SPEC CHECKSUMS:
@@ -77,6 +79,7 @@ SPEC CHECKSUMS:
   NSAttributedString+CCLFormat: ed7a2c814ac5444d0747c11ec0e532d46839a480
   PBFlatUI: d797c6de1d28245287d695d74178dc75895d0bd9
   QBImagePickerController: 75b3857b1307a3c01ce486559bc294f802ddec6c
+  RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SCLAlertView-Objective-C: 4ad7397ca948b4ab75426c677368652fee475573
 
 COCOAPODS: 0.37.2

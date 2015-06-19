@@ -15,6 +15,8 @@
 #import <AFNetWorking/AFNetWorking.h>
 #import "Utils.h"
 #import "constants.h"
+#import "SWRevealViewController.h"
+#import "HNPostsTableViewController.h"
 
 @interface SignInFormViewController ()
 @property (weak, nonatomic) IBOutlet PBFlatTextfield *usernameInputField;
@@ -48,15 +50,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
 - (IBAction)backButtonOnClick:(id)sender {
     [self dismissViewControllerAnimated:YES completion:^{
         NSLog(@"user dismissed sign in view controller");
@@ -86,6 +83,12 @@
             [self handleServerResponse:responseObject];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
+            SCLAlertView *userSignInFailureAlert = [[SCLAlertView alloc] init];
+            [userSignInFailureAlert showWarning:self
+                                          title:@"Error"
+                                       subTitle:[error localizedDescription]
+                               closeButtonTitle:@"OK"
+                                       duration:0.0f];
         }];
     }
 }
@@ -141,10 +144,11 @@
         //segue to the HNPostTableViewController
         [self performSegueWithIdentifier:@"pop up hn post table view after sign in" sender:self];
         
+        
     }else {
         //show alerts
-        SCLAlertView *userCreateFailureAlert = [[SCLAlertView alloc] init];
-        [userCreateFailureAlert showWarning:self
+        SCLAlertView *userSignInFailureAlert = [[SCLAlertView alloc] init];
+        [userSignInFailureAlert showWarning:self
                                       title:@"Error"
                                    subTitle:response[@"error"]
                            closeButtonTitle:@"OK"

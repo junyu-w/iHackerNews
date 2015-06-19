@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <RESideMenu/RESideMenu.h>
 
 @interface AppDelegate ()
 

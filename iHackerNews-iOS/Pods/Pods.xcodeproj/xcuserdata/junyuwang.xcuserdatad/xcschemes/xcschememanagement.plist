@@ -59,6 +59,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-iHackerNews-RESideMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iHackerNews-SCLAlertView-Objective-C.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,72 +82,77 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>03FD7F2972129562388BCF27</key>
+		<key>062CBC4DE54C1150E274C36C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1982B5F526E9A017415FF469</key>
+		<key>22A6DEB727BDA3B31F78B860</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>357D5ED28AD1CED0FD4AA469</key>
+		<key>3D5CFE327D4498CF446ABEAD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3C158C2B5D51C518DCD8695E</key>
+		<key>5080C506DAB33B5ECCA7AEFB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>46A5527DE69A9A6B2EC45BFF</key>
+		<key>6D30156DAC76947080916F7A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>538D6239EB0A6853F8A7505C</key>
+		<key>72CB57D73E2A6BA14FE90DF3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>686756794025414A28C9D68B</key>
+		<key>74F9F683314AA90A19904FEF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8E504B0E82A6084FB579E5AC</key>
+		<key>80123F940D9EFD6D35CF224F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>97D2BB89C6C8B4D8BE0073C8</key>
+		<key>8BA430DED1E8C80D29F19A74</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AD44A0A03136A43094F58971</key>
+		<key>A822E2CDB92609E9920199C2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B8942D39C79273DD35F7FD32</key>
+		<key>B20AB6268147F7F8962745D3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C69E2D31A4CED30EE74E90BD</key>
+		<key>D29641CBAA0C608D51A91544</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CF55F7B8EB3338F4554A63C1</key>
+		<key>DE2A1C3EEF57139B65CDEC4A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F0F03F1B27D76C9BB10F1AE5</key>
+		<key>E93F0057E1F111CBD5609CD8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E954059909D2D81F74106BF2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

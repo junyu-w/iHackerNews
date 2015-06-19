@@ -16,8 +16,10 @@
 #import "HNPostCotentViewController.h"
 #import <ChameleonFramework/Chameleon.h>
 #import <NSAttributedString+CCLFormat/NSAttributedString+CCLFormat.h>
+#import "SWRevealViewController.h"
 
 @interface HNPostsTableViewController ()
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *userButton;
 @end
 
@@ -30,6 +32,15 @@ static const NSString *fontForTableViewBold = @"HelveticaNeue-Bold";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"whatsup");
+    
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if (revealViewController) {
+        NSLog(@"hey");
+        [self.sidebarButton setTarget: self.revealViewController];
+        [self.sidebarButton setAction: @selector( revealToggle: )];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
     
     [self setUpBasicUIComponents];
     //TODO: do something when get new hn posts.
