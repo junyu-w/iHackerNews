@@ -32,22 +32,24 @@ static const NSString *fontForTableViewBold = @"HelveticaNeue-Bold";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"whatsup");
-    
-    SWRevealViewController *revealViewController = self.revealViewController;
-    if (revealViewController) {
-        NSLog(@"hey");
-        [self.sidebarButton setTarget: self.revealViewController];
-        [self.sidebarButton setAction: @selector( revealToggle: )];
-        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    }
-    
+
     [self setUpBasicUIComponents];
     //TODO: do something when get new hn posts.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(someSelector) name:kHNShouldReloadDataFromConfiguration object:nil];
     
     [[HNManager sharedManager] startSession];
     [self fetchHNPosts];
+    
+    NSLog(@"whatsup");
+    
+    SWRevealViewController *revealViewController = self.revealViewController;
+    NSLog(@"%@", [revealViewController description]);
+    if (revealViewController) {
+        NSLog(@"hey");
+        [self.sidebarButton setTarget: self.revealViewController];
+        [self.sidebarButton setAction: @selector( revealToggle: )];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

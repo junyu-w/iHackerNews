@@ -394,7 +394,7 @@
                         <outlet property="passwordInputField" destination="uuu-jD-Qwn" id="BpX-Ic-P2E"/>
                         <outlet property="signInButton" destination="ndN-Qn-EwJ" id="Git-xr-cGj"/>
                         <outlet property="usernameInputField" destination="e8j-fl-Urm" id="brt-Nd-2aD"/>
-                        <segue destination="nSq-8h-Fit" kind="presentation" identifier="pop up hn post table view after sign in" id="sWr-HM-aZt"/>
+                        <segue destination="j5d-Ue-nqI" kind="presentation" identifier="pop up hn post table view after sign in" id="Wmb-kd-lku"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWi-rr-bG9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -500,7 +500,7 @@
                         <outlet property="signUpButton" destination="xvi-9u-qxE" id="f8f-0U-M7W"/>
                         <outlet property="userProfilePicture" destination="fhi-PR-55Z" id="mSo-nO-nDm"/>
                         <outlet property="usernameInputField" destination="yqh-1I-8bp" id="If9-eT-xml"/>
-                        <segue destination="nSq-8h-Fit" kind="presentation" identifier="pop up hn post table view after sign in" id="9kH-LJ-nzz"/>
+                        <segue destination="j5d-Ue-nqI" kind="presentation" identifier="pop up hn post table view after sign up" id="cIP-ff-1Lq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ec-Bk-pVK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -512,6 +512,7 @@
             <objects>
                 <tableViewController id="M3y-9A-l3O" customClass="SidebarTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="23Y-1X-Rct">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -705,6 +706,7 @@
                         <viewControllerLayoutGuide type="bottom" id="5Ba-OZ-NYj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vor-u3-Xqo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -740,7 +742,7 @@
         <image name="background_for_login_view" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fCF-Qf-KSh"/>
-        <segue reference="9kH-LJ-nzz"/>
+        <segue reference="fhm-aF-FnT"/>
+        <segue reference="Wmb-kd-lku"/>
     </inferredMetricsTieBreakers>
 </document>
