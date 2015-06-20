@@ -8,6 +8,7 @@
 
 #import "SidebarTableViewController.h"
 #import "SWRevealViewController.h"
+#import "HNPostsTableViewController.h"
 
 @interface SidebarTableViewController ()
 
@@ -20,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    menuItems = @[@"title", @"top",@"newest", @"noobstories", @"showHN", @"askHN", @"today_best", @"yesterday_best", @"week_best", @"favorites"];
+    menuItems = @[@"title", @"top", @"new", @"best", @"showHN", @"askHN", @"jobs", @"favorites"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -93,14 +94,35 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
+- (NSString *)navBarTitleForCellIdentifier:(NSString *)identifier {
+    if ([identifier isEqualToString:@"top"]) {
+        return @"Top";
+    }else if ([identifier isEqualToString:@"askHN"]) {
+        return @"Ask HN";
+    }else if ([identifier isEqualToString:@"jobs"]) {
+        return @"Jobs";
+    }else if ([identifier isEqualToString:@"new"]) {
+        return @"New";
+    }else if ([identifier isEqualToString:@"showHN"]) {
+        return @"Show HN";
+    }else if ([identifier isEqualToString:@"best"]) {
+        return @"Best";
+    }else {
+        return @"Unknown Identifier";
+    }
+}
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    HNPostsTableViewController *destinationVC = [(UINavigationController *)segue.destinationViewController childViewControllers].firstObject;
+    destinationVC.title = [self navBarTitleForCellIdentifier:[menuItems objectAtIndex:indexPath.row]];
+    destinationVC.HNPostType = [menuItems objectAtIndex:indexPath.row];
 }
-*/
+
 
 @end

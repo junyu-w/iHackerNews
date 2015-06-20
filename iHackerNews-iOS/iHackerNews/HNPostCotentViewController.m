@@ -49,6 +49,7 @@ static const NSString *fontForAppBold = @"HelveticaNeue-Bold";
     [super viewWillAppear:animated];
     [self.postContent loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[self.post UrlString]]]];
     [self.view addSubview:self.postContent];
+    [self.loadingIndicator startAnimating];
 
 }
 
@@ -70,7 +71,7 @@ static const NSString *fontForAppBold = @"HelveticaNeue-Bold";
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     NSLog(@"web view start loading");
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    [self.loadingIndicator startAnimating];
+    
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {

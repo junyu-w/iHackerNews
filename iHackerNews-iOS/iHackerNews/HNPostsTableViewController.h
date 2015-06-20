@@ -11,5 +11,6 @@
 @interface HNPostsTableViewController : UITableViewController
 
 @property (strong, nonatomic) NSArray *HNPostsArray;
+@property (strong, nonatomic) NSString *HNPostType;
 
 @end

@@ -209,7 +209,7 @@ static const NSString *fontForTableViewBold = @"HelveticaNeue-Bold";
 #pragma mark - fetch info from HN and format them
 
 - (void)fetchHNPosts {
-    [[HNManager sharedManager] loadPostsWithFilter:PostFilterTypeTop
+    [[HNManager sharedManager] loadPostsWithFilter:[self determinPostType]
                                         completion:^(NSArray *posts, NSString *nextPageIdentifier) {
                                             if (posts) {
                                                 NSLog(@"HN Posts: %lu", (unsigned long)posts.count);
@@ -231,6 +231,24 @@ static const NSString *fontForTableViewBold = @"HelveticaNeue-Bold";
                                                      NSLog(@"Error fetching more posts");
                                                  }
                                              }];
+}
+
+- (NSInteger)determinPostType {
+    NSInteger postType;
+    if ([_HNPostType isEqualToString:@"top"]) {
+        postType = PostFilterTypeTop;
+    }else if ([_HNPostType isEqualToString:@"askHN"]) {
+        postType = PostFilterTypeAsk;
+    }else if ([_HNPostType isEqualToString:@"jobs"]) {
+        postType = PostFilterTypeJobs;
+    }else if ([_HNPostType isEqualToString:@"showHN"]) {
+        postType = PostFilterTypeShowHN;
+    }else if ([_HNPostType isEqualToString:@"new"]) {
+        postType = PostFilterTypeNew;
+    }else if ([_HNPostType isEqualToString:@"best"]) {
+        postType = PostFilterTypeBest;
+    }
+    return postType;
 }
 
 
