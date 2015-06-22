@@ -10,11 +10,10 @@
 #
 class HackerNewsPost < ActiveRecord::Base
 
-
-  has_many :users_hacker_news_posts_joins
-  has_many :users, :through => :users_hacker_news_posts_joins
+  has_and_belongs_to_many :users
 
   validates :url, presence:true, uniqueness:true
-
+  validates :urlDomain, presence:true
+  validates :title, presence:true
 
 end

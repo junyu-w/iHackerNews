@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :users, only: [:show, :create] 
-  resources :hacker_news_posts, only: [:show, :create]
+  resources :users, only: [:show, :create]
+  resources :hacker_news_posts, only: [:show, :create, :destroy]
   resources :users_hacker_news_posts_joins, only: [:show, :create]
+
+  get 'posts_of_user', to: 'users#posts_of_user'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

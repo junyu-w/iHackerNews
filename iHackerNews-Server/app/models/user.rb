@@ -15,11 +15,12 @@
 
 class User < ActiveRecord::Base
 
-  has_many :hacker_news_posts, :through => :users_hacker_news_posts_joins
-  has_many :users_hacker_news_posts_joins
+  has_and_belongs_to_many :hacker_news_posts
 
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   validates :username, presence:true, uniqueness:true
   validates :email, presence:true
+
+  scope :posts_of_user, -> (user) { user.hacker_news_posts }
 
 end

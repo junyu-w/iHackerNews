@@ -47,6 +47,17 @@ class UsersController < ApplicationController
 
   def destroy; end
 
+  # this gives back all starred posts of a specific user
+  def posts_of_user
+    identity = authenticate_params_and_tell_user_identity
+    if identity == 1
+      user = params[:user_email].nil? ? User.where(:username => params[:username], :password => params[:password]).first : User.where(:email => params[:user_email], :password => params[:password]).first
+      render :json => {:success => true, :info => User.posts_of_user(user).order("created_at DESC") }
+    elsif identity == 0
+      # TODO: deal with facebook user
+    end
+  end
+
   protected
 
   ## authenticate passed in parameters and render user info ##
@@ -125,4 +136,5 @@ class UsersController < ApplicationController
       render :json => {:error => new_user.errors.full_messages.to_sentence}
     end
   end
+
 end
