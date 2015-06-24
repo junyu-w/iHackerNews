@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users_hacker_news_posts_joins, only: [:show, :create]
 
   get 'posts_of_user', to: 'users#posts_of_user'
+  post 'unmark_post', to: 'users/unmark_post'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

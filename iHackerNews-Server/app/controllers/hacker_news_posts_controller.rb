@@ -15,7 +15,7 @@ class HackerNewsPostsController < ApplicationController
       selected_post = HackerNewsPost.find(params[:id])
       render :json => {:success => true, :info => selected_post}
     else
-      render :json => {:success => false, :error => INCORRECT_PARAMETER_ERROR}
+      render :json => {:error => INCORRECT_PARAMETER_ERROR}
     end
   end
 
@@ -32,10 +32,10 @@ class HackerNewsPostsController < ApplicationController
         user.hacker_news_posts << new_starred_post
         render :json => {:success => true }
       else
-        render :json => {:success => false, :error => new_starred_post.errors.full_messages.to_sentence}
+        render :json => {:error => new_starred_post.errors.full_messages.to_sentence}
       end
     else
-      render :json => {:success => false, :error => INCORRECT_PARAMETER_ERROR}
+      render :json => {:error => INCORRECT_PARAMETER_ERROR}
     end
   end
 
@@ -43,29 +43,11 @@ class HackerNewsPostsController < ApplicationController
 
   def update; end
 
-  ## destroy relation bewteen given post and user ##
-  def destroy
-    if authenticate_destroy_params
-      post_id = HackerNewsPost.find_by_url(params[:post_url]).id
-      user_post_relation = UsersHackerNewsPostsJoin.find({:post_id => post_id, :user_id => params[:user_id]})
-      if user_post_relation.destroy
-        render :json => {:success => true}
-      else
-        render :json => {:success => false, :error => user_post_relation.errors.full_messages.to_sentence}
-      end
-    else
-      render :json => {:success => false, :error => INCORRECT_PARAMETER_ERROR}
-    end
-  end
-
   protected
 
   def authenticate_post_params
     params[:post_url].nil? || params[:user_id].nil? || params[:post_url_domain].nil? || params[:post_title].nil? ? false : true
   end
 
-  def authenticate_destroy_params
-    params[:post_url].nil? || params[:user_id].nil? ? false : true
-  end
 end
 

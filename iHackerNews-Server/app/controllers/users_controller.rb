@@ -58,9 +58,32 @@ class UsersController < ApplicationController
     end
   end
 
+  def unmark_post
+    if authenticate_unmark_params
+      post = HackerNewsPost.find_by_url(params[:post_url])
+      user = User.find(show[:user_info][:user_id])
+      if user.hacker_news_posts.delete(post)
+        render :json => {:success => true}
+      else
+        render :json => {:error => "Failed to unmark this post"}
+      end
+    else
+      render :json => {:error => INCORRECT_PARAMETER_ERROR }
+    end
+  end
+
   protected
 
   ## authenticate passed in parameters and render user info ##
+  #
+  def authenticate_unmark_params
+    authenticate_params_and_tell_user_identity 
+    if params[:post_url]
+      return true
+    else
+      return false
+    end
+  end
 
   ## 0 -- facebook user, 1 -- normal user
   def authenticate_params_and_tell_user_identity
