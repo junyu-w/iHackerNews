@@ -14,4 +14,8 @@ extern NSString* const serverURL;
 extern NSString* const getUserURL;
 extern NSString* const createUserURL;
 
+extern NSString* const markPostURL;
+extern NSString* const unmarkPostURL;
+extern NSString* const postsOfUserURL;
+
 @end

@@ -47,6 +47,7 @@
     [facebook_login_button setBackgroundImage:[UIImage imageNamed:@"facebook_login_button"] forState:UIControlStateNormal];
     [self.view addSubview:facebook_login_button];
     [facebook_login_button addTarget:self action:@selector(loginWithFacebook) forControlEvents:UIControlEventTouchUpInside];
+    facebook_login_button.animateTap = NO;
     
     DKCircleButton *normal_login_button = [[DKCircleButton alloc] initWithFrame:CGRectMake(0, 0, 70, 70)];
     normal_login_button.center = CGPointMake(250, 500);
@@ -54,6 +55,7 @@
     [normal_login_button setBackgroundImage:[UIImage imageNamed:@"normal_login_button"] forState:UIControlStateNormal];
     [self.view addSubview:normal_login_button];
     [normal_login_button addTarget:self action:@selector(normalUserSignUp) forControlEvents:UIControlEventTouchUpInside];
+    normal_login_button.animateTap = NO;
 }
 
 - (void)loginWithFacebook {

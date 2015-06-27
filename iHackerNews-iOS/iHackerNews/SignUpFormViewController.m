@@ -113,6 +113,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:self.usernameInputField.text forKey:@"username"];
         [[NSUserDefaults standardUserDefaults] setObject:self.passwordInputField.text forKey:@"password"];
         [[NSUserDefaults standardUserDefaults] setObject:self.emailInputField.text forKey:@"email"];
+        [[NSUserDefaults standardUserDefaults] setObject:response[@"user_info"][@"user_id"] forKey:@"user_id"];
         //segue to hn post table view
         [self performSegueWithIdentifier:@"pop up hn post table view after sign up" sender:self];
     }else {

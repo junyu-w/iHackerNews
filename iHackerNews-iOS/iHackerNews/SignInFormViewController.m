@@ -136,9 +136,11 @@
         if ([self signInUsingEmail]) {
             [[NSUserDefaults standardUserDefaults] setObject:self.usernameInputField.text forKey:@"email"];
             [[NSUserDefaults standardUserDefaults] setObject:response[@"user_info"][@"username"] forKey:@"username"];
+            [[NSUserDefaults standardUserDefaults] setObject:response[@"user_info"][@"user_id"] forKey:@"user_id"];
         }else {
             [[NSUserDefaults standardUserDefaults] setObject:self.usernameInputField.text forKey:@"username"];
             [[NSUserDefaults standardUserDefaults] setObject:response[@"user_info"][@"email"] forKey:@"email"];
+            [[NSUserDefaults standardUserDefaults] setObject:response[@"user_info"][@"user_id"] forKey:@"user_id"];
         }
         [[NSUserDefaults standardUserDefaults] setObject:self.passwordInputField.text forKey:@"password"];
         //segue to the HNPostTableViewController

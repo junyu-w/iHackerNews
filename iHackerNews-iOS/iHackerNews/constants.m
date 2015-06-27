@@ -14,4 +14,8 @@ NSString* const serverURL = @"http://localhost:3000/";
 NSString* const getUserURL = @"http://localhost:3000/users/id?";
 NSString* const createUserURL = @"http://localhost:3000/users";
 
+NSString* const markPostURL = @"http://localhost:3000/mark_post";
+NSString* const unmarkPostURL = @"http://localhost:3000/unmark_post";
+NSString* const postsOfUserURL = @"http://localhost:3000/posts_of_user";
+
 @end

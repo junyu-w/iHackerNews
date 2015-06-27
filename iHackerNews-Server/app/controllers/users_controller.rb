@@ -62,6 +62,7 @@ class UsersController < ApplicationController
     if authenticate_unmark_params
       post = HackerNewsPost.find_by_url(params[:post_url])
       user = User.find(show[:user_info][:user_id])
+      render :json => {:error => "This post doesn't exist in your favorites"} and return unless user.hacker_news_posts.include? post
       if user.hacker_news_posts.delete(post)
         render :json => {:success => true}
       else

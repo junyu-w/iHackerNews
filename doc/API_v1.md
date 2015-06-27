@@ -4,13 +4,10 @@ API_v1
 Endpoints & parameters
 ----
 
-##User##
----
-
 1. ***GET /users/id***
    - params => username:string & password:string OR user_email:string & password:string OR facebook_id:string & facebook_auth_token:string
    - if success:
-   return => {:success => true, :user_info => {:user_id, :user_email, :profile_picture_url}}
+   return => {:success => true, :user_info => {:user_id, :username, :email, :profile_picture_url}}
    - if fail:
    return => {:error => "some msg"}
 
@@ -36,11 +33,7 @@ Endpoints & parameters
   - if fail:
   return => {:error => "some msg"}
 
-
-##POST##
-----
-
-1. ***POST /hacker_news_posts(.:format)***
+5. ***POST /mark_post(.:format)***
   - params => post_url:string & user_id:string & post_url_domain:string & post_title:string
   - if success:
   return => {:success => true}

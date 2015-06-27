@@ -17,10 +17,13 @@
 #import <ChameleonFramework/Chameleon.h>
 #import <NSAttributedString+CCLFormat/NSAttributedString+CCLFormat.h>
 #import "SWRevealViewController.h"
+#import <AFNetworking/AFNetworking.h>
+#import "constants.h"
+#import <SCLAlertView-Objective-C/SCLAlertView.h>
 
 @interface HNPostsTableViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *userButton;
+
 @end
 
 #pragma mark - view controller life cycle
@@ -40,8 +43,6 @@ static const NSString *fontForTableViewBold = @"HelveticaNeue-Bold";
     [[HNManager sharedManager] startSession];
     [self fetchHNPosts];
     
-    NSLog(@"whatsup");
-    
     SWRevealViewController *revealViewController = self.revealViewController;
     NSLog(@"%@", [revealViewController description]);
     if (revealViewController) {
@@ -50,12 +51,6 @@ static const NSString *fontForTableViewBold = @"HelveticaNeue-Bold";
         [self.sidebarButton setAction: @selector( revealToggle: )];
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)setUpBasicUIComponents {
@@ -63,10 +58,15 @@ static const NSString *fontForTableViewBold = @"HelveticaNeue-Bold";
     
     NSDictionary *navigationBarTitleAttributes = [[NSDictionary alloc] initWithObjectsAndKeys:[UIFont fontWithName:fontForTableViewLight size:17], NSFontAttributeName, nil];
     [self.navigationController.navigationBar setTitleTextAttributes:navigationBarTitleAttributes];
-    [self.userButton setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:fontForTableViewBold size:17],
-                                              NSForegroundColorAttributeName: FlatBlackDark,
-                                              NSStrokeWidthAttributeName: [NSNumber numberWithFloat:6.0]}
-                                   forState:UIControlStateNormal];
+    
+    UIBarButtonItem *userButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"user_icon"]
+                                                                   style:UIBarButtonItemStylePlain
+                                                                  target:self
+                                                                  action:@selector(pushToUserView)];
+    userButton.tintColor = FlatSand;
+    self.navigationItem.rightBarButtonItem = userButton;
+    self.navigationItem.leftBarButtonItem.tintColor = FlatSand;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -105,7 +105,6 @@ static const NSString *fontForTableViewBold = @"HelveticaNeue-Bold";
 }
 
 - (IBAction)refreshHandler:(id)sender {
-    //TODO: implement refresh
     [self.refreshControl beginRefreshing];
     [self fetchHNPosts];
     sleep(2);
@@ -123,17 +122,28 @@ static const NSString *fontForTableViewBold = @"HelveticaNeue-Bold";
     
     cell.delegate = self; //optional
     
+    HNPost *post = [_HNPostsArray objectAtIndex:indexPath.row];
     
     //configure left buttons
-    cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"star_post.png"] backgroundColor:[UIColor whiteColor]]];
+    cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"star_post.png"] backgroundColor:FlatCoffee callback:^BOOL(MGSwipeTableCell *sender) {
+        NSLog(@"mark this post as favorite");
+        [sender hideSwipeAnimated:YES];
+        [self markHNPostAsFavorite:post];
+        return YES;
+    }]];
     cell.leftSwipeSettings.transition = MGSwipeTransition3D;
     
     //configure right buttons
-    cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"Read" backgroundColor:FlatYellow]];
+    cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"Read" backgroundColor:FlatYellow callback:^BOOL(MGSwipeTableCell *sender) {
+        NSLog(@"read this post");
+        [sender expandSwipe:MGSwipeDirectionRightToLeft animated:YES];
+        [self performSegueWithIdentifier:@"push to hn content view" sender:indexPath];
+        return YES;
+    }]];
     cell.rightSwipeSettings.transition = MGSwipeTransition3D;
     
     //get the post
-    HNPost *post = [_HNPostsArray objectAtIndex:indexPath.row];
+    
     
     //set up ui for title
     cell.textLabel.text = [post Title];
@@ -141,6 +151,7 @@ static const NSString *fontForTableViewBold = @"HelveticaNeue-Bold";
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.font = [UIFont fontWithName:fontForTableViewLight size:16];
     cell.backgroundColor = [[UIColor alloc] initWithRed:236 green:240 blue:241 alpha:1.0];
+    cell.swipeBackgroundColor = FlatCoffee;
     
     //set up ui for point and url domain
     cell.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -184,6 +195,10 @@ static const NSString *fontForTableViewBold = @"HelveticaNeue-Bold";
 
 #pragma mark - Navigation
 
+- (void)pushToUserView {
+    [self performSegueWithIdentifier:@"pop up user view" sender:self];
+}
+
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
@@ -206,7 +221,7 @@ static const NSString *fontForTableViewBold = @"HelveticaNeue-Bold";
     return [FBSDKAccessToken currentAccessToken] != nil || ([[NSUserDefaults standardUserDefaults] objectForKey:@"username"] != nil && [[NSUserDefaults standardUserDefaults] objectForKey:@"password"] != nil);
 }
 
-#pragma mark - fetch info from HN and format them
+#pragma mark - HN post related (fetch info & mark as favorite)
 
 - (void)fetchHNPosts {
     [[HNManager sharedManager] loadPostsWithFilter:[self determinPostType]
@@ -249,6 +264,49 @@ static const NSString *fontForTableViewBold = @"HelveticaNeue-Bold";
         postType = PostFilterTypeBest;
     }
     return postType;
+}
+
+- (void)markHNPostAsFavorite:(HNPost*)post {
+    NSString *user_id = [[NSUserDefaults standardUserDefaults] objectForKey:@"user_id"];
+    NSString *post_url = [post UrlString];
+    NSString *post_url_domain = [post UrlDomain];
+    NSString *post_title = [post Title];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager new];
+    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:user_id, @"user_id", post_url, @"post_url", post_url_domain, @"post_url_domain", post_title, @"post_title", nil];
+    [manager POST:markPostURL
+       parameters:params
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              NSLog(@"success JSON: %@", responseObject);
+              [self handleResponse:responseObject];
+          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              NSLog(@"failed ERROR: %@", error);
+              SCLAlertView *errorAlert = [[SCLAlertView alloc] init];
+              [errorAlert showError:@"Error"
+                           subTitle:[error localizedDescription]
+                   closeButtonTitle:@"OK"
+                           duration:0.0f];
+          }];
+}
+
+// FIXME: SCLAertView doesn't pop up
+- (void)handleResponse:(id)response {
+    if (response[@"success"]) {
+        NSLog(@"here");
+        SCLAlertView *successAlert = [[SCLAlertView alloc] init];
+        [successAlert showCustom:[UIImage imageNamed:@"default_user_profile_picture"]
+                           color:FlatGreen
+                           title:@"Success"
+                        subTitle:@"Marked this post as favorite successfully!"
+                closeButtonTitle:@"OK"
+                        duration:0.0f];
+    }else {
+        NSLog(@"waht");
+        SCLAlertView *errorAlert = [[SCLAlertView alloc] init];
+        [errorAlert showError:@"Error"
+                     subTitle:response[@"error"]
+             closeButtonTitle:@"OK"
+                     duration:0.0f];
+    }
 }
 
 

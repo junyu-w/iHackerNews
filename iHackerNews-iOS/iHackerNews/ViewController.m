@@ -73,6 +73,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"username"];
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"email"];
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"password"];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"user_id"];
     //segue to log in view controller
     [self performSegueWithIdentifier:@"pop up log in view after log out" sender:self];
 }

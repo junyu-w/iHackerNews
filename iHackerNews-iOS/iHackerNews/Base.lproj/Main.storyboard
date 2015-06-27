@@ -147,11 +147,6 @@
                         <barButtonItem key="leftBarButtonItem" image="reveal_icon" id="g8B-kd-7Zy">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="User" id="bW7-Sq-EtR">
-                            <connections>
-                                <segue destination="vXZ-lx-hvc" kind="presentation" identifier="show user profile view" id="t4g-ao-vQB"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="31e-ov-Qzc">
                         <autoresizingMask key="autoresizingMask"/>
@@ -161,9 +156,9 @@
                     </refreshControl>
                     <connections>
                         <outlet property="sidebarButton" destination="g8B-kd-7Zy" id="kSd-uf-Cck"/>
-                        <outlet property="userButton" destination="bW7-Sq-EtR" id="5to-4E-EYA"/>
                         <segue destination="25J-0s-IOR" kind="presentation" identifier="pop up log in view" id="fCF-Qf-KSh"/>
                         <segue destination="2FD-Ke-gRL" kind="show" identifier="push to hn content view" id="Zo2-Qp-TFV"/>
+                        <segue destination="vXZ-lx-hvc" kind="presentation" identifier="pop up user view" id="h0A-tK-PSW"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aa3-cS-BM2" userLabel="First Responder" sceneMemberID="firstResponder"/>
