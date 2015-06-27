@@ -1,6 +1,6 @@
 class HackerNewsPostsController < ApplicationController
 
-  skip_before_filter :verify_authenticity_token, :only => [:mark_post] 
+  skip_before_filter :verify_authenticity_token, :only => [:mark_post]
 
   INCORRECT_PARAMETER_ERROR = "Incorrect parameters passed in"
   POST_HAS_BEEN_MARKED = "This post has already been marked as favorite"
@@ -27,9 +27,13 @@ class HackerNewsPostsController < ApplicationController
   def mark_post
     if authenticate_post_params
       user = User.find_by_id(params[:user_id])
-      marked_post = HackerNewsPost.where(:url => params[:post_url], :title => params[:post_title], :urlDomain => params[:post_url_domain]).first
+      marked_post = HackerNewsPost.where(:url => params[:post_url],
+                                         :title => params[:post_title],
+                                         :urlDomain => params[:post_url_domain]).first
       if marked_post.nil?
-        new_starred_post = HackerNewsPost.new :url => params[:post_url], :title => params[:post_title], :urlDomain => params[:post_url_domain]
+        new_starred_post = HackerNewsPost.new :url => params[:post_url],
+                                              :title => params[:post_title],
+                                              :urlDomain => params[:post_url_domain]
         if new_starred_post.save
           # new_user_post_relation = UsersHackerNewsPostsJoin.new :user_id => user.id, :post_id => new_starred_post.id
           user.hacker_news_posts << new_starred_post
@@ -40,7 +44,7 @@ class HackerNewsPostsController < ApplicationController
       elsif user.hacker_news_posts.include? marked_post
         render :json => {:error => POST_HAS_BEEN_MARKED}
       else
-        user.hacker_news_posts << marked_post 
+        user.hacker_news_posts << marked_post
         render :json => {:success => true }
       end
     else
@@ -59,4 +63,3 @@ class HackerNewsPostsController < ApplicationController
   end
 
 end
-

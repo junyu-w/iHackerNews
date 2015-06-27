@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
-  #remove this line if can this application also needs to run as a browser Application 
+  #remove this line if can this application also needs to run as a browser Application
   #currently works because this only serves as an API for the iOS app.
-  skip_before_filter :verify_authenticity_token, :only => [:create] 
+  skip_before_filter :verify_authenticity_token, :only => [:create]
 
   INCORRECT_PARAMETER_ERROR = "Incorrect parameters passed in"
   INVALID_FACEBOOK_USER_ERROR = "Invalid facebook user"
@@ -78,7 +78,7 @@ class UsersController < ApplicationController
   ## authenticate passed in parameters and render user info ##
   #
   def authenticate_unmark_params
-    authenticate_params_and_tell_user_identity 
+    authenticate_params_and_tell_user_identity
     if params[:post_url]
       return true
     else
@@ -90,7 +90,7 @@ class UsersController < ApplicationController
   def authenticate_params_and_tell_user_identity
     if !params[:facebook_id].nil? && !params[:facebook_auth_token].nil?
       return 0
-    elsif !params[:username].nil? && !params[:password].nil? || !params[:user_email].nil? && !params[:password].nil? 
+    elsif !params[:username].nil? && !params[:password].nil? || !params[:user_email].nil? && !params[:password].nil?
       return 1
     else
       render :json => {:error => INCORRECT_PARAMETER_ERROR}
@@ -106,7 +106,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def get_normal_user 
+  def get_normal_user
     existing_user = User.where(:username => params[:username], :password => params[:password]).first || User.where(:email => params[:user_email], :password => params[:password]).first
     if !existing_user.nil?
       render :json => {:success => true, :user_info => {:user_id => existing_user.id, :username => existing_user.username, :profile_picture_url => existing_user.profile_picture_url, :email => existing_user.email}}
@@ -116,7 +116,7 @@ class UsersController < ApplicationController
   end
 
   ## verify user's existence ##
-  
+
   def verify_normal_user_exists
     existing_user = User.where(:username => params[:username])
     return !existing_user.empty?
@@ -138,7 +138,7 @@ class UsersController < ApplicationController
       return true
     end
   end
-  
+
   def create_normal_user
     if check_normal_user_creation_form
       new_user = User.new :username => params[:username], :password => params[:password], :email => params[:user_email]
