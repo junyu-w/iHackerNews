@@ -114,6 +114,12 @@
 #define COCOAPODS_VERSION_MINOR_Facebook_iOS_SDK_ShareKit 1
 #define COCOAPODS_VERSION_PATCH_Facebook_iOS_SDK_ShareKit 0
 
+// JFMinimalNotifications
+#define COCOAPODS_POD_AVAILABLE_JFMinimalNotifications
+#define COCOAPODS_VERSION_MAJOR_JFMinimalNotifications 0
+#define COCOAPODS_VERSION_MINOR_JFMinimalNotifications 0
+#define COCOAPODS_VERSION_PATCH_JFMinimalNotifications 4
+
 // MGSwipeTableCell
 #define COCOAPODS_POD_AVAILABLE_MGSwipeTableCell
 #define COCOAPODS_VERSION_MAJOR_MGSwipeTableCell 1
@@ -149,6 +155,12 @@
 #define COCOAPODS_VERSION_MAJOR_SCLAlertView_Objective_C 0
 #define COCOAPODS_VERSION_MINOR_SCLAlertView_Objective_C 7
 #define COCOAPODS_VERSION_PATCH_SCLAlertView_Objective_C 2
+
+// UzysCircularProgressPullToRefresh
+#define COCOAPODS_POD_AVAILABLE_UzysCircularProgressPullToRefresh
+#define COCOAPODS_VERSION_MAJOR_UzysCircularProgressPullToRefresh 1
+#define COCOAPODS_VERSION_MINOR_UzysCircularProgressPullToRefresh 1
+#define COCOAPODS_VERSION_PATCH_UzysCircularProgressPullToRefresh 0
 
 // libHN
 #define COCOAPODS_POD_AVAILABLE_libHN

@@ -14,6 +14,8 @@ target 'iHackerNews' do
   pod 'NSAttributedString+CCLFormat'
   pod 'DGActivityIndicatorView'
   pod 'RESideMenu', '~> 4.0.7'
+  pod 'JFMinimalNotifications', '~> 0.0.4'
+  pod 'UzysCircularProgressPullToRefresh', '~> 1.1'
 end
 
 target 'iHackerNewsTests' do

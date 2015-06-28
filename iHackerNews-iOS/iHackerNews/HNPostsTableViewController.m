@@ -20,16 +20,13 @@
 #import <AFNetworking/AFNetworking.h>
 #import "constants.h"
 #import <SCLAlertView-Objective-C/SCLAlertView.h>
+#import <JFMinimalNotifications/JFMinimalNotification.h>
 
 @interface HNPostsTableViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
-
 @end
 
 #pragma mark - view controller life cycle
-
-static const NSString *fontForTableViewLight = @"HelveticaNeue-Light";
-static const NSString *fontForTableViewBold = @"HelveticaNeue-Bold";
 
 @implementation HNPostsTableViewController
 
@@ -66,7 +63,6 @@ static const NSString *fontForTableViewBold = @"HelveticaNeue-Bold";
     userButton.tintColor = FlatSand;
     self.navigationItem.rightBarButtonItem = userButton;
     self.navigationItem.leftBarButtonItem.tintColor = FlatSand;
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -107,7 +103,6 @@ static const NSString *fontForTableViewBold = @"HelveticaNeue-Bold";
 - (IBAction)refreshHandler:(id)sender {
     [self.refreshControl beginRefreshing];
     [self fetchHNPosts];
-    sleep(2);
     [self.refreshControl endRefreshing];
 }
 
@@ -288,24 +283,36 @@ static const NSString *fontForTableViewBold = @"HelveticaNeue-Bold";
           }];
 }
 
-// FIXME: SCLAertView doesn't pop up
+
 - (void)handleResponse:(id)response {
     if (response[@"success"]) {
-        NSLog(@"here");
-        SCLAlertView *successAlert = [[SCLAlertView alloc] init];
-        [successAlert showCustom:[UIImage imageNamed:@"default_user_profile_picture"]
-                           color:FlatGreen
-                           title:@"Success"
-                        subTitle:@"Marked this post as favorite successfully!"
-                closeButtonTitle:@"OK"
-                        duration:0.0f];
+        JFMinimalNotification *successNotification = [JFMinimalNotification notificationWithStyle:JFMinimalNotificationStyleSuccess
+                                                                                            title:@"Success!"
+                                                                                         subTitle:@"You just starred this post successsfully"
+                                                                                   dismissalDelay:3.0
+                                                                                     touchHandler:^{
+                                                                                         [successNotification dismiss];
+                                                                                     }];
+                                                      
+        [successNotification setTitleFont:[UIFont fontWithName:fontForTableViewLight size:22]];
+        [successNotification setSubTitleFont:[UIFont fontWithName:fontForTableViewLight size:22]];
+        [self.navigationController.view addSubview:successNotification];
+
+        [successNotification show];
     }else {
-        NSLog(@"waht");
-        SCLAlertView *errorAlert = [[SCLAlertView alloc] init];
-        [errorAlert showError:@"Error"
-                     subTitle:response[@"error"]
-             closeButtonTitle:@"OK"
-                     duration:0.0f];
+        JFMinimalNotification *errorNotification = [JFMinimalNotification notificationWithStyle:JFMinimalNotificationStyleError
+                                                                                          title:@"Error!"
+                                                                                       subTitle:response[@"error"]
+                                                                                 dismissalDelay:3.0
+                                                                                   touchHandler:^{
+                                                                                       // FIXME: dismiss doesn't work
+                                                                                       [errorNotification dismiss];
+                                                                                   }];
+        [errorNotification setTitleFont:[UIFont fontWithName:fontForTableViewLight size:22]];
+        [errorNotification setSubTitleFont:[UIFont fontWithName:fontForTableViewLight size:22]];
+        [self.navigationController.view addSubview:errorNotification];
+        
+        [errorNotification show];
     }
 }
 

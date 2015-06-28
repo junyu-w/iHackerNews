@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6D30156DAC76947080916F7A"
+               BlueprintIdentifier = "9F0B0D7C3ACDACBB37E70D52"
                BuildableName = "libPods-iHackerNews-RESideMenu.a"
                BlueprintName = "Pods-iHackerNews-RESideMenu"
                ReferencedContainer = "container:Pods.xcodeproj">

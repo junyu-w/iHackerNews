@@ -18,4 +18,10 @@ NSString* const markPostURL = @"http://localhost:3000/mark_post";
 NSString* const unmarkPostURL = @"http://localhost:3000/unmark_post";
 NSString* const postsOfUserURL = @"http://localhost:3000/posts_of_user";
 
+NSString* const fontForTableViewLight = @"HelveticaNeue-Light";
+NSString* const fontForTableViewBold = @"HelveticaNeue-Bold";
+
+NSString* const fontForAppLight = @"HelveticaNeue-Light";
+NSString* const fontForAppBold = @"HelveticaNeue-Bold";
+
 @end

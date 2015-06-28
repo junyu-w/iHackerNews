@@ -9,6 +9,7 @@
 #import "SidebarTableViewController.h"
 #import "SWRevealViewController.h"
 #import "HNPostsTableViewController.h"
+#import "constants.h"
 
 @interface SidebarTableViewController ()
 
@@ -16,6 +17,7 @@
 
 @implementation SidebarTableViewController {
     NSArray *menuItems;
+    
 }
 
 - (void)viewDidLoad {
@@ -55,6 +57,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    cell.textLabel.font = [UIFont fontWithName:fontForTableViewLight size:18];
     
     return cell;
 }

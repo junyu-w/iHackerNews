@@ -18,4 +18,10 @@ extern NSString* const markPostURL;
 extern NSString* const unmarkPostURL;
 extern NSString* const postsOfUserURL;
 
+extern NSString* const fontForTableViewLight;
+extern NSString* const fontForTableViewBold;
+
+extern NSString* const fontForAppLight;
+extern NSString* const fontForAppBold;
+
 @end

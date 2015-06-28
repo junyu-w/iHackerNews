@@ -11,6 +11,7 @@
 #import <PBFlatUI/PBFlatRoundedImageView.h>
 #import <QuartzCore/QuartzCore.h>
 #import <DGActivityIndicatorView/DGActivityIndicatorView.h>
+#import "constants.h"
 
 @interface HNPostCotentViewController ()
 
@@ -22,8 +23,6 @@
 
 @implementation HNPostCotentViewController
 
-static const NSString *fontForAppLight = @"HelveticaNeue-Light";
-static const NSString *fontForAppBold = @"HelveticaNeue-Bold";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -78,6 +77,7 @@ static const NSString *fontForAppBold = @"HelveticaNeue-Bold";
     NSLog(@"web view finished loading");
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [self.loadingIndicator stopAnimating];
+    self.errorView.hidden = YES;
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error

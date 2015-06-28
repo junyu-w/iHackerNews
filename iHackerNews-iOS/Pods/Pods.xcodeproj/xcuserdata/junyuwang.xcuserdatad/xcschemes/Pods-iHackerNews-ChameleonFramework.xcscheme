@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D29641CBAA0C608D51A91544"
+               BlueprintIdentifier = "E8215E6E07DEA9BE08AF6E13"
                BuildableName = "libPods-iHackerNews-ChameleonFramework.a"
                BlueprintName = "Pods-iHackerNews-ChameleonFramework"
                ReferencedContainer = "container:Pods.xcodeproj">

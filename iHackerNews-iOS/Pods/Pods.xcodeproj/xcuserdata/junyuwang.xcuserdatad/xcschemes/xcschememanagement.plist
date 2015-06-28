@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-iHackerNews-JFMinimalNotifications.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iHackerNews-MGSwipeTableCell.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -69,6 +74,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-iHackerNews-UzysCircularProgressPullToRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iHackerNews-libHN.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,77 +92,87 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>062CBC4DE54C1150E274C36C</key>
+		<key>17D404E7C73017D610B2AD4C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>22A6DEB727BDA3B31F78B860</key>
+		<key>260D09B75F2F0B60C1A8436C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3D5CFE327D4498CF446ABEAD</key>
+		<key>3E9F4F122BF606FF9B77DB2B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5080C506DAB33B5ECCA7AEFB</key>
+		<key>5C1D07953D0599811F34A545</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6D30156DAC76947080916F7A</key>
+		<key>68C56A8B7EA889822315BBB1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>72CB57D73E2A6BA14FE90DF3</key>
+		<key>6C543CD0D59608C44F3C670A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>74F9F683314AA90A19904FEF</key>
+		<key>6E05A0E2C7ABE984E3176AFF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>80123F940D9EFD6D35CF224F</key>
+		<key>71CBB14614756426C7356598</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8BA430DED1E8C80D29F19A74</key>
+		<key>81ECA771DBEC27E57DDDA8E7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A822E2CDB92609E9920199C2</key>
+		<key>9F0B0D7C3ACDACBB37E70D52</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B20AB6268147F7F8962745D3</key>
+		<key>A031F1FE6A55D38432D7610B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D29641CBAA0C608D51A91544</key>
+		<key>A8D311CAD70745B138DB8DD1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DE2A1C3EEF57139B65CDEC4A</key>
+		<key>C163BC22678517CF3CCD4466</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E93F0057E1F111CBD5609CD8</key>
+		<key>E8215E6E07DEA9BE08AF6E13</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E954059909D2D81F74106BF2</key>
+		<key>E9A30F761CEC31F32C55C938</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EC23381F721F886340A74B85</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F0711245A9E9EF1CB3D77D85</key>
 		<dict>
 			<key>primary</key>
 			<true/>
