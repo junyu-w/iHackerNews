@@ -26,6 +26,7 @@ PODS:
   - Bolts/AppLinks (1.2.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.2.0)
+  - BubbleTransition-objc (0.1.0)
   - ChameleonFramework (1.2.0)
   - DGActivityIndicatorView (1.0)
   - DKCircleButton (1.1)
@@ -57,6 +58,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
+  - BubbleTransition-objc (~> 0.1)
   - ChameleonFramework
   - DGActivityIndicatorView
   - DKCircleButton (~> 1.1)
@@ -74,6 +76,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   Bolts: d176cb1e0012175589e389a9db49b85e27787576
+  BubbleTransition-objc: 0b4ec87d4538ee1b1972667eda0f9422723305de
   ChameleonFramework: 4d6bf87fcaee176f487176cdccc4229637ec97f0
   DGActivityIndicatorView: 980091f8d8cc647a1af7804660272e64aef9e516
   DKCircleButton: 62564c9debae08ad77dabb8d9658dfeb5520f2c4

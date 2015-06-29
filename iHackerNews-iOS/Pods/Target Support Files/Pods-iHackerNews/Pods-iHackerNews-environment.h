@@ -66,6 +66,12 @@
 #define COCOAPODS_VERSION_MINOR_Bolts_Tasks 2
 #define COCOAPODS_VERSION_PATCH_Bolts_Tasks 0
 
+// BubbleTransition-objc
+#define COCOAPODS_POD_AVAILABLE_BubbleTransition_objc
+#define COCOAPODS_VERSION_MAJOR_BubbleTransition_objc 0
+#define COCOAPODS_VERSION_MINOR_BubbleTransition_objc 1
+#define COCOAPODS_VERSION_PATCH_BubbleTransition_objc 0
+
 // ChameleonFramework
 #define COCOAPODS_POD_AVAILABLE_ChameleonFramework
 #define COCOAPODS_VERSION_MAJOR_ChameleonFramework 1

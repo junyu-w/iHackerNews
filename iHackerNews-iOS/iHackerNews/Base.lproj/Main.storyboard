@@ -18,31 +18,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjF-Zi-WRv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjF-Zi-WRv">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="73" y="180" width="230" height="21"/>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="password: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VwU-W1-dwb">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="73" y="224" width="238" height="21"/>
+                                    <rect key="frame" x="81" y="310" width="230" height="36"/>
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4S-Jt-FL1">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Log Out">
+                                <state key="normal" title="Sign Out">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="78" y="435" width="56" height="30"/>
+                                    <rect key="frame" x="81" y="364" width="238" height="41"/>
                                 </variation>
                                 <connections>
                                     <action selector="userLogOutButtonOnClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hFv-ze-sOp"/>
@@ -50,50 +42,57 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2z6-MQ-xLt">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="back">
+                                <state key="normal" backgroundImage="cancel_button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="28" width="34" height="30"/>
+                                    <rect key="frame" x="305" y="28" width="50" height="50"/>
                                 </variation>
                                 <connections>
                                     <action selector="backButtonOnClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Wz5-Pf-ONO"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1JV-W3-vP8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1JV-W3-vP8">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="73" y="140" width="238" height="21"/>
+                                    <rect key="frame" x="81" y="269" width="238" height="33"/>
                                 </variation>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VuQ-Wf-uJu" customClass="PBFlatRoundedImageView">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="132" y="103" width="128" height="128"/>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="wjF-Zi-WRv"/>
-                                <exclude reference="VwU-W1-dwb"/>
                                 <exclude reference="S4S-Jt-FL1"/>
                                 <exclude reference="2z6-MQ-xLt"/>
                                 <exclude reference="1JV-W3-vP8"/>
+                                <exclude reference="VuQ-Wf-uJu"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="wjF-Zi-WRv"/>
-                                <include reference="VwU-W1-dwb"/>
                                 <include reference="S4S-Jt-FL1"/>
                                 <include reference="2z6-MQ-xLt"/>
                                 <include reference="1JV-W3-vP8"/>
+                                <include reference="VuQ-Wf-uJu"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="2z6-MQ-xLt" id="HwK-bO-0It"/>
                         <outlet property="emailLabel" destination="wjF-Zi-WRv" id="iLh-6g-zcg"/>
-                        <outlet property="passwordLabel" destination="VwU-W1-dwb" id="cds-mR-0Uc"/>
                         <outlet property="userLogOutButton" destination="S4S-Jt-FL1" id="7O9-5y-4wm"/>
+                        <outlet property="userProfilePictureImageView" destination="VuQ-Wf-uJu" id="T6Y-7A-KAA"/>
                         <outlet property="usernameLabel" destination="1JV-W3-vP8" id="DLq-mZ-xos"/>
                         <segue destination="25J-0s-IOR" kind="presentation" identifier="pop up log in view after log out" id="fhm-aF-FnT"/>
                     </connections>
@@ -721,11 +720,12 @@
     </scenes>
     <resources>
         <image name="background_for_login_view" width="256" height="256"/>
+        <image name="cancel_button" width="60" height="60"/>
         <image name="reveal_icon" width="22" height="17"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="uCe-Ok-hyt"/>
         <segue reference="Wmb-kd-lku"/>
         <segue reference="fCF-Qf-KSh"/>
-        <segue reference="uCe-Ok-hyt"/>
     </inferredMetricsTieBreakers>
 </document>

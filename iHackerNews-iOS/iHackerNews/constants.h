@@ -24,4 +24,5 @@ extern NSString* const fontForTableViewBold;
 extern NSString* const fontForAppLight;
 extern NSString* const fontForAppBold;
 
+
 @end

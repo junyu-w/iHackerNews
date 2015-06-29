@@ -21,9 +21,12 @@
 #import "constants.h"
 #import <SCLAlertView-Objective-C/SCLAlertView.h>
 #import <JFMinimalNotifications/JFMinimalNotification.h>
+#import <BubbleTransition-objc/YPBubbleTransition.h>
 
-@interface HNPostsTableViewController ()
+@interface HNPostsTableViewController () <UIViewControllerTransitioningDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
+@property (strong, nonatomic) UIBarButtonItem *userButton;
+@property (nonatomic, strong) YPBubbleTransition *transition;
 @end
 
 #pragma mark - view controller life cycle
@@ -56,12 +59,12 @@
     NSDictionary *navigationBarTitleAttributes = [[NSDictionary alloc] initWithObjectsAndKeys:[UIFont fontWithName:fontForTableViewLight size:17], NSFontAttributeName, nil];
     [self.navigationController.navigationBar setTitleTextAttributes:navigationBarTitleAttributes];
     
-    UIBarButtonItem *userButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"user_icon"]
+    self.userButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"user_icon"]
                                                                    style:UIBarButtonItemStylePlain
                                                                   target:self
                                                                   action:@selector(pushToUserView)];
-    userButton.tintColor = FlatSand;
-    self.navigationItem.rightBarButtonItem = userButton;
+    self.userButton.tintColor = FlatSand;
+    self.navigationItem.rightBarButtonItem = self.userButton;
     self.navigationItem.leftBarButtonItem.tintColor = FlatSand;
 }
 
@@ -206,7 +209,42 @@
         NSLog(@"%ld",(long)[indexPath row]);
         HNPost *post = [_HNPostsArray objectAtIndex:[indexPath row]];
         HNContentVC.post = post;
+    }else if ([[segue identifier] isEqualToString:@"pop up user view"]) {
+        UIViewController *userView = [segue destinationViewController];
+        userView.transitioningDelegate = self;
+        userView.modalPresentationStyle = UIModalPresentationCustom;
     }
+}
+
+#pragma mark - UIViewControllerTransitioningDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)
+presenting sourceController:(UIViewController *)source {
+    self.transition.transitionMode = YPBubbleTransitionModePresent;
+    
+    self.transition.startPoint = CGPointMake(self.view.frame.size.width-35, 35);
+    self.transition.bubbleColor = self.userButton.tintColor;
+    self.transition.duration = 0.5;
+    
+    return self.transition;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    self.transition.transitionMode = YPBubbleTransitionModeDismiss;
+    
+    self.transition.startPoint = CGPointMake(self.view.frame.size.width-35, 35);
+    self.transition.bubbleColor = self.userButton.tintColor;
+    self.transition.duration = 0.5;
+    
+    return self.transition;
+}
+
+-(YPBubbleTransition *)transition
+{
+    if (!_transition) {
+        _transition = [[YPBubbleTransition alloc] init];
+    }
+    return _transition;
 }
 
 

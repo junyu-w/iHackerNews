@@ -28,6 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.errorView.hidden = YES;
+    self.navigationController.navigationBar.tintColor = FlatSand;
     
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(40, 200, 400, 70)];
     [title setText:[self.post Title]];
