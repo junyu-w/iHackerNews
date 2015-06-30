@@ -23,4 +23,12 @@ class User < ActiveRecord::Base
 
   scope :posts_of_user, -> (user) { user.hacker_news_posts }
 
+  def posts
+    self.hacker_news_posts
+  end
+
+  def different_dates_of_posts
+    self.posts.pluck(:created_at).map{ |x| x.strftime("%b %d. %Y") }.uniq
+  end
+
 end

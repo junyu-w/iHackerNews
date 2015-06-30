@@ -17,6 +17,7 @@ extern NSString* const createUserURL;
 extern NSString* const markPostURL;
 extern NSString* const unmarkPostURL;
 extern NSString* const postsOfUserURL;
+extern NSString* const getDifferentDatesOfPostsURL;
 
 extern NSString* const fontForTableViewLight;
 extern NSString* const fontForTableViewBold;

@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     identity = authenticate_params_and_tell_user_identity
     if identity == 1
       user = params[:user_email].nil? ? User.where(:username => params[:username], :password => params[:password]).first : User.where(:email => params[:user_email], :password => params[:password]).first
-      render :json => {:success => true, :info => User.posts_of_user(user).order("created_at DESC") }
+      render :json => {:success => true, :info => user.posts.order("created_at DESC") }
     elsif identity == 0
       # TODO: deal with facebook user
     end
@@ -73,10 +73,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def get_different_dates_of_posts
+    identity = authenticate_params_and_tell_user_identity
+    if identity == 1
+      user = params[:user_email].nil? ? User.where(:username => params[:username], :password => params[:password]).first : User.where(:email => params[:user_email], :password => params[:password]).first
+      render :json => {:success => true, :info => user.different_dates_of_posts }
+    elsif identity == 0
+      # TODO: deal with facebook user
+    end
+  end
+
   protected
 
   ## authenticate passed in parameters and render user info ##
   #
+  def authenticate_get_different_dates_of_post
+
+  end
+
   def authenticate_unmark_params
     authenticate_params_and_tell_user_identity
     if params[:post_url]

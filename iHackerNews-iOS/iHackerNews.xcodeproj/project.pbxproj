@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B00081361B295ACD007EC5DE /* HNPostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B00081351B295ACD007EC5DE /* HNPostsTableViewController.m */; };
 		B00081391B2EA200007EC5DE /* HNPostCotentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B00081381B2EA200007EC5DE /* HNPostCotentViewController.m */; };
+		B01EB6301B426F3800E450F7 /* FavoritePostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01EB62F1B426F3800E450F7 /* FavoritePostsTableViewController.m */; };
 		B07E7DF81B2013A8009F16CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E7DF71B2013A8009F16CF /* main.m */; };
 		B07E7DFB1B2013A8009F16CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E7DFA1B2013A8009F16CF /* AppDelegate.m */; };
 		B07E7DFE1B2013A8009F16CF /* iHackerNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B07E7DFC1B2013A8009F16CF /* iHackerNews.xcdatamodeld */; };
@@ -44,6 +45,8 @@
 		B00081351B295ACD007EC5DE /* HNPostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPostsTableViewController.m; sourceTree = "<group>"; };
 		B00081371B2EA200007EC5DE /* HNPostCotentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPostCotentViewController.h; sourceTree = "<group>"; };
 		B00081381B2EA200007EC5DE /* HNPostCotentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPostCotentViewController.m; sourceTree = "<group>"; };
+		B01EB62E1B426F3800E450F7 /* FavoritePostsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritePostsTableViewController.h; sourceTree = "<group>"; };
+		B01EB62F1B426F3800E450F7 /* FavoritePostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritePostsTableViewController.m; sourceTree = "<group>"; };
 		B07E7DF21B2013A8009F16CF /* iHackerNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iHackerNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07E7DF61B2013A8009F16CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B07E7DF71B2013A8009F16CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -138,18 +141,20 @@
 				B07E7DFA1B2013A8009F16CF /* AppDelegate.m */,
 				B0A6A4F01B33FEAA00F1138D /* SWRevealViewController.h */,
 				B0A6A4F11B33FEAA00F1138D /* SWRevealViewController.m */,
-				B07E7DFF1B2013A8009F16CF /* ViewController.h */,
-				B07E7E001B2013A8009F16CF /* ViewController.m */,
 				B00081341B295ACD007EC5DE /* HNPostsTableViewController.h */,
 				B00081351B295ACD007EC5DE /* HNPostsTableViewController.m */,
 				B00081371B2EA200007EC5DE /* HNPostCotentViewController.h */,
 				B00081381B2EA200007EC5DE /* HNPostCotentViewController.m */,
+				B01EB62E1B426F3800E450F7 /* FavoritePostsTableViewController.h */,
+				B01EB62F1B426F3800E450F7 /* FavoritePostsTableViewController.m */,
 				B0A3CE9E1B22C96F0040CF0C /* LogInViewController.h */,
 				B0A3CE9F1B22C96F0040CF0C /* LogInViewController.m */,
 				B0D327F91B22EF2900E23B97 /* SignUpFormViewController.h */,
 				B0D327FA1B22EF2900E23B97 /* SignUpFormViewController.m */,
 				B0D327FC1B22FC5600E23B97 /* SignInFormViewController.h */,
 				B0D327FD1B22FC5600E23B97 /* SignInFormViewController.m */,
+				B07E7DFF1B2013A8009F16CF /* ViewController.h */,
+				B07E7E001B2013A8009F16CF /* ViewController.m */,
 				B07E7E021B2013A8009F16CF /* Main.storyboard */,
 				B0A6A4F31B3405EC00F1138D /* SidebarTableViewController.h */,
 				B0A6A4F41B3405EC00F1138D /* SidebarTableViewController.m */,
@@ -337,6 +342,7 @@
 				B0E071FB1B242E7000A9EAB4 /* constants.m in Sources */,
 				B0A6A4F51B3405EC00F1138D /* SidebarTableViewController.m in Sources */,
 				B07E7DF81B2013A8009F16CF /* main.m in Sources */,
+				B01EB6301B426F3800E450F7 /* FavoritePostsTableViewController.m in Sources */,
 				B0D327FE1B22FC5600E23B97 /* SignInFormViewController.m in Sources */,
 				B0A6A4F21B33FEAA00F1138D /* SWRevealViewController.m in Sources */,
 			);
