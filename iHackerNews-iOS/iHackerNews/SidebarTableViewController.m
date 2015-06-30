@@ -113,7 +113,9 @@
         return @"Show HN";
     }else if ([identifier isEqualToString:@"best"]) {
         return @"Best";
-    }else {
+    }else if ([identifier isEqualToString:@"favorites"]) {
+        return @"Favorites";
+    }else{
         return @"Unknown Identifier";
     }
 }
