@@ -20,8 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self getFavoritePosts];
-    [self getDifferentDatesOfPosts];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -103,68 +101,5 @@
 }
 */
 
-#pragma mark - get favorite posts & dates information
-- (void)getFavoritePosts {
-    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
-    NSString *user_email = [[NSUserDefaults standardUserDefaults] objectForKey:@"email"];
-    NSDictionary *params;
-    if (user_email) {
-        params = [[NSDictionary alloc] initWithObjectsAndKeys:user_email, @"user_email", password, @"password", nil];
-    }else {
-        params = [[NSDictionary alloc] initWithObjectsAndKeys:username, @"username", password, @"password", nil];
-    }
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager new];
-    [manager GET:postsOfUserURL
-      parameters:params
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             NSLog(@"JSON: %@", responseObject);
-             [self handleFavoritePostsResponse:responseObject];
-         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             NSLog(@"Error: %@", error);
-         }];
-}
-
-- (void)handleFavoritePostsResponse:(id)response {
-    if (response[@"success"]) {
-        _favoritePosts = response[@"info"];
-    }else {
-        //show alert
-        SCLAlertView *errorAlert = [[SCLAlertView alloc] init];
-        [errorAlert showError:@"Error"
-                     subTitle:response[@"error"]
-             closeButtonTitle:@"OK"
-                     duration:0.0f];
-    }
-}
-
-- (void)getDifferentDatesOfPosts {
-    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
-    NSString *user_email = [[NSUserDefaults standardUserDefaults] objectForKey:@"email"];
-    NSDictionary *params;
-    if (user_email) {
-        params = [[NSDictionary alloc] initWithObjectsAndKeys:user_email, @"user_email", password, @"password", nil];
-    }else {
-        params = [[NSDictionary alloc] initWithObjectsAndKeys:username, @"username", password, @"password", nil];
-    }
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager new];
-    [manager GET:getDifferentDatesOfPostsURL
-      parameters:params
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             NSLog(@"JSON: %@", responseObject);
-             [self handleDifferentDatesOfPostsResponse:responseObject];
-         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             NSLog(@"Error: %@", error);
-         }];
-}
-
-- (void)handleDifferentDatesOfPostsResponse:(id)response {
-    if (response[@"success"]) {
-        _differentDates = response[@"info"];
-    }else {
-        //log error message while still showing user's favorite posts
-    }
-}
 
 @end

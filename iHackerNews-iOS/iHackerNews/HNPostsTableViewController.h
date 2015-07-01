@@ -14,4 +14,7 @@
 @property (strong, nonatomic) NSArray *HNPostsArray;
 @property (strong, nonatomic) NSString *HNPostType;
 
+@property (strong, nonatomic) NSDictionary *favoritePosts;
+@property (strong, nonatomic) NSArray *differentDates;
+
 @end

@@ -13,6 +13,8 @@
 @interface HNPostCotentViewController : UIViewController <UIWebViewDelegate>
 
 @property (strong, nonatomic) HNPost *post;
+@property (strong, nonatomic) NSDictionary *favoritePost;
+
 @property (strong, nonatomic) UIWebView *postContent;
 @property (strong, nonatomic) DGActivityIndicatorView *loadingIndicator;
 

@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     identity = authenticate_params_and_tell_user_identity
     if identity == 1
       user = params[:user_email].nil? ? User.where(:username => params[:username], :password => params[:password]).first : User.where(:email => params[:user_email], :password => params[:password]).first
-      render :json => {:success => true, :info => user.posts.order("created_at DESC") }
+      render :json => {:success => true, :info => user.posts_with_dates }
     elsif identity == 0
       # TODO: deal with facebook user
     end

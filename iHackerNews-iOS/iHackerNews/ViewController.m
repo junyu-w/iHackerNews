@@ -61,7 +61,7 @@
         self.usernameLabel.text = [@"Username: " stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
         self.emailLabel.text = [@"Email: " stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"email"]];
         
-        UIFont *userProfileLabelsFont = [UIFont fontWithName:fontForAppLight size:22];
+        UIFont *userProfileLabelsFont = [UIFont fontWithName:fontForAppLight size:18];
         self.usernameLabel.font = userProfileLabelsFont;
         self.emailLabel.font = userProfileLabelsFont;
     }

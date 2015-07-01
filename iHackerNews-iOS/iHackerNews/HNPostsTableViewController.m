@@ -41,7 +41,12 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(someSelector) name:kHNShouldReloadDataFromConfiguration object:nil];
     
     [[HNManager sharedManager] startSession];
-    [self fetchHNPosts];
+    if ([_HNPostType isEqualToString:@"favorites"]) {
+        [self getDifferentDatesOfPosts];
+        [self getFavoritePosts];
+    }else {
+        [self fetchHNPosts];
+    }
     
     SWRevealViewController *revealViewController = self.revealViewController;
     NSLog(@"%@", [revealViewController description]);
@@ -94,18 +99,34 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
+    if ([_HNPostType isEqualToString:@"favorites"]) {
+        return [_differentDates count];
+    }
     return 1;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [_differentDates objectAtIndex:section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
+    if ([_HNPostType isEqualToString:@"favorites"]) {
+        //TODO: return number of rows based on section
+        NSString *date = [_differentDates objectAtIndex:section];
+        return [[_favoritePosts objectForKey:date] count];
+    }
     return [_HNPostsArray count];
 }
 
 - (IBAction)refreshHandler:(id)sender {
     [self.refreshControl beginRefreshing];
-    [self fetchHNPosts];
+    if ([_HNPostType isEqualToString:@"favorites"]) {
+        [self getFavoritePosts];
+    }else {
+        [self fetchHNPosts];
+    }
     [self.refreshControl endRefreshing];
 }
 
@@ -120,50 +141,72 @@
     
     cell.delegate = self; //optional
     
-    HNPost *post = [_HNPostsArray objectAtIndex:indexPath.row];
+    HNPost *post;
+    NSDictionary *favoritePost;
+    if ([_HNPostType isEqualToString:@"favorites"]) {
+        //favoritePost = [_favoritePosts objectAtIndex:indexPath.row];
+        NSString *date = [_differentDates objectAtIndex:indexPath.section];
+        favoritePost = [[_favoritePosts objectForKey:date] objectAtIndex:indexPath.row];
+    }else {
+        post = [_HNPostsArray objectAtIndex:indexPath.row];
+    }
+
     
     //configure left buttons
-    cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"star_post.png"] backgroundColor:FlatCoffee callback:^BOOL(MGSwipeTableCell *sender) {
-        NSLog(@"mark this post as favorite");
-        [sender hideSwipeAnimated:YES];
-        [self markHNPostAsFavorite:post];
-        return YES;
-    }]];
-    cell.leftSwipeSettings.transition = MGSwipeTransition3D;
+    if ([_HNPostType isEqualToString:@"favorites"]) {
+        //TODO: set up buttons
+        cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"Remove" backgroundColor:FlatRed]];
+    }else {
+        cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"star_post.png"] backgroundColor:FlatCoffee callback:^BOOL(MGSwipeTableCell *sender) {
+            NSLog(@"mark this post as favorite");
+            [sender hideSwipeAnimated:YES];
+            [self markHNPostAsFavorite:post];
+            return YES;
+        }]];
+        cell.leftSwipeSettings.transition = MGSwipeTransition3D;
+        
+        //configure right buttons
+        cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"Read" backgroundColor:FlatYellow callback:^BOOL(MGSwipeTableCell *sender) {
+            NSLog(@"read this post");
+            [sender expandSwipe:MGSwipeDirectionRightToLeft animated:YES];
+            [self performSegueWithIdentifier:@"push to hn content view" sender:indexPath];
+            return YES;
+        }]];
+        cell.rightSwipeSettings.transition = MGSwipeTransition3D;
+    }
     
-    //configure right buttons
-    cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"Read" backgroundColor:FlatYellow callback:^BOOL(MGSwipeTableCell *sender) {
-        NSLog(@"read this post");
-        [sender expandSwipe:MGSwipeDirectionRightToLeft animated:YES];
-        [self performSegueWithIdentifier:@"push to hn content view" sender:indexPath];
-        return YES;
-    }]];
-    cell.rightSwipeSettings.transition = MGSwipeTransition3D;
+    NSString *points; //only for non-favorite post type
+    NSString *source;
+    NSMutableAttributedString *postPoints;
     
-    //get the post
-    
-    
-    //set up ui for title
-    cell.textLabel.text = [post Title];
+    if ([_HNPostType isEqualToString:@"favorites"]) {
+        // set up ui for favorite posts
+        NSLog(@"I'm here");
+        cell.textLabel.text = favoritePost[@"title"];
+        source = favoritePost[@"urlDomain"];
+    }else {
+        //set up ui for non-favorite posts
+        cell.textLabel.text = [post Title];
+        source = [NSString stringWithFormat:@"%@", [post UrlDomain]];
+        points = [NSString stringWithFormat:@"%d", [post Points]];
+        NSInteger _pointsLength = [points length];
+        postPoints = [[NSMutableAttributedString alloc] initWithString:points];
+        [postPoints addAttribute:NSFontAttributeName
+                           value:[UIFont fontWithName:fontForTableViewBold
+                                                 size:14]
+                           range:NSMakeRange(0, _pointsLength)];
+
+    }
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.font = [UIFont fontWithName:fontForTableViewLight size:16];
     cell.backgroundColor = [[UIColor alloc] initWithRed:236 green:240 blue:241 alpha:1.0];
     cell.swipeBackgroundColor = FlatCoffee;
     
-    //set up ui for point and url domain
+    //set up ui url domain
     cell.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.detailTextLabel.numberOfLines = 0;
-    NSString *points = [NSString stringWithFormat:@"%d", [post Points]];
-    NSInteger _pointsLength = [points length];
-    NSMutableAttributedString *postPoints = [[NSMutableAttributedString alloc] initWithString:points];
-    [postPoints addAttribute:NSFontAttributeName
-                       value:[UIFont fontWithName:fontForTableViewBold
-                                             size:14]
-                       range:NSMakeRange(0, _pointsLength)];
     
-    
-    NSString *source = [NSString stringWithFormat:@"%@", [post UrlDomain]];
     NSInteger _sourceLength = [source length];
     NSMutableAttributedString *postSource = [[NSMutableAttributedString alloc] initWithString:source];
     [postSource addAttribute:NSFontAttributeName
@@ -175,9 +218,13 @@
     [postSource addAttribute:NSStrokeWidthAttributeName
                        value:[NSNumber numberWithFloat:3.0]
                        range:NSMakeRange(0, _sourceLength)];
-
-    NSAttributedString *detailedText = [NSAttributedString attributedStringWithFormat:@"\n%@ \n%@",postPoints, postSource];
     
+    NSAttributedString *detailedText;
+    if ([_HNPostType isEqualToString:@"favorites"]) {
+        detailedText = [NSAttributedString attributedStringWithFormat:@"\n%@",postSource];
+    }else {
+        detailedText = [NSAttributedString attributedStringWithFormat:@"\n%@ \n%@",postPoints, postSource];
+    }
     cell.detailTextLabel.attributedText = detailedText;
     
     return cell;
@@ -202,13 +249,18 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"push to hn content view"]) {
-        
         NSIndexPath *indexPath = (NSIndexPath *)sender;
         HNPostCotentViewController *HNContentVC = [segue destinationViewController];
-        
-        NSLog(@"%ld",(long)[indexPath row]);
-        HNPost *post = [_HNPostsArray objectAtIndex:[indexPath row]];
-        HNContentVC.post = post;
+        if ([_HNPostType isEqualToString:@"favorites"]) {
+            NSLog(@"%ld",(long)[indexPath row]);
+            NSDictionary *favoritePost = [[_favoritePosts objectForKey:[_differentDates objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+            NSLog(@"favorite post JSON: %@", favoritePost);
+            HNContentVC.favoritePost = favoritePost;
+        }else {
+            NSLog(@"%ld",(long)[indexPath row]);
+            HNPost *post = [_HNPostsArray objectAtIndex:[indexPath row]];
+            HNContentVC.post = post;
+        }
     }else if ([[segue identifier] isEqualToString:@"pop up user view"]) {
         UIViewController *userView = [segue destinationViewController];
         userView.transitioningDelegate = self;
@@ -351,6 +403,71 @@ presenting sourceController:(UIViewController *)source {
         [self.navigationController.view addSubview:errorNotification];
         
         [errorNotification show];
+    }
+}
+
+#pragma mark - get favorite posts & dates information
+- (void)getFavoritePosts {
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
+    NSString *user_email = [[NSUserDefaults standardUserDefaults] objectForKey:@"email"];
+    NSDictionary *params;
+    if (user_email) {
+        params = [[NSDictionary alloc] initWithObjectsAndKeys:user_email, @"user_email", password, @"password", nil];
+    }else {
+        params = [[NSDictionary alloc] initWithObjectsAndKeys:username, @"username", password, @"password", nil];
+    }
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager new];
+    [manager GET:postsOfUserURL
+      parameters:params
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSLog(@"JSON: %@", responseObject);
+             [self handleFavoritePostsResponse:responseObject];
+         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"Error: %@", error);
+         }];
+}
+
+- (void)handleFavoritePostsResponse:(id)response {
+    if (response[@"success"]) {
+        _favoritePosts = response[@"info"];
+        [self.tableView reloadData];
+    }else {
+        //show alert
+        SCLAlertView *errorAlert = [[SCLAlertView alloc] init];
+        [errorAlert showError:@"Error"
+                     subTitle:response[@"error"]
+             closeButtonTitle:@"OK"
+                     duration:0.0f];
+    }
+}
+
+- (void)getDifferentDatesOfPosts {
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
+    NSString *user_email = [[NSUserDefaults standardUserDefaults] objectForKey:@"email"];
+    NSDictionary *params;
+    if (user_email) {
+        params = [[NSDictionary alloc] initWithObjectsAndKeys:user_email, @"user_email", password, @"password", nil];
+    }else {
+        params = [[NSDictionary alloc] initWithObjectsAndKeys:username, @"username", password, @"password", nil];
+    }
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager new];
+    [manager GET:getDifferentDatesOfPostsURL
+      parameters:params
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSLog(@"JSON: %@", responseObject);
+             [self handleDifferentDatesOfPostsResponse:responseObject];
+         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"Error: %@", error);
+         }];
+}
+
+- (void)handleDifferentDatesOfPostsResponse:(id)response {
+    if (response[@"success"]) {
+        _differentDates = response[@"info"];
+    }else {
+        //log error message while still showing user's favorite posts
     }
 }
 

@@ -28,7 +28,17 @@ class User < ActiveRecord::Base
   end
 
   def different_dates_of_posts
-    self.posts.pluck(:created_at).map{ |x| x.strftime("%b %d. %Y") }.uniq
+    self.posts.pluck(:created_at).map{ |x| x.strftime("%b %d. %Y") }.uniq.reverse
+  end
+
+  def posts_with_dates
+    result = {}
+    posts = self.posts
+    posts.each do |p|
+      date_of_post = p.created_at.strftime("%b %d. %Y")
+      result[date_of_post].nil? ? result[date_of_post] = [p] : result[date_of_post] += [p]
+    end
+    Hash[result.to_a.reverse]
   end
 
 end

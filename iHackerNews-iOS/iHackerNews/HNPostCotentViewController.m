@@ -47,7 +47,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.postContent loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[self.post UrlString]]]];
+    if (_favoritePost) {
+        [self.postContent loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_favoritePost[@"url"]]]];
+    }else {
+        [self.postContent loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[self.post UrlString]]]];
+    }
     [self.view addSubview:self.postContent];
     [self.loadingIndicator startAnimating];
 
