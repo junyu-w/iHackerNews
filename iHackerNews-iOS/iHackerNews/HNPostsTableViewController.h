@@ -11,10 +11,10 @@
 
 @interface HNPostsTableViewController : UITableViewController
 
-@property (strong, nonatomic) NSArray *HNPostsArray;
+@property (strong, nonatomic) NSMutableArray *HNPostsArray;
 @property (strong, nonatomic) NSString *HNPostType;
 
-@property (strong, nonatomic) NSDictionary *favoritePosts;
-@property (strong, nonatomic) NSArray *differentDates;
+@property (strong, nonatomic) NSMutableDictionary *favoritePosts;
+@property (strong, nonatomic) NSMutableArray *differentDates;
 
 @end

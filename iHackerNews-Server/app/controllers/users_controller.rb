@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   #remove this line if can this application also needs to run as a browser Application
   #currently works because this only serves as an API for the iOS app.
-  skip_before_filter :verify_authenticity_token, :only => [:create]
+  skip_before_filter :verify_authenticity_token, :only => [:create, :unmark_post]
 
   INCORRECT_PARAMETER_ERROR = "Incorrect parameters passed in"
   INVALID_FACEBOOK_USER_ERROR = "Invalid facebook user"
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   def unmark_post
     if authenticate_unmark_params
       post = HackerNewsPost.find_by_url(params[:post_url])
-      user = User.find(show[:user_info][:user_id])
+      user = params[:user_email].nil? ? User.where(:username => params[:username], :password => params[:password]).first : User.where(:email => params[:user_email], :password => params[:password]).first
       render :json => {:error => "This post doesn't exist in your favorites"} and return unless user.hacker_news_posts.include? post
       if user.hacker_news_posts.delete(post)
         render :json => {:success => true}

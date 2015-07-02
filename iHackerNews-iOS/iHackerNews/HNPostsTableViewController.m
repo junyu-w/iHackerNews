@@ -113,7 +113,6 @@
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
     if ([_HNPostType isEqualToString:@"favorites"]) {
-        //TODO: return number of rows based on section
         NSString *date = [_differentDates objectAtIndex:section];
         return [[_favoritePosts objectForKey:date] count];
     }
@@ -142,7 +141,7 @@
     cell.delegate = self; //optional
     
     HNPost *post;
-    NSDictionary *favoritePost;
+    NSMutableDictionary *favoritePost;
     if ([_HNPostType isEqualToString:@"favorites"]) {
         //favoritePost = [_favoritePosts objectAtIndex:indexPath.row];
         NSString *date = [_differentDates objectAtIndex:indexPath.section];
@@ -155,7 +154,12 @@
     //configure left buttons
     if ([_HNPostType isEqualToString:@"favorites"]) {
         //TODO: set up buttons
-        cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"Remove" backgroundColor:FlatRed]];
+        cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"Remove" backgroundColor:FlatRed callback:^BOOL(MGSwipeTableCell *sender) {
+            NSString *date = [_differentDates objectAtIndex:indexPath.section];
+            NSMutableArray *favoritePostsOnDate = (NSMutableArray *) [_favoritePosts objectForKey:date];
+            [self unmarkPost:[favoritePostsOnDate objectAtIndex:indexPath.row] atIndexPath:indexPath];
+            return YES;
+        }]];
     }else {
         cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"star_post.png"] backgroundColor:FlatCoffee callback:^BOOL(MGSwipeTableCell *sender) {
             NSLog(@"mark this post as favorite");
@@ -181,7 +185,6 @@
     
     if ([_HNPostType isEqualToString:@"favorites"]) {
         // set up ui for favorite posts
-        NSLog(@"I'm here");
         cell.textLabel.text = favoritePost[@"title"];
         source = favoritePost[@"urlDomain"];
     }else {
@@ -235,7 +238,13 @@
     [self performSegueWithIdentifier:@"push to hn content view" sender:indexPath];
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+}
 
 
 #pragma mark - Navigation
@@ -253,7 +262,7 @@
         HNPostCotentViewController *HNContentVC = [segue destinationViewController];
         if ([_HNPostType isEqualToString:@"favorites"]) {
             NSLog(@"%ld",(long)[indexPath row]);
-            NSDictionary *favoritePost = [[_favoritePosts objectForKey:[_differentDates objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+            NSMutableDictionary *favoritePost = [[_favoritePosts objectForKey:[_differentDates objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
             NSLog(@"favorite post JSON: %@", favoritePost);
             HNContentVC.favoritePost = favoritePost;
         }else {
@@ -313,7 +322,7 @@ presenting sourceController:(UIViewController *)source {
                                         completion:^(NSArray *posts, NSString *nextPageIdentifier) {
                                             if (posts) {
                                                 NSLog(@"HN Posts: %lu", (unsigned long)posts.count);
-                                                _HNPostsArray = posts;
+                                                _HNPostsArray = (NSMutableArray *) posts;
                                                 [self.tableView reloadData];
                                             }else {
                                                 NSLog(@"Error fetching post");
@@ -326,7 +335,7 @@ presenting sourceController:(UIViewController *)source {
                                              completion:^(NSArray *posts, NSString *nextPageIdentifier) {
                                                  if (posts) {
                                                      NSLog(@"HN More Posts: %lu", (unsigned long)posts.count);
-                                                     _HNPostsArray = posts;
+                                                     _HNPostsArray = (NSMutableArray *) posts;
                                                  }else {
                                                      NSLog(@"Error fetching more posts");
                                                  }
@@ -423,22 +432,32 @@ presenting sourceController:(UIViewController *)source {
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSLog(@"JSON: %@", responseObject);
              [self handleFavoritePostsResponse:responseObject];
-         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"Error: %@", error);
          }];
 }
 
 - (void)handleFavoritePostsResponse:(id)response {
     if (response[@"success"]) {
-        _favoritePosts = response[@"info"];
+        _favoritePosts = [[NSMutableDictionary alloc] initWithDictionary:response[@"info"]];
         [self.tableView reloadData];
     }else {
         //show alert
-        SCLAlertView *errorAlert = [[SCLAlertView alloc] init];
-        [errorAlert showError:@"Error"
-                     subTitle:response[@"error"]
-             closeButtonTitle:@"OK"
-                     duration:0.0f];
+        JFMinimalNotification *errorNotification = [JFMinimalNotification notificationWithStyle:JFMinimalNotificationStyleWarning
+                                                                                          title:@"Something went wrong"
+                                                                                       subTitle:response[@"error"]
+                                                                                 dismissalDelay:3.0
+                                                                                   touchHandler:^{
+                                                                                       // FIXME: dismiss doesn't work
+                                                                                       [errorNotification dismiss];
+                                                                                   }];
+        [errorNotification setTitleFont:[UIFont fontWithName:fontForTableViewLight size:22]];
+        [errorNotification setSubTitleFont:[UIFont fontWithName:fontForTableViewLight size:22]];
+        [self.navigationController.view addSubview:errorNotification];
+        
+        [errorNotification show];
+
     }
 }
 
@@ -458,7 +477,8 @@ presenting sourceController:(UIViewController *)source {
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSLog(@"JSON: %@", responseObject);
              [self handleDifferentDatesOfPostsResponse:responseObject];
-         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"Error: %@", error);
          }];
 }
@@ -471,6 +491,65 @@ presenting sourceController:(UIViewController *)source {
     }
 }
 
+- (void)unmarkPost:(NSDictionary *)post atIndexPath:(NSIndexPath *)indexPath {
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
+    NSString *user_email = [[NSUserDefaults standardUserDefaults] objectForKey:@"email"];
+    NSDictionary *params;
+    if (user_email) {
+        params = [[NSDictionary alloc] initWithObjectsAndKeys:user_email, @"user_email", password, @"password", post[@"url"], @"post_url", nil];
+    }else {
+        params = [[NSDictionary alloc] initWithObjectsAndKeys:username, @"username", password, @"password",post[@"url"], @"post_url", nil];
+    }
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager new];
+    [manager POST:unmarkPostURL
+       parameters:params
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              NSLog(@"JSON: %@", responseObject);
+              [self handleUnmarkPostAtIndexPath:indexPath Response:responseObject];
+          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              NSLog(@"Error: %@", error);
+          }];
+}
+
+- (void)handleUnmarkPostAtIndexPath:(NSIndexPath *)indexPath Response:(id)response {
+    if (response[@"success"]) {
+        JFMinimalNotification *successNotification = [JFMinimalNotification notificationWithStyle:JFMinimalNotificationStyleInfo
+                                                                                            title:@"Note"
+                                                                                         subTitle:@"You just removed this post from your list"
+                                                                                   dismissalDelay:3.0
+                                                                                     touchHandler:^{
+                                                                                         [successNotification dismiss];
+                                                                                     }];
+        
+        [successNotification setTitleFont:[UIFont fontWithName:fontForTableViewLight size:22]];
+        [successNotification setSubTitleFont:[UIFont fontWithName:fontForTableViewLight size:22]];
+        [self.navigationController.view addSubview:successNotification];
+        [successNotification show];
+        
+        NSString *date = [_differentDates objectAtIndex:indexPath.section];
+        NSMutableArray *favoritePostsOnDate = [NSMutableArray arrayWithArray:[_favoritePosts objectForKey:date]] ;
+        
+        [favoritePostsOnDate removeObjectAtIndex:indexPath.row];
+        [_favoritePosts setObject:[favoritePostsOnDate copy] forKey:date];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationAutomatic];
+
+    }else {
+        JFMinimalNotification *errorNotification = [JFMinimalNotification notificationWithStyle:JFMinimalNotificationStyleError
+                                                                                          title:@"Error!"
+                                                                                       subTitle:response[@"error"]
+                                                                                 dismissalDelay:3.0
+                                                                                   touchHandler:^{
+                                                                                       // FIXME: dismiss doesn't work
+                                                                                       [errorNotification dismiss];
+                                                                                   }];
+        [errorNotification setTitleFont:[UIFont fontWithName:fontForTableViewLight size:22]];
+        [errorNotification setSubTitleFont:[UIFont fontWithName:fontForTableViewLight size:22]];
+        [self.navigationController.view addSubview:errorNotification];
+        
+        [errorNotification show];
+    }
+}
 
 
 @end
