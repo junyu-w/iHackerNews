@@ -24,22 +24,9 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="81" y="310" width="230" height="36"/>
+                                    <rect key="frame" x="81" y="310" width="238" height="36"/>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4S-Jt-FL1">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Sign Out">
-                                    <color key="titleColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="81" y="364" width="238" height="41"/>
-                                </variation>
-                                <connections>
-                                    <action selector="userLogOutButtonOnClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hFv-ze-sOp"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2z6-MQ-xLt">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" backgroundImage="cancel_button">
@@ -67,24 +54,37 @@
                                     <rect key="frame" x="132" y="103" width="128" height="128"/>
                                 </variation>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4S-Jt-FL1">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Sign Out">
+                                    <color key="titleColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="125" y="466" width="143" height="41"/>
+                                </variation>
+                                <connections>
+                                    <action selector="userLogOutButtonOnClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hFv-ze-sOp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="wjF-Zi-WRv"/>
-                                <exclude reference="S4S-Jt-FL1"/>
                                 <exclude reference="2z6-MQ-xLt"/>
                                 <exclude reference="1JV-W3-vP8"/>
                                 <exclude reference="VuQ-Wf-uJu"/>
+                                <exclude reference="S4S-Jt-FL1"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="wjF-Zi-WRv"/>
-                                <include reference="S4S-Jt-FL1"/>
                                 <include reference="2z6-MQ-xLt"/>
                                 <include reference="1JV-W3-vP8"/>
                                 <include reference="VuQ-Wf-uJu"/>
+                                <include reference="S4S-Jt-FL1"/>
                             </mask>
                         </variation>
                     </view>
@@ -727,8 +727,8 @@
         <image name="reveal_icon" width="22" height="17"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="fhm-aF-FnT"/>
         <segue reference="pHe-FX-IzS"/>
         <segue reference="Wmb-kd-lku"/>
-        <segue reference="fCF-Qf-KSh"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -40,7 +40,6 @@
     //TODO: do something when get new hn posts.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(someSelector) name:kHNShouldReloadDataFromConfiguration object:nil];
     
-    [[HNManager sharedManager] startSession];
     if ([_HNPostType isEqualToString:@"favorites"]) {
         [self getDifferentDatesOfPosts];
         [self getFavoritePosts];
@@ -153,7 +152,6 @@
     
     //configure left buttons
     if ([_HNPostType isEqualToString:@"favorites"]) {
-        //TODO: set up buttons
         cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"Remove" backgroundColor:FlatRed callback:^BOOL(MGSwipeTableCell *sender) {
             NSString *date = [_differentDates objectAtIndex:indexPath.section];
             NSMutableArray *favoritePostsOnDate = (NSMutableArray *) [_favoritePosts objectForKey:date];
@@ -230,6 +228,11 @@
     }
     cell.detailTextLabel.attributedText = detailedText;
     
+    // when scroll to the bottom of the table, load more data
+    if (indexPath.row == [_HNPostsArray count]-1) {
+        [self getMoreHNPosts];
+    }
+    
     return cell;
 }
 
@@ -284,7 +287,7 @@ presenting sourceController:(UIViewController *)source {
     self.transition.transitionMode = YPBubbleTransitionModePresent;
     
     self.transition.startPoint = CGPointMake(self.view.frame.size.width-35, 35);
-    self.transition.bubbleColor = self.userButton.tintColor;
+    self.transition.bubbleColor = FlatWhite;
     self.transition.duration = 0.5;
     
     return self.transition;
@@ -294,7 +297,7 @@ presenting sourceController:(UIViewController *)source {
     self.transition.transitionMode = YPBubbleTransitionModeDismiss;
     
     self.transition.startPoint = CGPointMake(self.view.frame.size.width-35, 35);
-    self.transition.bubbleColor = self.userButton.tintColor;
+    self.transition.bubbleColor = FlatWhite;
     self.transition.duration = 0.5;
     
     return self.transition;
@@ -330,12 +333,17 @@ presenting sourceController:(UIViewController *)source {
                                         }];
 }
 
+// getting more hacker news posts by incrementing pages
 - (void)getMoreHNPosts {
     [[HNManager sharedManager] loadPostsWithUrlAddition:[[HNManager sharedManager] postUrlAddition]
                                              completion:^(NSArray *posts, NSString *nextPageIdentifier) {
                                                  if (posts) {
                                                      NSLog(@"HN More Posts: %lu", (unsigned long)posts.count);
-                                                     _HNPostsArray = (NSMutableArray *) posts;
+                                                     NSLog(@"%@", [[posts objectAtIndex:0] Title]);
+                                                     NSLog(@"%@", nextPageIdentifier);
+                                                     [_HNPostsArray addObjectsFromArray:posts];
+                                                     [self.tableView reloadData];
+                                                     
                                                  }else {
                                                      NSLog(@"Error fetching more posts");
                                                  }

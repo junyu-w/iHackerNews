@@ -30,7 +30,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.view.backgroundColor = FlatSand;
+    self.view.backgroundColor = FlatWhite;
     if ([self userHasLoggedIn]) {
         [self setUpUserProfile];
         [self setUpLogoutButton];
@@ -58,21 +58,30 @@
     if ([FBSDKAccessToken currentAccessToken]) {
         // TODO: set up profile for facebook user
     }else {
-        self.usernameLabel.text = [@"Username: " stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
-        self.emailLabel.text = [@"Email: " stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"email"]];
+        self.usernameLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        self.usernameLabel.numberOfLines = 0;
+        self.emailLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        self.usernameLabel.numberOfLines = 0;
         
-        UIFont *userProfileLabelsFont = [UIFont fontWithName:fontForAppLight size:18];
+        self.usernameLabel.text = [@"" stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
+        self.emailLabel.text = [@"" stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"email"]];
+        self.usernameLabel.textAlignment = NSTextAlignmentCenter;
+        self.emailLabel.textAlignment = NSTextAlignmentCenter;
+        
+        UIFont *userProfileLabelsFont = [UIFont fontWithName:fontForAppLight size:15];
         self.usernameLabel.font = userProfileLabelsFont;
         self.emailLabel.font = userProfileLabelsFont;
+        self.usernameLabel.textColor = FlatOrange;
+        self.emailLabel.textColor = FlatOrange;
     }
     self.userProfilePictureImageView.image = [UIImage imageNamed:@"default_user_profile_picture"];
     
 }
 
 - (void)setUpLogoutButton {
-    self.userLogOutButton.titleLabel.font = [UIFont fontWithName:fontForAppLight size:18];
+    self.userLogOutButton.titleLabel.font = [UIFont fontWithName:fontForAppBold size:16];
     self.userLogOutButton.titleLabel.textColor = [[UIColor alloc] initWithRed:236 green:240 blue:241 alpha:1.0];
-    self.userLogOutButton.layer.cornerRadius = 0.5;
+    self.userLogOutButton.layer.cornerRadius = 1;
     if ([FBSDKAccessToken currentAccessToken]) {
         self.userLogOutButton.backgroundColor = FlatSkyBlue;
         self.userLogOutButton.titleLabel.text = @"Facebook Sign Out";
@@ -87,9 +96,6 @@
         NSLog(@"user goes back to hn post table view");
     }];
 }
-
-
-
 
 #pragma mark - check user login
 
