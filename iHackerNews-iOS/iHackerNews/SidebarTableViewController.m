@@ -10,6 +10,7 @@
 #import "SWRevealViewController.h"
 #import "HNPostsTableViewController.h"
 #import "constants.h"
+#import <ChameleonFramework/Chameleon.h>
 
 @interface SidebarTableViewController ()
 
@@ -56,8 +57,15 @@
     NSString *CellIdentifier = [menuItems objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
-    cell.textLabel.font = [UIFont fontWithName:fontForTableViewLight size:18];
+    // make app name cell not clickable
+    if ([CellIdentifier isEqualToString:@"title"]) {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.font = [UIFont fontWithName:fontForTableViewBold size:20];
+        cell.textLabel.textColor = FlatOrange;
+    }else {
+        // Configure the cell...
+        cell.textLabel.font = [UIFont fontWithName:fontForTableViewLight size:18];
+    }
     
     return cell;
 }
