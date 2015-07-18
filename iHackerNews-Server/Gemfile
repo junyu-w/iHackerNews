@@ -60,6 +60,8 @@ group :development, :test do
   gem "binding_of_caller"
 
   gem "awesome_print"
+
+  gem 'byebug', '~> 5.0.0'
 end
 
 group :production do

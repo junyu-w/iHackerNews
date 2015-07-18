@@ -103,6 +103,10 @@
 
 - (IBAction)userLogOutButtonOnClick:(id)sender {
     //clear stored user info
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"username"];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"email"];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"password"];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"user_id"];
     if ([FBSDKAccessToken currentAccessToken]) {
         //facebook user log out
         FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
@@ -110,10 +114,6 @@
         [loginManager logOut];
         [self performSegueWithIdentifier:@"pop up log in view after log out" sender:self];
     }else {
-        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"username"];
-        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"email"];
-        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"password"];
-        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"user_id"];
         //segue to log in view controller
         [self performSegueWithIdentifier:@"pop up log in view after log out" sender:self];
     }

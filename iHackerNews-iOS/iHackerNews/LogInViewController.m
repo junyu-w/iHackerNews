@@ -131,6 +131,8 @@
                  NSLog(@"fetched user:%@", result);
                  [[NSUserDefaults standardUserDefaults] setValue:result[@"email"] forKey:@"email"];
                  [[NSUserDefaults standardUserDefaults] setValue:result[@"name"] forKey:@"username"];
+                 [[NSUserDefaults standardUserDefaults] setValue:result[@"id"] forKey:@"facebook_id"];
+                 [[NSUserDefaults standardUserDefaults] setValue:[[FBSDKAccessToken currentAccessToken] tokenString] forKey:@"facebook_auth_token"];
                  // register facebook user on server
                  NSDictionary *facebookUserInfo = [[NSDictionary alloc] initWithObjectsAndKeys:result[@"id"], @"facebook_id", [[FBSDKAccessToken currentAccessToken] tokenString], @"facebook_auth_token", result[@"email"], @"user_email", result[@"name"], @"username", nil];
                  [self registerFacebookUserInServerWithInfo:facebookUserInfo];
@@ -160,9 +162,13 @@
 - (void)handleFacebookUserSignUpServerResponse:(id)response {
     if (response[@"success"]) {
         [self performSegueWithIdentifier:@"facebook user signed up modal segue" sender:self];
+        [[NSUserDefaults standardUserDefaults] setValue:response[@"user_info"][@"user_id"] forKey:@"user_id"];
     }else {
         [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"email"];
         [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"username"];
+        [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"user_id"];
+        [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"facebook_id"];
+        [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"facebook_auth_token"];
         UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                              message:response[@"error"]
                                                             delegate:self

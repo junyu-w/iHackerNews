@@ -56,21 +56,27 @@ class UsersController < ApplicationController
       render :json => {:success => true, :info => user.posts_with_dates }
     elsif identity == 0
       # TODO: deal with facebook user
+      user = User.where(:facebook_id => params[:facebook_id]).first
+      render :json => { :success => true, :info => user.posts_with_dates }
     end
   end
 
   def unmark_post
     if authenticate_unmark_params
       post = HackerNewsPost.find_by_url(params[:post_url])
-      user = params[:user_email].nil? ? User.where(:username => params[:username], :password => params[:password]).first : User.where(:email => params[:user_email], :password => params[:password]).first
+      if params[:facebook_id].nil?
+        user = params[:user_email].nil? ? User.where(:username => params[:username], :password => params[:password]).first : User.where(:email => params[:user_email], :password => params[:password]).first
+      else
+        user = User.where(facebook_id: params[:facebook_id]).first
+      end
       render :json => {:error => "This post doesn't exist in your favorites"} and return unless user.hacker_news_posts.include? post
       if user.hacker_news_posts.delete(post)
-        render :json => {:success => true}
+        render :json => {:success => true} and return
       else
-        render :json => {:error => "Failed to unmark this post"}
+        render :json => {:error => "Failed to unmark this post"} and return
       end
     else
-      render :json => {:error => INCORRECT_PARAMETER_ERROR }
+      render :json => {:error => INCORRECT_PARAMETER_ERROR } and return
     end
   end
 
@@ -78,9 +84,11 @@ class UsersController < ApplicationController
     identity = authenticate_params_and_tell_user_identity
     if identity == 1
       user = params[:user_email].nil? ? User.where(:username => params[:username], :password => params[:password]).first : User.where(:email => params[:user_email], :password => params[:password]).first
-      render :json => {:success => true, :info => user.different_dates_of_posts }
+      render :json => { :success => true, :info => user.different_dates_of_posts }
     elsif identity == 0
       # TODO: deal with facebook user
+      user = User.where(:facebook_id => params[:facebook_id]).first
+      render :json => { :success => true, :info => user.different_dates_of_posts }
     end
   end
 

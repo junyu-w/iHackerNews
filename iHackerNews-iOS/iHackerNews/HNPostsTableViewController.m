@@ -373,7 +373,7 @@ presenting sourceController:(UIViewController *)source {
     NSString *post_url = [post UrlString];
     NSString *post_url_domain = [post UrlDomain];
     NSString *post_title = [post Title];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager new];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:user_id, @"user_id", post_url, @"post_url", post_url_domain, @"post_url_domain", post_title, @"post_title", nil];
     [manager POST:markPostURL
        parameters:params
@@ -437,8 +437,12 @@ presenting sourceController:(UIViewController *)source {
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
     NSString *user_email = [[NSUserDefaults standardUserDefaults] objectForKey:@"email"];
+    NSString *facebook_id = [[NSUserDefaults standardUserDefaults] objectForKey:@"facebook_id"];
+    NSString *facebook_auth_token = [[NSUserDefaults standardUserDefaults] objectForKey:@"facebook_auth_token"];
     NSDictionary *params;
-    if (user_email) {
+    if ([FBSDKAccessToken currentAccessToken]) {
+        params = [[NSDictionary alloc] initWithObjectsAndKeys: facebook_id, @"facebook_id", facebook_auth_token, @"facebook_auth_token", user_email, @"user_email", username, @"username", nil];
+    }else if (user_email) {
         params = [[NSDictionary alloc] initWithObjectsAndKeys:user_email, @"user_email", password, @"password", nil];
     }else {
         params = [[NSDictionary alloc] initWithObjectsAndKeys:username, @"username", password, @"password", nil];
@@ -482,8 +486,12 @@ presenting sourceController:(UIViewController *)source {
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
     NSString *user_email = [[NSUserDefaults standardUserDefaults] objectForKey:@"email"];
+    NSString *facebook_id = [[NSUserDefaults standardUserDefaults] objectForKey:@"facebook_id"];
+    NSString *facebook_auth_token = [[NSUserDefaults standardUserDefaults] objectForKey:@"facebook_auth_token"];
     NSDictionary *params;
-    if (user_email) {
+    if ([FBSDKAccessToken currentAccessToken]) {
+        params = [[NSDictionary alloc] initWithObjectsAndKeys: facebook_id, @"facebook_id", facebook_auth_token, @"facebook_auth_token", user_email, @"user_email", username, @"username", nil];
+    }else if (user_email) {
         params = [[NSDictionary alloc] initWithObjectsAndKeys:user_email, @"user_email", password, @"password", nil];
     }else {
         params = [[NSDictionary alloc] initWithObjectsAndKeys:username, @"username", password, @"password", nil];
@@ -512,8 +520,12 @@ presenting sourceController:(UIViewController *)source {
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
     NSString *user_email = [[NSUserDefaults standardUserDefaults] objectForKey:@"email"];
+    NSString *facebook_id = [[NSUserDefaults standardUserDefaults] objectForKey:@"facebook_id"];
+    NSString *facebook_auth_token = [[NSUserDefaults standardUserDefaults] objectForKey:@"facebook_auth_token"];
     NSDictionary *params;
-    if (user_email) {
+    if ([FBSDKAccessToken currentAccessToken]) {
+        params = [[NSDictionary alloc] initWithObjectsAndKeys: facebook_id, @"facebook_id", facebook_auth_token, @"facebook_auth_token", user_email, @"user_email", username, @"username", post[@"url"], @"post_url", nil];
+    }else if (user_email) {
         params = [[NSDictionary alloc] initWithObjectsAndKeys:user_email, @"user_email", password, @"password", post[@"url"], @"post_url", nil];
     }else {
         params = [[NSDictionary alloc] initWithObjectsAndKeys:username, @"username", password, @"password",post[@"url"], @"post_url", nil];
