@@ -107,6 +107,8 @@
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"email"];
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"password"];
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"user_id"];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"facebook_id"];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"facebook_auth_token"];
     if ([FBSDKAccessToken currentAccessToken]) {
         //facebook user log out
         FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];

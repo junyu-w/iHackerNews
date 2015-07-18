@@ -111,7 +111,7 @@ class UsersController < ApplicationController
 
   ## 0 -- facebook user, 1 -- normal user
   def authenticate_params_and_tell_user_identity
-    if ![params[:facebook_id], params[:facebook_auth_token], params[:user_email], params[:username]].any?(&:nil?)
+    if !params[:facebook_id].nil? && !params[:facebook_auth_token].nil? && !params[:user_email].nil? && !params[:username].nil?
       return 0
     elsif !params[:username].nil? && !params[:password].nil? || !params[:user_email].nil? && !params[:password].nil?
       return 1
@@ -145,7 +145,7 @@ class UsersController < ApplicationController
 
   def verify_normal_user_exists
     existing_user = User.where(:username => params[:username])
-    return !existing_user.empty
+    return !existing_user.empty?
   end
 
   def verify_facbeook_user_exists
@@ -171,7 +171,7 @@ class UsersController < ApplicationController
       if new_user.save
         get_normal_user
       else
-        render :json => {:error => new_user.errors.full_messages.to_sentence}
+        render :json => { :error => new_user.errors.full_messages.to_sentence }
       end
     else
       render :json => {:error => INCOMPELETE_CREATION_FORM_ERROR}
