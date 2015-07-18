@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iHackerNews/HNPostsTableViewController.m"
-            timestampString = "458631387.562895"
+            timestampString = "458886030.599897"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "425"
-            endingLineNumber = "425"
+            startingLineNumber = "433"
+            endingLineNumber = "433"
             landmarkName = "@implementation HNPostsTableViewController"
             landmarkType = "3">
          </BreakpointContent>

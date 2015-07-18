@@ -382,11 +382,19 @@ presenting sourceController:(UIViewController *)source {
               [self handleResponse:responseObject];
           } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               NSLog(@"failed ERROR: %@", error);
-              SCLAlertView *errorAlert = [[SCLAlertView alloc] init];
-              [errorAlert showError:@"Error"
-                           subTitle:[error localizedDescription]
-                   closeButtonTitle:@"OK"
-                           duration:0.0f];
+              JFMinimalNotification *errorNotification = [JFMinimalNotification notificationWithStyle:JFMinimalNotificationStyleError
+                                                                                                  title:@"Error!"
+                                                                                               subTitle:[error localizedDescription]
+                                                                                         dismissalDelay:3.0
+                                                                                           touchHandler:^{
+                                                                                               [errorNotification dismiss];
+                                                                                           }];
+              
+              [errorNotification setTitleFont:[UIFont fontWithName:fontForTableViewLight size:22]];
+              [errorNotification setSubTitleFont:[UIFont fontWithName:fontForTableViewLight size:15]];
+              [self.navigationController.view addSubview:errorNotification];
+              
+              [errorNotification show];
           }];
 }
 
@@ -424,6 +432,7 @@ presenting sourceController:(UIViewController *)source {
 }
 
 #pragma mark - get favorite posts & dates information
+
 - (void)getFavoritePosts {
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];

@@ -18,15 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjF-Zi-WRv">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="81" y="310" width="238" height="36"/>
-                                </variation>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2z6-MQ-xLt">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" backgroundImage="cancel_button">
@@ -45,7 +36,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="81" y="269" width="238" height="33"/>
+                                    <rect key="frame" x="66" y="269" width="269" height="33"/>
                                 </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VuQ-Wf-uJu" customClass="PBFlatRoundedImageView">
@@ -67,24 +58,33 @@
                                     <action selector="userLogOutButtonOnClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hFv-ze-sOp"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjF-Zi-WRv">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="66" y="310" width="269" height="36"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="wjF-Zi-WRv"/>
                                 <exclude reference="2z6-MQ-xLt"/>
                                 <exclude reference="1JV-W3-vP8"/>
                                 <exclude reference="VuQ-Wf-uJu"/>
                                 <exclude reference="S4S-Jt-FL1"/>
+                                <exclude reference="wjF-Zi-WRv"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="wjF-Zi-WRv"/>
                                 <include reference="2z6-MQ-xLt"/>
                                 <include reference="1JV-W3-vP8"/>
                                 <include reference="VuQ-Wf-uJu"/>
                                 <include reference="S4S-Jt-FL1"/>
+                                <include reference="wjF-Zi-WRv"/>
                             </mask>
                         </variation>
                     </view>
@@ -307,6 +307,7 @@
                         <outlet property="backgroundImageView" destination="kcW-2k-60f" id="viF-GP-u8q"/>
                         <outlet property="signUpLabel" destination="n5j-Ij-KBo" id="Usd-kU-ExV"/>
                         <segue destination="a5y-yC-gaD" kind="show" identifier="show to sign up view" id="5gQ-Nl-Kjd"/>
+                        <segue destination="j5d-Ue-nqI" kind="presentation" identifier="facebook user signed up modal segue" id="mim-Mq-xG5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I83-VN-BmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -729,6 +730,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="fhm-aF-FnT"/>
         <segue reference="pHe-FX-IzS"/>
-        <segue reference="Wmb-kd-lku"/>
+        <segue reference="mim-Mq-xG5"/>
     </inferredMetricsTieBreakers>
 </document>

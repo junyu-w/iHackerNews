@@ -35,7 +35,6 @@
         [self setUpUserProfile];
         [self setUpLogoutButton];
     }
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -54,26 +53,23 @@
 #pragma mark - UI set up
 
 - (void)setUpUserProfile {
-    // for facebook user
-    if ([FBSDKAccessToken currentAccessToken]) {
-        // TODO: set up profile for facebook user
-    }else {
-        self.usernameLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        self.usernameLabel.numberOfLines = 0;
-        self.emailLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        self.usernameLabel.numberOfLines = 0;
-        
-        self.usernameLabel.text = [@"" stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
-        self.emailLabel.text = [@"" stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"email"]];
-        self.usernameLabel.textAlignment = NSTextAlignmentCenter;
-        self.emailLabel.textAlignment = NSTextAlignmentCenter;
-        
-        UIFont *userProfileLabelsFont = [UIFont fontWithName:fontForAppLight size:15];
-        self.usernameLabel.font = userProfileLabelsFont;
-        self.emailLabel.font = userProfileLabelsFont;
-        self.usernameLabel.textColor = FlatOrange;
-        self.emailLabel.textColor = FlatOrange;
-    }
+
+    self.usernameLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.usernameLabel.numberOfLines = 0;
+    self.emailLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.usernameLabel.numberOfLines = 0;
+    
+    self.usernameLabel.text = [@"" stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
+    self.emailLabel.text = [@"" stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"email"]];
+    self.usernameLabel.textAlignment = NSTextAlignmentCenter;
+    self.emailLabel.textAlignment = NSTextAlignmentCenter;
+    
+    UIFont *userProfileLabelsFont = [UIFont fontWithName:fontForAppLight size:17];
+    self.usernameLabel.font = userProfileLabelsFont;
+    self.emailLabel.font = userProfileLabelsFont;
+    self.usernameLabel.textColor = FlatOrange;
+    self.emailLabel.textColor = FlatOrange;
+
     self.userProfilePictureImageView.image = [UIImage imageNamed:@"default_user_profile_picture"];
     
 }
@@ -112,6 +108,7 @@
         FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
         NSLog(@"facebook user log out");
         [loginManager logOut];
+        [self performSegueWithIdentifier:@"pop up log in view after log out" sender:self];
     }else {
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"username"];
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"email"];
@@ -121,5 +118,9 @@
         [self performSegueWithIdentifier:@"pop up log in view after log out" sender:self];
     }
 }
+
+#pragma mark - facebook user
+
+
 
 @end
