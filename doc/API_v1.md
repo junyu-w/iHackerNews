@@ -39,5 +39,3 @@ Endpoints & parameters
   return => {:success => true}
   - if fail:
   return => {:error => "somg msg"}
-
-

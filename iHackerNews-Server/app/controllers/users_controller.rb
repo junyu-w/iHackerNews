@@ -52,8 +52,12 @@ class UsersController < ApplicationController
   def posts_of_user
     identity = authenticate_params_and_tell_user_identity
     if identity == 1
-      user = params[:user_email].nil? ? User.where(:username => params[:username], :password => params[:password]).first : User.where(:email => params[:user_email], :password => params[:password]).first
-      render :json => {:success => true, :info => user.posts_with_dates }
+      user = params[:user_email].nil? ? User.where(:username => params[:username]).first : User.where(:email => params[:user_email]).first
+      if user.authenticate(params[:password])
+        render :json => {:success => true, :info => user.posts_with_dates }
+      else
+        render :json => {:error => user.errors.full_messages.to_sentence}
+      end
     elsif identity == 0
       # TODO: deal with facebook user
       user = User.where(:facebook_id => params[:facebook_id]).first
@@ -65,7 +69,10 @@ class UsersController < ApplicationController
     if authenticate_unmark_params
       post = HackerNewsPost.find_by_url(params[:post_url])
       if params[:facebook_id].nil?
-        user = params[:user_email].nil? ? User.where(:username => params[:username], :password => params[:password]).first : User.where(:email => params[:user_email], :password => params[:password]).first
+        user = params[:user_email].nil? ? User.where(:username => params[:username]).first : User.where(:email => params[:user_email]).first
+        if !user.authenticate(params[:password])
+          render :json => { :error => user.errors.full_messages.to_sentence }
+        end
       else
         user = User.where(facebook_id: params[:facebook_id]).first
       end
@@ -83,8 +90,12 @@ class UsersController < ApplicationController
   def get_different_dates_of_posts
     identity = authenticate_params_and_tell_user_identity
     if identity == 1
-      user = params[:user_email].nil? ? User.where(:username => params[:username], :password => params[:password]).first : User.where(:email => params[:user_email], :password => params[:password]).first
-      render :json => { :success => true, :info => user.different_dates_of_posts }
+      user = params[:user_email].nil? ? User.where(:username => params[:username]).first : User.where(:email => params[:user_email]).first
+      if user.authenticate(params[:password])
+        render :json => { :success => true, :info => user.different_dates_of_posts }
+      else
+        render :json => { :error => user.errors.full_messages.to_sentence }
+      end
     elsif identity == 0
       # TODO: deal with facebook user
       user = User.where(:facebook_id => params[:facebook_id]).first
@@ -133,8 +144,9 @@ class UsersController < ApplicationController
   end
 
   def get_normal_user
-    existing_user = User.where(:username => params[:username], :password => params[:password]).first || User.where(:email => params[:user_email], :password => params[:password]).first
-    if !existing_user.nil?
+    loggin_user = User.where(:username => params[:username]).first || User.where(:email => params[:user_email]).first
+    existing_user = loggin_user.authenticate(params[:password])
+    if existing_user
       render :json => {:success => true, :user_info => {:user_id => existing_user.id, :username => existing_user.username, :profile_picture_url => existing_user.profile_picture_url, :email => existing_user.email}}
     else
       render :json => {:error => INVALID_USER_ERROR}

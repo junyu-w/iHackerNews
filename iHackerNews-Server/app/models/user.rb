@@ -15,11 +15,13 @@
 
 class User < ActiveRecord::Base
 
+  has_secure_password
+
   has_and_belongs_to_many :hacker_news_posts
 
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   validates :username, presence:true, uniqueness:true
-  validates :email, presence:true
+  validates :email, presence:true, uniqueness: true
   validates :facebook_id, uniqueness: { allow_blank: true, case_sensitive: false }
 
   scope :posts_of_user, -> (user) { user.hacker_news_posts }

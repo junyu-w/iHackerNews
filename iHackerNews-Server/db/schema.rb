@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622080035) do
+ActiveRecord::Schema.define(version: 20150721062235) do
 
   create_table "hacker_news_posts", force: true do |t|
     t.string   "url"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20150622080035) do
     t.string   "facebook_id"
     t.string   "facebook_auth_token"
     t.string   "email"
+    t.string   "password_digest"
   end
 
   create_table "users_hacker_news_posts_joins", force: true do |t|
