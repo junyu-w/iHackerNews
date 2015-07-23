@@ -134,7 +134,7 @@
                  [[NSUserDefaults standardUserDefaults] setValue:result[@"id"] forKey:@"facebook_id"];
                  [[NSUserDefaults standardUserDefaults] setValue:[[FBSDKAccessToken currentAccessToken] tokenString] forKey:@"facebook_auth_token"];
                  // register facebook user on server
-                 NSDictionary *facebookUserInfo = [[NSDictionary alloc] initWithObjectsAndKeys:result[@"id"], @"facebook_id", [[FBSDKAccessToken currentAccessToken] tokenString], @"facebook_auth_token", result[@"email"], @"user_email", result[@"name"], @"username", nil];
+                 NSDictionary *facebookUserInfo = [[NSDictionary alloc] initWithObjectsAndKeys:result[@"id"], @"facebook_id", [[FBSDKAccessToken currentAccessToken] tokenString], @"password", result[@"email"], @"user_email", result[@"name"], @"username", nil];
                  [self registerFacebookUserInServerWithInfo:facebookUserInfo];
              }
          }];

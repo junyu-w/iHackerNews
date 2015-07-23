@@ -441,7 +441,7 @@ presenting sourceController:(UIViewController *)source {
     NSString *facebook_auth_token = [[NSUserDefaults standardUserDefaults] objectForKey:@"facebook_auth_token"];
     NSDictionary *params;
     if ([FBSDKAccessToken currentAccessToken]) {
-        params = [[NSDictionary alloc] initWithObjectsAndKeys: facebook_id, @"facebook_id", facebook_auth_token, @"facebook_auth_token", user_email, @"user_email", username, @"username", nil];
+        params = [[NSDictionary alloc] initWithObjectsAndKeys: facebook_id, @"facebook_id", user_email, @"user_email", username, @"username", nil];
     }else if (user_email) {
         params = [[NSDictionary alloc] initWithObjectsAndKeys:user_email, @"user_email", password, @"password", nil];
     }else {
