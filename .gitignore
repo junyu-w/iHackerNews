@@ -2,4 +2,5 @@
 *.swo
 settings.yml
 constants.m
+iHackerNews/Pods/**
 

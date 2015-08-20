@@ -4,92 +4,62 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-iHackerNews-AFNetworking.xcscheme</key>
+		<key>AFNetworking.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-iHackerNews-Bolts.xcscheme</key>
+		<key>Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-iHackerNews-BubbleTransition-objc-BubbleTransition.xcscheme</key>
+		<key>BubbleTransition-objc-BubbleTransition.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-iHackerNews-BubbleTransition-objc.xcscheme</key>
+		<key>BubbleTransition-objc.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-iHackerNews-ChameleonFramework.xcscheme</key>
+		<key>ChameleonFramework.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-iHackerNews-DGActivityIndicatorView.xcscheme</key>
+		<key>DGActivityIndicatorView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-iHackerNews-DKCircleButton.xcscheme</key>
+		<key>DKCircleButton.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-iHackerNews-Facebook-iOS-SDK.xcscheme</key>
+		<key>Facebook-iOS-SDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-iHackerNews-JFMinimalNotifications.xcscheme</key>
+		<key>JFMinimalNotifications.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-iHackerNews-MGSwipeTableCell.xcscheme</key>
+		<key>MGSwipeTableCell.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-iHackerNews-NSAttributedString+CCLFormat.xcscheme</key>
+		<key>NSAttributedString+CCLFormat.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-iHackerNews-PBFlatUI.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-iHackerNews-QBImagePickerController-QBImagePicker.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-iHackerNews-QBImagePickerController.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-iHackerNews-RESideMenu.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-iHackerNews-SCLAlertView-Objective-C.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-iHackerNews-UzysCircularProgressPullToRefresh.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-iHackerNews-libHN.xcscheme</key>
+		<key>PBFlatUI.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -99,100 +69,130 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>QBImagePickerController-QBImagePicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>QBImagePickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RESideMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SCLAlertView-Objective-C.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UzysCircularProgressPullToRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>libHN.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>106EE2C37F5EADE7A2B27398</key>
+		<key>0242E9512D346C34F8FEA03C72880820</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>14D597F15179B462E41C28A9</key>
+		<key>05040D71F9D5677FF8106259A702FF44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2ABDAD014E3DDC3890F053EB</key>
+		<key>1BF62E25E22297D4C514DE664AA9DDFB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>34220ADB8A57B232A83AA622</key>
+		<key>2965E38DCEBC6E89D5362BA6561D3FBD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3C345610C85CFD41CEC69FAA</key>
+		<key>32DF5323F8F103D2EA04744685436ACF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>40755D2B442E1D4211514D73</key>
+		<key>36F17B74EF4B53FFCBA7302AB9A464D7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5CA625302378C6E3CE66B767</key>
+		<key>4668C9D3A8893DA37FA9FEC24C5F0AA0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6CE3479F2C7EF6F8DDA97B71</key>
+		<key>47CF4AE643DB8EC0FE81A6C63AB9EAA9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6D2F0FFFD5B2CEECED0F0C56</key>
+		<key>4FE88F32DB1F62615FF2C871347FEB68</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7E9F8765C96F5E1FE8681A8B</key>
+		<key>67DCCE4C7174EA1B32DDA4B6F2BBE11B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8DB79EEFA0514FBCACF0BA88</key>
+		<key>6A3F6F51ED398CFE796322DDA5CF0D5B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9C28F7354069C6A1A9C9D6BD</key>
+		<key>7577A62954CF472CDE508F74F22B4DE1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A8BFF5714D6A18EEA3AB80D4</key>
+		<key>79C604DD4F608C27DAEF950370810851</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AEB7B2FE29A1D9455B0BC5EC</key>
+		<key>7E8EFEFB6EBD1440F8BD5F891E47B8AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B279CA51A4CCAF765A1CCA14</key>
+		<key>85DF76655A5F5DB0387B9B58C564F55E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BBB0C6F5A53ACDAE8E7913CD</key>
+		<key>99155D9F81F703B6E82A1EE688ABD81E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C776A5A030F4E91EB47F043A</key>
+		<key>9C645F88F98A3188F0483D9D826C070E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D8C974F5CF27C52629294F82</key>
+		<key>9C986225B96FE91F0252AEC10F2816A7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DF2275C90F7FDDA82B434BFE</key>
+		<key>A84EA3BD315DF55438BCCC239896F04B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
