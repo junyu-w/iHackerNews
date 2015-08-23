@@ -184,7 +184,7 @@
     if ([_HNPostType isEqualToString:@"favorites"]) {
         // set up ui for favorite posts
         cell.textLabel.text = favoritePost[@"title"];
-        source = favoritePost[@"urlDomain"];
+        source = favoritePost[@"url_domain"];
     }else {
         //set up ui for non-favorite posts
         cell.textLabel.text = [post Title];
