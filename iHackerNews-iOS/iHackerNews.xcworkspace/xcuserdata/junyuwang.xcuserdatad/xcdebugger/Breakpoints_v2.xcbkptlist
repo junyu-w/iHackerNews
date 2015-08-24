@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iHackerNews/LogInViewController.m"
-            timestampString = "458951440.20348"
+            timestampString = "462073759.649424"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "-handleFacebookUserSignUpServerResponse:"
             landmarkType = "5">
          </BreakpointContent>
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iHackerNews/LogInViewController.m"
-            timestampString = "458954035.556141"
+            timestampString = "462073759.649424"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "-registerFacebookUserInServerWithInfo:"
             landmarkType = "5">
          </BreakpointContent>
@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iHackerNews/LogInViewController.m"
-            timestampString = "458954036.361616"
+            timestampString = "462073759.649424"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "-registerFacebookUserInServerWithInfo:"
             landmarkType = "5">
          </BreakpointContent>

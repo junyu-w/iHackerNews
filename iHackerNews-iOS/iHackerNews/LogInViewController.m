@@ -18,9 +18,11 @@
 
 @interface LogInViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *signUpLabel;
+@property (weak, nonatomic) IBOutlet UILabel *signInLabel;
 @property (weak, nonatomic) IBOutlet UIButton *SignUpButton;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet DKCircleButton *facebookLoginButton;
+@property (weak, nonatomic) IBOutlet DKCircleButton *normalLoginButton;
 
 @end
 
@@ -51,21 +53,15 @@
 }
 
 - (void)setUpButton {
-    DKCircleButton *facebook_login_button = [[DKCircleButton alloc] initWithFrame:CGRectMake(0, 0, 70, 70)];
-    facebook_login_button.center = CGPointMake(120, 500);
-    facebook_login_button.titleLabel.font = [UIFont systemFontOfSize:13];
-    [facebook_login_button setBackgroundImage:[UIImage imageNamed:@"facebook_login_button"] forState:UIControlStateNormal];
-    [self.view addSubview:facebook_login_button];
-    [facebook_login_button addTarget:self action:@selector(signUpWithFacebook) forControlEvents:UIControlEventTouchUpInside];
-    facebook_login_button.animateTap = NO;
+    [self.facebookLoginButton setBackgroundImage:[UIImage imageNamed:@"facebook_login_button"] forState:UIControlStateNormal];
+    [self.facebookLoginButton addTarget:self action:@selector(signUpWithFacebook) forControlEvents:UIControlEventTouchUpInside];
+    self.self.facebookLoginButton.animateTap = NO;
     
-    DKCircleButton *normal_login_button = [[DKCircleButton alloc] initWithFrame:CGRectMake(0, 0, 70, 70)];
-    normal_login_button.center = CGPointMake(250, 500);
-    normal_login_button.titleLabel.font = [UIFont systemFontOfSize:13];
-    [normal_login_button setBackgroundImage:[UIImage imageNamed:@"normal_login_button"] forState:UIControlStateNormal];
-    [self.view addSubview:normal_login_button];
-    [normal_login_button addTarget:self action:@selector(normalUserSignUp) forControlEvents:UIControlEventTouchUpInside];
-    normal_login_button.animateTap = NO;
+    
+    [self.normalLoginButton setBackgroundImage:[UIImage imageNamed:@"normal_login_button"] forState:UIControlStateNormal];
+    [self.normalLoginButton addTarget:self action:@selector(normalUserSignUp) forControlEvents:UIControlEventTouchUpInside];
+    self.normalLoginButton.animateTap = NO;
+    
 }
 
 - (void)setBackgroundImageAndLabel {

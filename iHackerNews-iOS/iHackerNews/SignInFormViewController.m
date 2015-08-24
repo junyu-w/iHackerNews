@@ -117,7 +117,7 @@
         SCLAlertView *inputFieldsEmptyAlert = [[SCLAlertView alloc] init];
         [inputFieldsEmptyAlert showWarning:self
                                      title:@"Error"
-                                  subTitle:@"Username or password cannot be emtpy"
+                                  subTitle:@"Username or password cannot be empty"
                           closeButtonTitle:@"OK"
                                   duration:0.0f];
         return NO;
