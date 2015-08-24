@@ -36,6 +36,13 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [[UIColor alloc] initWithRed:236 green:240 blue:241 alpha:1.0]; //the cloud color
     [self setUpBasicUIComponents];
+    
+    self.usernameInputField.delegate = self;
+    self.passwordInputField.delegate = self;
+    self.emailInputField.delegate = self;
+    
+    // end editing and hide keyboard when user touches screen outside of textfield
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.view action:@selector(endEditing:)]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -58,7 +65,6 @@
     self.userProfilePicture.image = [UIImage imageNamed:@"default_user_profile_picture"];
 }
 
-
 /*
 #pragma mark - Navigation
 
@@ -79,6 +85,29 @@
     [self dismissViewControllerAnimated:YES completion:^{
         NSLog(@"user dismissed sign up view controller");
     }];
+}
+
+#pragma mark - slide textfield when editing
+
+- (void) animateTextField:(UITextField*)textField up:(BOOL)up {
+    const int movementDistance = 80; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    
+    int movement = (up ? -movementDistance : movementDistance);
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    [self animateTextField: textField up: YES];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [self animateTextField: textField up: NO];
 }
 
 #pragma mark - sign up process
@@ -156,6 +185,17 @@
                                           duration:0.0f];
                 return NO;
             }else {
+                NSRange whiteSpaceRange = [self.usernameInputField.text rangeOfCharacterFromSet:[NSCharacterSet whitespaceCharacterSet]];
+                if (whiteSpaceRange.location != NSNotFound) {
+                    NSLog(@"Found white space in username");
+                    SCLAlertView *usernameContainsWhiteSpaceAlert = [[SCLAlertView alloc] init];
+                    [usernameContainsWhiteSpaceAlert showWarning:self
+                                                           title:@"Error"
+                                                        subTitle:@"Username can't contain whitespace"
+                                                closeButtonTitle:@"OK"
+                                                        duration:0.0f];
+                    return NO;
+                }
                 return YES;
             }
         }

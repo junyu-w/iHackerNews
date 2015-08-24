@@ -34,6 +34,8 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [[UIColor alloc] initWithRed:236 green:240 blue:241 alpha:1.0]; //the cloud color
     [self setUpButtons];
+    
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.view action:@selector(endEditing:)]];
 }
 
 /**
@@ -63,6 +65,10 @@
 #pragma mark - sign in process
 
 - (IBAction)signInButtonOnClick:(id)sender {
+    // dismiss keyboard
+    [self.usernameInputField resignFirstResponder];
+    [self.passwordInputField resignFirstResponder];
+    
     if ([self authenticateInputFields]) {
         NSDictionary *userInput;
         NSString *getUserEndpoint;

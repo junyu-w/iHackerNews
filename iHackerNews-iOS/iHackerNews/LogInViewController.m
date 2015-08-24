@@ -44,6 +44,10 @@
 //                                             selector:@selector(storeFacebookUserProfile)
 //                                                 name:FBSDKProfileDidChangeNotification
 //                                               object:nil];
+    
+    // make button larger using scaling -- can't set it up using size after adding auto-layout, dky
+    self.facebookLoginButton.transform = CGAffineTransformMakeScale(1.2,1.2);
+    self.normalLoginButton.transform = CGAffineTransformMakeScale(1.2, 1.2);
 }
 
 
@@ -55,7 +59,7 @@
 - (void)setUpButton {
     [self.facebookLoginButton setBackgroundImage:[UIImage imageNamed:@"facebook_login_button"] forState:UIControlStateNormal];
     [self.facebookLoginButton addTarget:self action:@selector(signUpWithFacebook) forControlEvents:UIControlEventTouchUpInside];
-    self.self.facebookLoginButton.animateTap = NO;
+    self.facebookLoginButton.animateTap = NO;
     
     
     [self.normalLoginButton setBackgroundImage:[UIImage imageNamed:@"normal_login_button"] forState:UIControlStateNormal];

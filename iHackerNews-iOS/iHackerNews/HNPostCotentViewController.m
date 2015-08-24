@@ -35,14 +35,13 @@
     [self.view addSubview:title];
     
     self.loadingIndicator = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeDoubleBounce tintColor:FlatOrangeDark size:50];
-    self.loadingIndicator.center = CGPointMake(200, 250);
+    self.loadingIndicator.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
     
     self.postContent = [[UIWebView alloc] initWithFrame:CGRectMake(5, self.navigationController.navigationBar.frame.size.height+10, self.view.frame.size.width-5, self.view.frame.size.height)];
     self.postContent.delegate = self;
     self.postContent.scalesPageToFit = YES;
     self.postContent.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     [self.postContent addSubview:self.loadingIndicator];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
