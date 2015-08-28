@@ -10,7 +10,7 @@
 #import <libHN/libHN.h>
 #import <DGActivityIndicatorView/DGActivityIndicatorView.h>
 
-@interface HNPostCotentViewController : UIViewController <UIWebViewDelegate>
+@interface HNPostCotentViewController : UIViewController <UIWebViewDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) HNPost *post;
 @property (strong, nonatomic) NSDictionary *favoritePost;

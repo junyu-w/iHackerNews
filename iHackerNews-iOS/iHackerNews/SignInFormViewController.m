@@ -91,6 +91,7 @@
             [self handleServerResponse:responseObject];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
+            [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
             SCLAlertView *userSignInFailureAlert = [[SCLAlertView alloc] init];
             [userSignInFailureAlert showWarning:self
                                           title:@"Error"

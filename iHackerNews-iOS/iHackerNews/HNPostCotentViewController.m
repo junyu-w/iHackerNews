@@ -16,8 +16,6 @@
 @interface HNPostCotentViewController ()
 
 @property (strong, nonatomic) IBOutlet UIView *errorView;
-@property (weak, nonatomic) IBOutlet PBFlatRoundedImageView *errorHackerImageView;
-@property (weak, nonatomic) IBOutlet UILabel *errorMessageLabel;
 
 @end
 
@@ -97,15 +95,18 @@
     NSString* errorString = error.localizedDescription;
     self.errorView.backgroundColor = [[UIColor alloc] initWithRed:236 green:240 blue:241 alpha:1.0];
     
-    self.errorHackerImageView.image = [UIImage imageNamed:@"network_error_view_image"];
-    self.errorHackerImageView.center = CGPointMake(self.errorView.frame.size.width/2, self.errorView.frame.size.height/2 - 50);
-    self.errorMessageLabel.center = CGPointMake(self.errorView.frame.size.width/2, self.errorView.frame.size.height/2 - 25 + self.errorHackerImageView.frame.size.height);
-    self.errorMessageLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    self.errorMessageLabel.numberOfLines = 0;
-    [self.errorMessageLabel setTextAlignment:NSTextAlignmentCenter];
-    self.errorMessageLabel.text = errorString;
-    self.errorMessageLabel.font = [UIFont fontWithName:fontForAppBold size:18];
-    self.errorMessageLabel.textColor = FlatRedDark;
+    UIAlertView *webViewLoadedWithErrorAlert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                          message:errorString
+                                                                         delegate:self
+                                                                cancelButtonTitle:@"OK"
+                                                                otherButtonTitles:nil, nil];
+    webViewLoadedWithErrorAlert.delegate = self;
+    [self.errorView addSubview:webViewLoadedWithErrorAlert];
+    [webViewLoadedWithErrorAlert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

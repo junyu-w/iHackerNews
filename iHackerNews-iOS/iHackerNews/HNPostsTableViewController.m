@@ -42,7 +42,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(someSelector) name:kHNShouldReloadDataFromConfiguration object:nil];
     
     if ([_HNPostType isEqualToString:@"favorites"]) {
-        [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
+        [MRProgressOverlayView showOverlayAddedTo:self.navigationController.view animated:YES];
         [self getDifferentDatesOfPosts];
         [self getFavoritePosts];
     }else {
@@ -458,6 +458,14 @@ presenting sourceController:(UIViewController *)source {
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"Error: %@", error);
+             [MRProgressOverlayView dismissOverlayForView:self.navigationController.view animated:YES];
+             UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                  message:[error localizedDescription]
+                                                                 delegate:self
+                                                        cancelButtonTitle:@"OK"
+                                                        otherButtonTitles:nil, nil];
+             [self.view addSubview:errorAlert];
+             [errorAlert show];
          }];
 }
 
@@ -465,9 +473,10 @@ presenting sourceController:(UIViewController *)source {
     if (response[@"success"]) {
         _favoritePosts = [[NSMutableDictionary alloc] initWithDictionary:response[@"info"]];
         [self.tableView reloadData];
-        [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
+        [MRProgressOverlayView dismissOverlayForView:self.navigationController.view animated:YES];
     }else {
         //show alert
+        [MRProgressOverlayView dismissOverlayForView:self.navigationController.view animated:YES];
         JFMinimalNotification *errorNotification = [JFMinimalNotification notificationWithStyle:JFMinimalNotificationStyleWarning
                                                                                           title:@"Something went wrong"
                                                                                        subTitle:response[@"error"]
@@ -481,7 +490,6 @@ presenting sourceController:(UIViewController *)source {
         [self.navigationController.view addSubview:errorNotification];
         
         [errorNotification show];
-
     }
 }
 
