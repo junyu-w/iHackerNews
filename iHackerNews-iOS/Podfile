@@ -17,6 +17,7 @@ target 'iHackerNews' do
   pod 'JFMinimalNotifications', '~> 0.0.4'
   pod 'UzysCircularProgressPullToRefresh', '~> 1.1'
   pod 'BubbleTransition-objc', '~> 0.1'
+  pod 'MRProgress', '~> 0.8'
 end
 
 target 'iHackerNewsTests' do

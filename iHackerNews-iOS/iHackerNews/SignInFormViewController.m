@@ -17,6 +17,7 @@
 #import "constants.h"
 #import "SWRevealViewController.h"
 #import "HNPostsTableViewController.h"
+#import "MRProgress.h"
 
 @interface SignInFormViewController ()
 @property (weak, nonatomic) IBOutlet PBFlatTextfield *usernameInputField;
@@ -83,6 +84,7 @@
             getUserEndpoint = [Utils appendEncodedDictionary:userInput
                                                        ToURL:getUserURL];
         }
+        [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager GET:getUserEndpoint parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"JSON: %@", responseObject);
@@ -149,12 +151,14 @@
             [[NSUserDefaults standardUserDefaults] setObject:response[@"user_info"][@"user_id"] forKey:@"user_id"];
         }
         [[NSUserDefaults standardUserDefaults] setObject:self.passwordInputField.text forKey:@"password"];
+        [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
         //segue to the HNPostTableViewController
         [self performSegueWithIdentifier:@"pop up hn post table view after sign in" sender:self];
         
         
     }else {
         //show alerts
+        [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
         SCLAlertView *userSignInFailureAlert = [[SCLAlertView alloc] init];
         [userSignInFailureAlert showWarning:self
                                       title:@"Error"

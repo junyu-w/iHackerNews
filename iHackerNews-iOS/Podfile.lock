@@ -49,6 +49,34 @@ PODS:
   - JFMinimalNotifications (0.0.4)
   - libHN (4.0.4)
   - MGSwipeTableCell (1.4.3)
+  - MRProgress (0.8.2):
+    - MRProgress/ActivityIndicator (= 0.8.2)
+    - MRProgress/Blur (= 0.8.2)
+    - MRProgress/Circular (= 0.8.2)
+    - MRProgress/Icons (= 0.8.2)
+    - MRProgress/NavigationBarProgress (= 0.8.2)
+    - MRProgress/Overlay (= 0.8.2)
+  - MRProgress/ActivityIndicator (0.8.2):
+    - MRProgress/Stopable
+  - MRProgress/Blur (0.8.2):
+    - MRProgress/Helper
+  - MRProgress/Circular (0.8.2):
+    - MRProgress/Helper
+    - MRProgress/ProgressBaseClass
+    - MRProgress/Stopable
+  - MRProgress/Helper (0.8.2)
+  - MRProgress/Icons (0.8.2)
+  - MRProgress/NavigationBarProgress (0.8.2):
+    - MRProgress/ProgressBaseClass
+  - MRProgress/Overlay (0.8.2):
+    - MRProgress/ActivityIndicator
+    - MRProgress/Blur
+    - MRProgress/Circular
+    - MRProgress/Helper
+    - MRProgress/Icons
+  - MRProgress/ProgressBaseClass (0.8.2)
+  - MRProgress/Stopable (0.8.2):
+    - MRProgress/Helper
   - NSAttributedString+CCLFormat (1.0.1)
   - PBFlatUI (1.1.0)
   - QBImagePickerController (3.2.0)
@@ -66,6 +94,7 @@ DEPENDENCIES:
   - JFMinimalNotifications (~> 0.0.4)
   - libHN
   - MGSwipeTableCell (~> 1.4)
+  - MRProgress (~> 0.8)
   - NSAttributedString+CCLFormat
   - PBFlatUI (~> 1.1.0)
   - QBImagePickerController (~> 3.2)
@@ -84,6 +113,7 @@ SPEC CHECKSUMS:
   JFMinimalNotifications: 2ab80fde6b8588a338be68d61763cc2085f8c938
   libHN: 3571ddc61a302b1f01213dd50c932c29a6f5b390
   MGSwipeTableCell: cb9805df3cc5cad75ad43a5c1eb424be0316f0bf
+  MRProgress: f4cfe862082418e8f542f077772283f425d6c699
   NSAttributedString+CCLFormat: ed7a2c814ac5444d0747c11ec0e532d46839a480
   PBFlatUI: d797c6de1d28245287d695d74178dc75895d0bd9
   QBImagePickerController: 75b3857b1307a3c01ce486559bc294f802ddec6c

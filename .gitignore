@@ -1,6 +1,6 @@
 *.swp
 *.swo
 settings.yml
-constants.m
+iHackerNews/constants.m
 iHackerNews/Pods/**
 
