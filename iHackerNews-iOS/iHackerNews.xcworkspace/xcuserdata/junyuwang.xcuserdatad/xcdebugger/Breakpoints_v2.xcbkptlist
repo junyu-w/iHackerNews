@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iHackerNews/HNPostsTableViewController.m"
-            timestampString = "462494235.318353"
+            timestampString = "462496449.31933"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "467"
-            endingLineNumber = "467"
+            startingLineNumber = "475"
+            endingLineNumber = "475"
             landmarkName = "-handleFavoritePostsResponse:"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iHackerNews/HNPostsTableViewController.m"
-            timestampString = "462494235.318353"
+            timestampString = "462496449.31933"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "516"
-            endingLineNumber = "516"
+            startingLineNumber = "524"
+            endingLineNumber = "524"
             landmarkName = "-handleDifferentDatesOfPostsResponse:"
             landmarkType = "5">
          </BreakpointContent>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iHackerNews/HNPostsTableViewController.m"
-            timestampString = "462494235.318353"
+            timestampString = "462496449.31933"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "529"
-            endingLineNumber = "529"
+            startingLineNumber = "537"
+            endingLineNumber = "537"
             landmarkName = "-unmarkPost:atIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iHackerNews/HNPostsTableViewController.m"
-            timestampString = "462494235.318353"
+            timestampString = "462496449.31933"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "530"
-            endingLineNumber = "530"
+            startingLineNumber = "538"
+            endingLineNumber = "538"
             landmarkName = "-unmarkPost:atIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iHackerNews/HNPostsTableViewController.m"
-            timestampString = "462494235.318353"
+            timestampString = "462496449.31933"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "532"
-            endingLineNumber = "532"
+            startingLineNumber = "540"
+            endingLineNumber = "540"
             landmarkName = "-unmarkPost:atIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iHackerNews/HNPostsTableViewController.m"
-            timestampString = "462494235.318353"
+            timestampString = "462496449.31933"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "536"
-            endingLineNumber = "536"
+            startingLineNumber = "544"
+            endingLineNumber = "544"
             landmarkName = "-unmarkPost:atIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iHackerNews/SignUpFormViewController.m"
-            timestampString = "462494891.447027"
+            timestampString = "462496700.048444"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "-signUpButtonOnClick:"
             landmarkType = "5">
          </BreakpointContent>
