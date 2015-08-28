@@ -22,6 +22,7 @@
 #import <SCLAlertView-Objective-C/SCLAlertView.h>
 #import <JFMinimalNotifications/JFMinimalNotification.h>
 #import <BubbleTransition-objc/YPBubbleTransition.h>
+#import "MRProgress.h"
 
 @interface HNPostsTableViewController () <UIViewControllerTransitioningDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
@@ -41,6 +42,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(someSelector) name:kHNShouldReloadDataFromConfiguration object:nil];
     
     if ([_HNPostType isEqualToString:@"favorites"]) {
+        [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
         [self getDifferentDatesOfPosts];
         [self getFavoritePosts];
     }else {
@@ -463,6 +465,7 @@ presenting sourceController:(UIViewController *)source {
     if (response[@"success"]) {
         _favoritePosts = [[NSMutableDictionary alloc] initWithDictionary:response[@"info"]];
         [self.tableView reloadData];
+        [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
     }else {
         //show alert
         JFMinimalNotification *errorNotification = [JFMinimalNotification notificationWithStyle:JFMinimalNotificationStyleWarning
