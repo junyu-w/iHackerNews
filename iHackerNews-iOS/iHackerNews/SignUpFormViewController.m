@@ -16,6 +16,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "Utils.h"
 #import "constants.h"
+#import "MRProgress.h"
 
 @interface SignUpFormViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *backToLoginViewButton;
@@ -119,6 +120,7 @@
         NSDictionary *parameters = @{@"username":self.usernameInputField.text,
                                      @"user_email":self.emailInputField.text,
                                      @"password":self.passwordInputField.text};
+        [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
         [manager POST:createUserURL
            parameters:parameters
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -126,6 +128,7 @@
                   [self handleServerResponse:responseObject];
               } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   NSLog(@"ERROR: %@", error);
+                  [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
                   SCLAlertView *userSignUpFailedAlert = [[SCLAlertView alloc] init];
                   [userSignUpFailedAlert showWarning:self
                                                title:@"Error"
@@ -144,9 +147,11 @@
         [[NSUserDefaults standardUserDefaults] setObject:self.emailInputField.text forKey:@"email"];
         [[NSUserDefaults standardUserDefaults] setObject:response[@"user_info"][@"user_id"] forKey:@"user_id"];
         //segue to hn post table view
+        [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
         [self performSegueWithIdentifier:@"pop up hn post table view after sign up" sender:self];
     }else {
         //show alerts
+        [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
         SCLAlertView *userCreateFailureAlert = [[SCLAlertView alloc] init];
         [userCreateFailureAlert showWarning:self
                                       title:@"Error"

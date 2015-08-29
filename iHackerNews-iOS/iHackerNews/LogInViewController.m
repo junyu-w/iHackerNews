@@ -14,6 +14,7 @@
 #import <SCLAlertView-Objective-C/SCLAlertView.h>
 #import <AFNetworking/AFNetworking.h>
 #import "constants.h"
+#import "MRProgress.h"
 
 
 @interface LogInViewController ()
@@ -135,6 +136,7 @@
                  [[NSUserDefaults standardUserDefaults] setValue:[[FBSDKAccessToken currentAccessToken] tokenString] forKey:@"facebook_auth_token"];
                  // register facebook user on server
                  NSDictionary *facebookUserInfo = [[NSDictionary alloc] initWithObjectsAndKeys:result[@"id"], @"facebook_id", [[FBSDKAccessToken currentAccessToken] tokenString], @"password", result[@"email"], @"user_email", result[@"name"], @"username", nil];
+                 [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
                  [self registerFacebookUserInServerWithInfo:facebookUserInfo];
              }
          }];
@@ -161,9 +163,11 @@
 
 - (void)handleFacebookUserSignUpServerResponse:(id)response {
     if (response[@"success"]) {
+        [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
         [self performSegueWithIdentifier:@"facebook user signed up modal segue" sender:self];
         [[NSUserDefaults standardUserDefaults] setValue:response[@"user_info"][@"user_id"] forKey:@"user_id"];
     }else {
+        [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
         [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"email"];
         [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"username"];
         [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"user_id"];

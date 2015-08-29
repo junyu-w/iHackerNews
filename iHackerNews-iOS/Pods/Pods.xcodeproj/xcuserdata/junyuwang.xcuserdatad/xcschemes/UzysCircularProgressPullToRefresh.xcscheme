@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9DE0719A1E4C7F561FC75E84"
+               BlueprintIdentifier = "A078697B97844D921C4F0E42"
                BuildableName = "libUzysCircularProgressPullToRefresh.a"
                BlueprintName = "UzysCircularProgressPullToRefresh"
                ReferencedContainer = "container:Pods.xcodeproj">
