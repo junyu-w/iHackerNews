@@ -152,6 +152,7 @@
               [self handleFacebookUserSignUpServerResponse:responseObject];
           } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               NSLog(@"Error: %@", error);
+              [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
               UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                    message:[error localizedDescription]
                                                                   delegate:self
@@ -168,11 +169,7 @@
         [[NSUserDefaults standardUserDefaults] setValue:response[@"user_info"][@"user_id"] forKey:@"user_id"];
     }else {
         [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
-        [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"email"];
-        [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"username"];
-        [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"user_id"];
-        [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"facebook_id"];
-        [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"facebook_auth_token"];
+        [self clearOutFacebookUserInfo];
         UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                              message:response[@"error"]
                                                             delegate:self
@@ -180,6 +177,14 @@
                                                    otherButtonTitles:nil, nil];
         [errorAlert show];
     }
+}
+
+- (void)clearOutFacebookUserInfo {
+    [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"email"];
+    [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"username"];
+    [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"user_id"];
+    [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"facebook_id"];
+    [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"facebook_auth_token"];
 }
 
 @end
