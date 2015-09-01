@@ -76,6 +76,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    if ([self userHasLoggedIn]) {
+        //TODO: prepare hn posts content maybe?
+        NSLog(@"I'm logged in");
+    }else {
+        [self performSegueWithIdentifier:@"pop up log in view" sender:self];
+    }
 }
 
 
@@ -331,6 +337,14 @@ presenting sourceController:(UIViewController *)source {
                                                 [self.tableView reloadData];
                                             }else {
                                                 NSLog(@"Error fetching post");
+                                                UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                     message:@"Falied fetching HN posts"
+                                                                                                    delegate:self
+                                                                                           cancelButtonTitle:@"OK"
+                                                                                           otherButtonTitles:nil, nil];
+                                                [self.view addSubview:errorAlert];
+                                                [errorAlert show];
+
                                             }
                                         }];
 }
@@ -348,6 +362,14 @@ presenting sourceController:(UIViewController *)source {
                                                      
                                                  }else {
                                                      NSLog(@"Error fetching more posts");
+                                                     UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                          message:@"Failed loading more HN Posts"
+                                                                                                         delegate:self
+                                                                                                cancelButtonTitle:@"OK"
+                                                                                                otherButtonTitles:nil, nil];
+                                                     [self.view addSubview:errorAlert];
+                                                     [errorAlert show];
+
                                                  }
                                              }];
 }

@@ -4,67 +4,97 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AFNetworking.xcscheme</key>
+		<key>Pods-iHackerNews-AFNetworking.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Bolts.xcscheme</key>
+		<key>Pods-iHackerNews-Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>BubbleTransition-objc-BubbleTransition.xcscheme</key>
+		<key>Pods-iHackerNews-BubbleTransition-objc-BubbleTransition.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>BubbleTransition-objc.xcscheme</key>
+		<key>Pods-iHackerNews-BubbleTransition-objc.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>ChameleonFramework.xcscheme</key>
+		<key>Pods-iHackerNews-ChameleonFramework.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>DGActivityIndicatorView.xcscheme</key>
+		<key>Pods-iHackerNews-DGActivityIndicatorView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>DKCircleButton.xcscheme</key>
+		<key>Pods-iHackerNews-DKCircleButton.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Facebook-iOS-SDK.xcscheme</key>
+		<key>Pods-iHackerNews-Facebook-iOS-SDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>JFMinimalNotifications.xcscheme</key>
+		<key>Pods-iHackerNews-JFMinimalNotifications.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>MGSwipeTableCell.xcscheme</key>
+		<key>Pods-iHackerNews-MGSwipeTableCell.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>MRProgress.xcscheme</key>
+		<key>Pods-iHackerNews-MRProgress.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>NSAttributedString+CCLFormat.xcscheme</key>
+		<key>Pods-iHackerNews-NSAttributedString+CCLFormat.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>PBFlatUI.xcscheme</key>
+		<key>Pods-iHackerNews-PBFlatUI.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-iHackerNews-QBImagePickerController-QBImagePicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-iHackerNews-QBImagePickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-iHackerNews-RESideMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-iHackerNews-SCLAlertView-Objective-C.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-iHackerNews-UzysCircularProgressPullToRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-iHackerNews-libHN.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -74,135 +104,105 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>QBImagePickerController-QBImagePicker.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>QBImagePickerController.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>RESideMenu.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>SCLAlertView-Objective-C.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>UzysCircularProgressPullToRefresh.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>libHN.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>01F6D44E5C370793565E46FC870ECCA4</key>
+		<key>021B35F8E5EDCA29CDC78725</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0242E9512D346C34F8FEA03C72880820</key>
+		<key>0F5ADAABF773DEB8227D0EEA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1EF0EE62A5709643C503A0CDCE013969</key>
+		<key>118C996EEDC083C6B8F1D2D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2965E38DCEBC6E89D5362BA6561D3FBD</key>
+		<key>31E165176B17B7BBDCE53710</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>32DF5323F8F103D2EA04744685436ACF</key>
+		<key>7BDE91D02CB945F31C3F8BCF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>375412A0CB166DF18E4C1EE3455CD2E7</key>
+		<key>7FFF1A2713501B0B96CD7DF5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>44375953C95FC7FF72592BE562548B92</key>
+		<key>8360B37049154D5C1484F641</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4668C9D3A8893DA37FA9FEC24C5F0AA0</key>
+		<key>869A720D5D6EFBE89BFC4367</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4A38FCBAEE567D365E1A80412D099B6E</key>
+		<key>88E19393C736C4116C830B6B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4BD20B78B5A802AE2C7BC5A81E778A79</key>
+		<key>8E18F9E2B3163D1FB2F46771</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>576515E85D5BF9346EA70D97E54E0F41</key>
+		<key>954797110D6DC239DA76806F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>59EBAA03ECABDA5BE207CC5D925282AB</key>
+		<key>992D6A06535D08E5DDA413B4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>67DCCE4C7174EA1B32DDA4B6F2BBE11B</key>
+		<key>A099159B34A7D5A6EC4C9D57</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>832D4066850B63CD0CFD9F6F08065316</key>
+		<key>A0E555D547C5B608123CA8AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>87623A20F581F649D40E1D1824941B29</key>
+		<key>A64BCEEB07118D8AB890DEC0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>89E17F83307A0CEED771FAC537817947</key>
+		<key>B3C1EA01539C7D5068267C43</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>99155D9F81F703B6E82A1EE688ABD81E</key>
+		<key>D4EF5A973A34E883893FC6F2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C4406EAAD38B0AE7F8F5F2BF978F407E</key>
+		<key>DDD3C4A8D04526CAF96F9EBF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E6B2628DC902C7023B20CCCD846B38A5</key>
+		<key>E2DA539FE7C8731A1FA30ED3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F97176404436AB60AB463136585A3AF2</key>
+		<key>FC9871AB7B526EA2E1275ED8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
