@@ -9,7 +9,7 @@ screenshots
 --------------
 ![](./screenshots/register_acc.jpg)
 --------------
-![](./screenshots/bookmar_news.jpg)
+![](./screenshots/bookmark_news.jpg)
 -------------
 ![](./screenshots/favorite_news.jpg)
 -----------------
