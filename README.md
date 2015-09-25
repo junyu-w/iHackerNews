@@ -5,15 +5,15 @@ iHackerNews is an iOS application that provides user with better reading experie
 
 screenshots
 ---
-![](./screenshots/login.jpg =250x)
+![](./screenshots/login.jpg)
 --------------
-![](./screenshots/register_acc.jpg =250x)
+![](./screenshots/register_acc.jpg)
 --------------
-![](./screenshots/bookmar_news.jpg =250x)
+![](./screenshots/bookmar_news.jpg)
 -------------
-![](./screenshots/favorite_news.jpg =250x)
+![](./screenshots/favorite_news.jpg)
 -----------------
-![](./screenshots/reading_news.jpg =250x)
+![](./screenshots/reading_news.jpg)
 ----------------
 
 
