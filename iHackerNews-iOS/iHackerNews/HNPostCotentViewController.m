@@ -13,10 +13,14 @@
 #import <DGActivityIndicatorView/DGActivityIndicatorView.h>
 #import "constants.h"
 #import <FBSDKShareKit/FBSDKShareKit.h>
+#import <MNFloatingActionButton/MNFloatingActionButton.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKAccessToken.h>
 
 @interface HNPostCotentViewController ()
 
 @property (strong, nonatomic) IBOutlet UIView *errorView;
+@property (strong, nonatomic) UIBarButtonItem *facebookShareButton;
 
 @end
 
@@ -41,6 +45,18 @@
     self.postContent.scalesPageToFit = YES;
     self.postContent.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     [self.postContent addSubview:self.loadingIndicator];
+    
+//    self.facebookShareButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"fb-share-icon"]
+//                                                                style:UIBarButtonItemStylePlain
+//                                                               target:self
+//                                                               action:@selector(shareOnFacebook)];
+    self.facebookShareButton = [[UIBarButtonItem alloc] initWithTitle:@"Share"
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:self
+                                                               action:@selector(shareOnFacebook)];
+    self.facebookShareButton.tintColor = FlatSand;
+    self.navigationItem.rightBarButtonItem = self.facebookShareButton;
+    self.navigationItem.rightBarButtonItem.tintColor = FlatSand;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -123,18 +139,31 @@
 
 #pragma mark - facebook sharing related functions
 
-- (void)addFloatingShareButton {
-    
+- (void)shareOnFacebook {
+    if (_favoritePost) {
+        [self shareUrlOnFacebook:_favoritePost[@"url"]];
+    }else {
+        [self shareUrlOnFacebook:[self.post UrlString]];
+    }
 }
 
-
 - (void)shareUrlOnFacebook:(NSString *)url {
-    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
-    content.contentURL = [[NSURL alloc] initWithString:url];
-    content.contentTitle = [self.post Title];
-    [FBSDKShareDialog showFromViewController:self
-                                 withContent:content
-                                    delegate:nil];
+    if ([FBSDKAccessToken currentAccessToken]) {
+        FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+        content.contentURL = [[NSURL alloc] initWithString:url];
+        content.contentTitle = [self.post Title];
+        [FBSDKShareDialog showFromViewController:self
+                                     withContent:content
+                                        delegate:nil];
+
+    }else {
+        UIAlertView *notFbUserAlert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                 message:@"Please log in with facebook first"
+                                                                delegate:self
+                                                       cancelButtonTitle:@"OK"
+                                                       otherButtonTitles:nil, nil];
+        [notFbUserAlert show];
+    }
 }
 
 @end

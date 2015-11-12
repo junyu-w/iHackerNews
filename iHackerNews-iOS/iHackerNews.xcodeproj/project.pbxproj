@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C44E3006E7268731EFB815E /* libPods-iHackerNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12DB98863ACA8E4C7E8FE6B4 /* libPods-iHackerNews.a */; };
+		5E5D70881C668F5E31EAA503 /* libPods-iHackerNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9436B5DF8E8AED7C7D592B9 /* libPods-iHackerNews.a */; };
 		B00081361B295ACD007EC5DE /* HNPostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B00081351B295ACD007EC5DE /* HNPostsTableViewController.m */; };
 		B00081391B2EA200007EC5DE /* HNPostCotentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B00081381B2EA200007EC5DE /* HNPostCotentViewController.m */; };
 		B07E7DF81B2013A8009F16CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E7DF71B2013A8009F16CF /* main.m */; };
@@ -25,6 +25,9 @@
 		B0D327FE1B22FC5600E23B97 /* SignInFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D327FD1B22FC5600E23B97 /* SignInFormViewController.m */; };
 		B0E071F81B2428C000A9EAB4 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E071F71B2428C000A9EAB4 /* Utils.m */; };
 		B0E071FB1B242E7000A9EAB4 /* constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E071FA1B242E7000A9EAB4 /* constants.m */; };
+		B0E0C3711BF493E700018888 /* floatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E0C36D1BF493E700018888 /* floatTableViewCell.m */; };
+		B0E0C3721BF493E700018888 /* floatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0E0C36E1BF493E700018888 /* floatTableViewCell.xib */; };
+		B0E0C3731BF493E700018888 /* VCFloatingActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E0C3701BF493E700018888 /* VCFloatingActionButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		12DB98863ACA8E4C7E8FE6B4 /* libPods-iHackerNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iHackerNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16400E77210792B2F266A7F9 /* Pods-iHackerNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iHackerNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-iHackerNews/Pods-iHackerNews.release.xcconfig"; sourceTree = "<group>"; };
 		B00081341B295ACD007EC5DE /* HNPostsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPostsTableViewController.h; sourceTree = "<group>"; };
 		B00081351B295ACD007EC5DE /* HNPostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPostsTableViewController.m; sourceTree = "<group>"; };
@@ -72,7 +74,13 @@
 		B0E071F71B2428C000A9EAB4 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		B0E071F91B242E7000A9EAB4 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		B0E071FA1B242E7000A9EAB4 /* constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = constants.m; sourceTree = "<group>"; };
+		B0E0C36C1BF493E700018888 /* floatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = floatTableViewCell.h; path = ../../../VCFloatingActionButton/floatingButtonTrial/VCFloatingActionButton/floatTableViewCell.h; sourceTree = "<group>"; };
+		B0E0C36D1BF493E700018888 /* floatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = floatTableViewCell.m; path = ../../../VCFloatingActionButton/floatingButtonTrial/VCFloatingActionButton/floatTableViewCell.m; sourceTree = "<group>"; };
+		B0E0C36E1BF493E700018888 /* floatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = floatTableViewCell.xib; path = ../../../VCFloatingActionButton/floatingButtonTrial/VCFloatingActionButton/floatTableViewCell.xib; sourceTree = "<group>"; };
+		B0E0C36F1BF493E700018888 /* VCFloatingActionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VCFloatingActionButton.h; path = ../../../VCFloatingActionButton/floatingButtonTrial/VCFloatingActionButton/VCFloatingActionButton.h; sourceTree = "<group>"; };
+		B0E0C3701BF493E700018888 /* VCFloatingActionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VCFloatingActionButton.m; path = ../../../VCFloatingActionButton/floatingButtonTrial/VCFloatingActionButton/VCFloatingActionButton.m; sourceTree = "<group>"; };
 		F45E4BB9C19FDAE64E1BA3B9 /* Pods-iHackerNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iHackerNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iHackerNews/Pods-iHackerNews.debug.xcconfig"; sourceTree = "<group>"; };
+		F9436B5DF8E8AED7C7D592B9 /* libPods-iHackerNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iHackerNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C44E3006E7268731EFB815E /* libPods-iHackerNews.a in Frameworks */,
+				5E5D70881C668F5E31EAA503 /* libPods-iHackerNews.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +105,7 @@
 		14E077B6E6DF634DBF0A6690 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				12DB98863ACA8E4C7E8FE6B4 /* libPods-iHackerNews.a */,
+				F9436B5DF8E8AED7C7D592B9 /* libPods-iHackerNews.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -134,6 +142,11 @@
 		B07E7DF41B2013A8009F16CF /* iHackerNews */ = {
 			isa = PBXGroup;
 			children = (
+				B0E0C36C1BF493E700018888 /* floatTableViewCell.h */,
+				B0E0C36D1BF493E700018888 /* floatTableViewCell.m */,
+				B0E0C36E1BF493E700018888 /* floatTableViewCell.xib */,
+				B0E0C36F1BF493E700018888 /* VCFloatingActionButton.h */,
+				B0E0C3701BF493E700018888 /* VCFloatingActionButton.m */,
 				B07E7DF91B2013A8009F16CF /* AppDelegate.h */,
 				B07E7DFA1B2013A8009F16CF /* AppDelegate.m */,
 				B0A6A4F01B33FEAA00F1138D /* SWRevealViewController.h */,
@@ -275,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0E0C3721BF493E700018888 /* floatTableViewCell.xib in Resources */,
 				B07E7E041B2013A8009F16CF /* Main.storyboard in Resources */,
 				B07E7E091B2013A8009F16CF /* LaunchScreen.xib in Resources */,
 				B07E7E061B2013A8009F16CF /* Images.xcassets in Resources */,
@@ -345,12 +359,14 @@
 			files = (
 				B07E7DFE1B2013A8009F16CF /* iHackerNews.xcdatamodeld in Sources */,
 				B07E7DFB1B2013A8009F16CF /* AppDelegate.m in Sources */,
+				B0E0C3711BF493E700018888 /* floatTableViewCell.m in Sources */,
 				B0D327FB1B22EF2900E23B97 /* SignUpFormViewController.m in Sources */,
 				B00081391B2EA200007EC5DE /* HNPostCotentViewController.m in Sources */,
 				B00081361B295ACD007EC5DE /* HNPostsTableViewController.m in Sources */,
 				B0E071F81B2428C000A9EAB4 /* Utils.m in Sources */,
 				B0A3CEA01B22C96F0040CF0C /* LogInViewController.m in Sources */,
 				B07E7E011B2013A8009F16CF /* ViewController.m in Sources */,
+				B0E0C3731BF493E700018888 /* VCFloatingActionButton.m in Sources */,
 				B0E071FB1B242E7000A9EAB4 /* constants.m in Sources */,
 				B0A6A4F51B3405EC00F1138D /* SidebarTableViewController.m in Sources */,
 				B07E7DF81B2013A8009F16CF /* main.m in Sources */,

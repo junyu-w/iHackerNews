@@ -238,6 +238,8 @@
                             </mask>
                         </variation>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="errorView" destination="ger-00-dv8" id="Vwr-N3-0Dj"/>
                     </connections>
@@ -872,8 +874,8 @@
         <image name="reveal_icon" width="22" height="17"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fhm-aF-FnT"/>
         <segue reference="pHe-FX-IzS"/>
         <segue reference="Wmb-kd-lku"/>
+        <segue reference="fCF-Qf-KSh"/>
     </inferredMetricsTieBreakers>
 </document>

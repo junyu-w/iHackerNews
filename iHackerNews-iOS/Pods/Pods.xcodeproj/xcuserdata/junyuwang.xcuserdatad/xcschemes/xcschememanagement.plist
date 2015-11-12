@@ -69,6 +69,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MNFloatingActionButton.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MRProgress.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -127,12 +132,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>0DBD69DDC158456B70B46755F922D938</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>10365EBA3E784DBC218972CA9778E457</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>16DDBAAB36B753FF235FD5F57E6C79F3</key>
+		<key>1B3E5DE3CC40FB1C3B217A5946CB39B4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -197,7 +207,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8A9CE8532A145CA25D1301295E313371</key>
+		<key>88FF07905C73442B7DC152A0AA524576</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -212,12 +222,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9DCCAAF6ECF125EB2C202723894F1A3C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A21912DDB21102046AED4B9F7880E160</key>
+		<key>A1FB21832D4C51A6ED2B1F3EA6CB978B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -227,12 +232,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B9A7ED8BE97179C206C673AD9AAF668D</key>
+		<key>B7F4A338E50D3AD2860EA9D94F7352A9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ED7821A1AD8F539716E03477011E6E0B</key>
+		<key>E257D24981DAE072EFEC7C95EBE5FB20</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E8939935CA942A03D3D5C6E2B54BF599</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -20,6 +20,7 @@ target 'iHackerNews' do
   pod 'BubbleTransition-objc', '~> 0.1'
   pod 'MRProgress', '~> 0.8'
   pod 'JVFloatLabeledTextField'
+  pod 'MNFloatingActionButton', '~> 0.1'
 end
 
 target 'iHackerNewsTests' do

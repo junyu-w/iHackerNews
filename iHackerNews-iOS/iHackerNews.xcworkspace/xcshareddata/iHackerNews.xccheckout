@@ -10,6 +10,8 @@
 	<string>iHackerNews</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>2074A9CF6CA9EE909D300801D5D6DEB1827A1388</key>
+		<string>github.com:gizmoboy7/VCFloatingActionButton.git</string>
 		<key>486FA24E2CD22A4A084A4692C1356EAB41840A3B</key>
 		<string>https://github.com/DrakeW/iHackerNews.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>iHackerNews-iOS/iHackerNews.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>2074A9CF6CA9EE909D300801D5D6DEB1827A1388</key>
+		<string>../../../VCFloatingActionButton</string>
 		<key>486FA24E2CD22A4A084A4692C1356EAB41840A3B</key>
 		<string>../..</string>
 	</dict>
@@ -35,6 +39,14 @@
 			<string>486FA24E2CD22A4A084A4692C1356EAB41840A3B</string>
 			<key>IDESourceControlWCCName</key>
 			<string>iHackerNews-All</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2074A9CF6CA9EE909D300801D5D6DEB1827A1388</string>
+			<key>IDESourceControlWCCName</key>
+			<string>VCFloatingActionButton</string>
 		</dict>
 	</array>
 </dict>

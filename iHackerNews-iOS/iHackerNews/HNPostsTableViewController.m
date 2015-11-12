@@ -57,6 +57,8 @@
         [self.sidebarButton setAction: @selector( revealToggle: )];
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
+    
+    CGRect floatFrame = CGRectMake([UIScreen mainScreen].bounds.size.width - 44 - 20, [UIScreen mainScreen].bounds.size.height - 44 - 20, 44, 44);
 }
 
 - (void)setUpBasicUIComponents {
@@ -611,6 +613,12 @@ presenting sourceController:(UIViewController *)source {
         
         [errorNotification show];
     }
+}
+
+
+-(void) didSelectMenuOptionAtIndex:(NSInteger)row
+{
+    NSLog(@"Floating action tapped index %tu",row);
 }
 
 

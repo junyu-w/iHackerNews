@@ -58,12 +58,18 @@ install_resource()
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "MNFloatingActionButton/MNFloatingActionButton/Resources/plus.png"
+  install_resource "MNFloatingActionButton/MNFloatingActionButton/Resources/plus@2x.png"
+  install_resource "MNFloatingActionButton/MNFloatingActionButton/Resources/plus@3x.png"
   install_resource "UzysCircularProgressPullToRefresh/UzysCircularProgressPullToRefresh/UzysCircularProgressPullToRefresh/Library/centerIcon@2x.png"
   install_resource "libHN/Source/hn.json"
   install_resource "${BUILT_PRODUCTS_DIR}/BubbleTransition.bundle"
   install_resource "${BUILT_PRODUCTS_DIR}/QBImagePicker.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "MNFloatingActionButton/MNFloatingActionButton/Resources/plus.png"
+  install_resource "MNFloatingActionButton/MNFloatingActionButton/Resources/plus@2x.png"
+  install_resource "MNFloatingActionButton/MNFloatingActionButton/Resources/plus@3x.png"
   install_resource "UzysCircularProgressPullToRefresh/UzysCircularProgressPullToRefresh/UzysCircularProgressPullToRefresh/Library/centerIcon@2x.png"
   install_resource "libHN/Source/hn.json"
   install_resource "${BUILT_PRODUCTS_DIR}/BubbleTransition.bundle"

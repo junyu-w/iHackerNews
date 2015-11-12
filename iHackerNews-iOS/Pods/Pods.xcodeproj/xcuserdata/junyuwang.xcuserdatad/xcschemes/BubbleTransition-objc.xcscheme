@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '73D4182AAA953D5696253193'
+               BlueprintIdentifier = '6BA74B259547D6DAFF811AE2'
                BlueprintName = 'BubbleTransition-objc'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libBubbleTransition-objc.a'>

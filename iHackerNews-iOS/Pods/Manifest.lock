@@ -47,6 +47,7 @@ PODS:
   - JVFloatLabeledTextField (1.1.0)
   - libHN (4.0.4)
   - MGSwipeTableCell (1.4.3)
+  - MNFloatingActionButton (0.1.5)
   - MRProgress (0.8.2):
     - MRProgress/ActivityIndicator (= 0.8.2)
     - MRProgress/Blur (= 0.8.2)
@@ -94,6 +95,7 @@ DEPENDENCIES:
   - JVFloatLabeledTextField
   - libHN
   - MGSwipeTableCell (~> 1.4)
+  - MNFloatingActionButton (~> 0.1)
   - MRProgress (~> 0.8)
   - NSAttributedString+CCLFormat
   - PBFlatUI (~> 1.1.0)
@@ -116,6 +118,7 @@ SPEC CHECKSUMS:
   JVFloatLabeledTextField: ea4a3d8387ddd43724c472bb2b8ab39b79af05d4
   libHN: 3571ddc61a302b1f01213dd50c932c29a6f5b390
   MGSwipeTableCell: cb9805df3cc5cad75ad43a5c1eb424be0316f0bf
+  MNFloatingActionButton: 855acdbf1228f2e7c976dc36f45cb4d8ca2c5bde
   MRProgress: f4cfe862082418e8f542f077772283f425d6c699
   NSAttributedString+CCLFormat: ed7a2c814ac5444d0747c11ec0e532d46839a480
   PBFlatUI: d797c6de1d28245287d695d74178dc75895d0bd9
