@@ -8,7 +8,7 @@
 
 #import "SignInFormViewController.h"
 #import <ChameleonFramework/Chameleon.h>
-#import <PBFlatUI/PBFlatTextField.h>
+//#import <PBFlatUI/PBFlatTextField.h>
 #import <PBFlatUI/PBFlatButton.h>
 #import <PBFlatUI/PBFlatRoundedImageView.h>
 #import <SCLAlertView-Objective-C/SCLAlertView.h>
@@ -18,10 +18,13 @@
 #import "SWRevealViewController.h"
 #import "HNPostsTableViewController.h"
 #import "MRProgress.h"
+#import <JVFloatLabeledTextField/JVFloatLabeledTextField.h>
 
 @interface SignInFormViewController ()
-@property (weak, nonatomic) IBOutlet PBFlatTextfield *usernameInputField;
-@property (weak, nonatomic) IBOutlet PBFlatTextfield *passwordInputField;
+//@property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *usernameInputField;
+//@property (weak, nonatomic) IBOutlet PBFlatTextfield *passwordInputField;
+@property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *usernameInputField;
+@property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *passwordInputField;
 @property (weak, nonatomic) IBOutlet PBFlatButton *signInButton;
 
 @end
@@ -44,7 +47,11 @@
  */
 - (void)setUpButtons {
     self.usernameInputField.placeholder = @"Enter your username or email here";
+//    [self.usernameInputField setPlaceholder:@"Enter your username or email here"
+//                              floatingTitle:@"Username/Email"];
     self.passwordInputField.placeholder = @"Enter your password here";
+//    [self.passwordInputField setPlaceholder:@"Enter your password here"
+//                              floatingTitle:@"Password"];
     self.passwordInputField.secureTextEntry = YES;
 }
 

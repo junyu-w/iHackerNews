@@ -8,7 +8,7 @@
 
 #import "PBFlatSettings.h"
 #import "PBFlatSegmentedControl.h"
-#import "Chameleon.h"
+#import <ChameleonFramework/Chameleon.h>
 
 @implementation PBFlatSettings
 
@@ -24,7 +24,6 @@
 - (id)init {
     self = [super init];
     if (self) {
-        //_mainColor = [UIColor colorWithRed:0.35f green:0.51f blue:0.91f alpha:1.00f];
         _mainColor = FlatOrange;
         _backgroundColor = [UIColor whiteColor];
         _textFieldPlaceHolderColor = [UIColor colorWithRed:0.80f green:0.80f blue:0.80f alpha:1.00f];

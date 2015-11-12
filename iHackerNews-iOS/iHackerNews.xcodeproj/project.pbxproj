@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C44E3006E7268731EFB815E /* libPods-iHackerNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12DB98863ACA8E4C7E8FE6B4 /* libPods-iHackerNews.a */; };
 		B00081361B295ACD007EC5DE /* HNPostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B00081351B295ACD007EC5DE /* HNPostsTableViewController.m */; };
 		B00081391B2EA200007EC5DE /* HNPostCotentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B00081381B2EA200007EC5DE /* HNPostCotentViewController.m */; };
 		B07E7DF81B2013A8009F16CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E7DF71B2013A8009F16CF /* main.m */; };
@@ -24,7 +25,6 @@
 		B0D327FE1B22FC5600E23B97 /* SignInFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D327FD1B22FC5600E23B97 /* SignInFormViewController.m */; };
 		B0E071F81B2428C000A9EAB4 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E071F71B2428C000A9EAB4 /* Utils.m */; };
 		B0E071FB1B242E7000A9EAB4 /* constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E071FA1B242E7000A9EAB4 /* constants.m */; };
-		FEC683688676EF0216142549 /* libPods-iHackerNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC4B1CE8BACAE40F14BD478 /* libPods-iHackerNews.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0FC4B1CE8BACAE40F14BD478 /* libPods-iHackerNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iHackerNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		12DB98863ACA8E4C7E8FE6B4 /* libPods-iHackerNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iHackerNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16400E77210792B2F266A7F9 /* Pods-iHackerNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iHackerNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-iHackerNews/Pods-iHackerNews.release.xcconfig"; sourceTree = "<group>"; };
 		B00081341B295ACD007EC5DE /* HNPostsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPostsTableViewController.h; sourceTree = "<group>"; };
 		B00081351B295ACD007EC5DE /* HNPostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPostsTableViewController.m; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEC683688676EF0216142549 /* libPods-iHackerNews.a in Frameworks */,
+				9C44E3006E7268731EFB815E /* libPods-iHackerNews.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +97,7 @@
 		14E077B6E6DF634DBF0A6690 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0FC4B1CE8BACAE40F14BD478 /* libPods-iHackerNews.a */,
+				12DB98863ACA8E4C7E8FE6B4 /* libPods-iHackerNews.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -203,6 +203,7 @@
 				B07E7DEF1B2013A8009F16CF /* Frameworks */,
 				B07E7DF01B2013A8009F16CF /* Resources */,
 				A57624C4AD3BB814C8850277 /* Copy Pods Resources */,
+				2D4A7B24652AE6E50FF3124F /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -290,6 +291,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2D4A7B24652AE6E50FF3124F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iHackerNews/Pods-iHackerNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A57624C4AD3BB814C8850277 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

@@ -9,7 +9,7 @@
 #import "SignUpFormViewController.h"
 #import <DKCircleButton/DKCircleButton.h>
 #import <ChameleonFramework/Chameleon.h>
-#import <PBFlatUI/PBFlatTextField.h>
+#import <PBFlatUI/PBFlatTextfield.h>
 #import <PBFlatUI/PBFlatButton.h>
 #import <PBFlatUI/PBFlatRoundedImageView.h>
 #import <SCLAlertView-Objective-C/SCLAlertView.h>
@@ -17,6 +17,7 @@
 #import "Utils.h"
 #import "constants.h"
 #import "MRProgress.h"
+#import <JVFloatLabeledTextField/JVFloatLabeledTextField.h>
 
 @interface SignUpFormViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *backToLoginViewButton;

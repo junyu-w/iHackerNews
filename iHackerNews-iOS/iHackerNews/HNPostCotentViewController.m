@@ -12,6 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <DGActivityIndicatorView/DGActivityIndicatorView.h>
 #import "constants.h"
+#import <FBSDKShareKit/FBSDKShareKit.h>
 
 @interface HNPostCotentViewController ()
 
@@ -119,5 +120,21 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - facebook sharing related functions
+
+- (void)addFloatingShareButton {
+    
+}
+
+
+- (void)shareUrlOnFacebook:(NSString *)url {
+    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+    content.contentURL = [[NSURL alloc] initWithString:url];
+    content.contentTitle = [self.post Title];
+    [FBSDKShareDialog showFromViewController:self
+                                 withContent:content
+                                    delegate:nil];
+}
 
 @end

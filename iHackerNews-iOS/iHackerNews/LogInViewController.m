@@ -126,7 +126,7 @@
 
 - (void)facebookUserSignedUp {
     if ([FBSDKAccessToken currentAccessToken]) {
-        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:[[NSDictionary alloc] initWithObjectsAndKeys:@"email, name",@"fields", nil]]
          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
              if (!error) {
                  NSLog(@"fetched user:%@", result);

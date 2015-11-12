@@ -3,7 +3,8 @@
 
 target 'iHackerNews' do
   pod 'AFNetworking', '~> 2.5'
-  pod 'Facebook-iOS-SDK', '~> 4.1'
+  pod 'FBSDKLoginKit', '~> 4.7'
+  pod 'FBSDKShareKit', '~> 4.8'
   pod 'QBImagePickerController', '~> 3.2'
   pod 'ChameleonFramework'
   pod 'DKCircleButton', '~> 1.1'
@@ -18,6 +19,7 @@ target 'iHackerNews' do
   pod 'UzysCircularProgressPullToRefresh', '~> 1.1'
   pod 'BubbleTransition-objc', '~> 0.1'
   pod 'MRProgress', '~> 0.8'
+  pod 'JVFloatLabeledTextField'
 end
 
 target 'iHackerNewsTests' do

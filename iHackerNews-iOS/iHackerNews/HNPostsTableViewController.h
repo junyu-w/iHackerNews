@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <BubbleTransition-objc/YPBubbleTransition.h>
+//#import <BubbleTransition-objc/YPBubbleTransition.h>
 
 @interface HNPostsTableViewController : UITableViewController
 

@@ -20,33 +20,31 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Bolts (1.2.0):
-    - Bolts/AppLinks (= 1.2.0)
-    - Bolts/Tasks (= 1.2.0)
-  - Bolts/AppLinks (1.2.0):
+  - Bolts (1.4.0):
+    - Bolts/AppLinks (= 1.4.0)
+    - Bolts/Tasks (= 1.4.0)
+  - Bolts/AppLinks (1.4.0):
     - Bolts/Tasks
-  - Bolts/Tasks (1.2.0)
+  - Bolts/Tasks (1.4.0)
   - BubbleTransition-objc (0.1.0)
   - ChameleonFramework (1.2.0)
   - DGActivityIndicatorView (1.0)
   - DKCircleButton (1.1)
-  - Facebook-iOS-SDK (4.1.0):
+  - FBSDKCoreKit (4.8.0):
     - Bolts (~> 1.1)
-    - Facebook-iOS-SDK/CoreKit (= 4.1.0)
-    - Facebook-iOS-SDK/LoginKit (= 4.1.0)
-    - Facebook-iOS-SDK/ShareKit (= 4.1.0)
-  - Facebook-iOS-SDK/CoreKit (4.1.0):
+    - FBSDKCoreKit/arc (= 4.8.0)
+    - FBSDKCoreKit/no-arc (= 4.8.0)
+  - FBSDKCoreKit/arc (4.8.0):
     - Bolts (~> 1.1)
-    - Facebook-iOS-SDK/CoreKit/no-arc (= 4.1.0)
-  - Facebook-iOS-SDK/CoreKit/no-arc (4.1.0):
+  - FBSDKCoreKit/no-arc (4.8.0):
     - Bolts (~> 1.1)
-  - Facebook-iOS-SDK/LoginKit (4.1.0):
-    - Bolts (~> 1.1)
-    - Facebook-iOS-SDK/CoreKit
-  - Facebook-iOS-SDK/ShareKit (4.1.0):
-    - Bolts (~> 1.1)
-    - Facebook-iOS-SDK/CoreKit
+    - FBSDKCoreKit/arc
+  - FBSDKLoginKit (4.7.1):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.8.0):
+    - FBSDKCoreKit
   - JFMinimalNotifications (0.0.4)
+  - JVFloatLabeledTextField (1.1.0)
   - libHN (4.0.4)
   - MGSwipeTableCell (1.4.3)
   - MRProgress (0.8.2):
@@ -90,8 +88,10 @@ DEPENDENCIES:
   - ChameleonFramework
   - DGActivityIndicatorView
   - DKCircleButton (~> 1.1)
-  - Facebook-iOS-SDK (~> 4.1)
+  - FBSDKLoginKit (~> 4.7)
+  - FBSDKShareKit (~> 4.8)
   - JFMinimalNotifications (~> 0.0.4)
+  - JVFloatLabeledTextField
   - libHN
   - MGSwipeTableCell (~> 1.4)
   - MRProgress (~> 0.8)
@@ -104,13 +104,16 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  Bolts: d176cb1e0012175589e389a9db49b85e27787576
+  Bolts: 0e9bce58b9b9f5e8a7a4d47b16d2fabec289072b
   BubbleTransition-objc: 0b4ec87d4538ee1b1972667eda0f9422723305de
   ChameleonFramework: 4d6bf87fcaee176f487176cdccc4229637ec97f0
   DGActivityIndicatorView: 980091f8d8cc647a1af7804660272e64aef9e516
   DKCircleButton: 62564c9debae08ad77dabb8d9658dfeb5520f2c4
-  Facebook-iOS-SDK: f42dfb27283bf5f05e3a9edc88459a75b9892d99
+  FBSDKCoreKit: 66a935d17b6e00b6b64e604f2eb9b72c9ab7deb8
+  FBSDKLoginKit: c11ed3c2833472db3bb4a4aecf27af4a6f69b173
+  FBSDKShareKit: e7577ee3adf80fc04fb656dd133fbb522250672b
   JFMinimalNotifications: 2ab80fde6b8588a338be68d61763cc2085f8c938
+  JVFloatLabeledTextField: ea4a3d8387ddd43724c472bb2b8ab39b79af05d4
   libHN: 3571ddc61a302b1f01213dd50c932c29a6f5b390
   MGSwipeTableCell: cb9805df3cc5cad75ad43a5c1eb424be0316f0bf
   MRProgress: f4cfe862082418e8f542f077772283f425d6c699
@@ -121,4 +124,4 @@ SPEC CHECKSUMS:
   SCLAlertView-Objective-C: 4ad7397ca948b4ab75426c677368652fee475573
   UzysCircularProgressPullToRefresh: 29612d696b5eda55942ecbbb23cd44012a3418bd
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.39.0
