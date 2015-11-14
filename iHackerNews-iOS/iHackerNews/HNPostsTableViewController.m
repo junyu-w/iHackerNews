@@ -169,17 +169,18 @@
             return YES;
         }]];
     }else {
-        cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"star_post.png"] backgroundColor:FlatCoffee callback:^BOOL(MGSwipeTableCell *sender) {
-            NSLog(@"mark this post as favorite");
+        cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"star_post.png"] backgroundColor:FlatWhite callback:^BOOL(MGSwipeTableCell *sender) {
+//            NSLog(@"mark this post as favorite");
             [sender hideSwipeAnimated:YES];
             [self markHNPostAsFavorite:post];
             return YES;
         }]];
+        
         cell.leftSwipeSettings.transition = MGSwipeTransition3D;
         
         //configure right buttons
         cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"Read" backgroundColor:FlatYellow callback:^BOOL(MGSwipeTableCell *sender) {
-            NSLog(@"read this post");
+//            NSLog(@"read this post");
             [sender expandSwipe:MGSwipeDirectionRightToLeft animated:YES];
             [self performSegueWithIdentifier:@"push to hn content view" sender:indexPath];
             return YES;
@@ -212,7 +213,7 @@
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.font = [UIFont fontWithName:fontForTableViewLight size:16];
     cell.backgroundColor = [[UIColor alloc] initWithRed:236 green:240 blue:241 alpha:1.0];
-    cell.swipeBackgroundColor = FlatCoffee;
+    cell.swipeBackgroundColor = FlatWhite;
     
     //set up ui url domain
     cell.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;

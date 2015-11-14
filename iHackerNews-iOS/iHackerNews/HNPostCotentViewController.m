@@ -20,7 +20,6 @@
 @interface HNPostCotentViewController ()
 
 @property (strong, nonatomic) IBOutlet UIView *errorView;
-@property (strong, nonatomic) UIBarButtonItem *facebookShareButton;
 
 @end
 
@@ -46,16 +45,12 @@
     self.postContent.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     [self.postContent addSubview:self.loadingIndicator];
     
-//    self.facebookShareButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"fb-share-icon"]
-//                                                                style:UIBarButtonItemStylePlain
-//                                                               target:self
-//                                                               action:@selector(shareOnFacebook)];
-    self.facebookShareButton = [[UIBarButtonItem alloc] initWithTitle:@"Share"
-                                                                style:UIBarButtonItemStylePlain
-                                                               target:self
-                                                               action:@selector(shareOnFacebook)];
-    self.facebookShareButton.tintColor = FlatSand;
-    self.navigationItem.rightBarButtonItem = self.facebookShareButton;
+    UIBarButtonItem *facebookShareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                                                                         target:self
+                                                                                         action:@selector(shareOnFacebook)];
+    
+    facebookShareButton.tintColor = FlatSand;
+    self.navigationItem.rightBarButtonItem = facebookShareButton;
     self.navigationItem.rightBarButtonItem.tintColor = FlatSand;
 }
 
